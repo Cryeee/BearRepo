@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour
+public class Camera : MonoBehaviour
 {
     public GameObject target;
     public int distance = 2;
