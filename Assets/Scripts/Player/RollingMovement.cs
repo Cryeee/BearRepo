@@ -4,37 +4,92 @@ using UnityEngine;
 
 public class RollingMovement : MonoBehaviour
 {
-    public int ballSpeed = 600;
+    //rolling speed
+    public int ballSpeed;
+
+    //variable used to show velocity in Inspector
+    public Vector3 velocity;
+
+    //Vector for movement
+    public Vector3 movementVector;
 
     private Rigidbody RB;
 
-    public GameObject camera;
-    // Start is called before the first frame update
+    public GameObject cameraObj;
+
     void Start()
     {
-        RB = this.GetComponent<Rigidbody>();
+        //get RigidBody from childObject
+        RB = this.GetComponentInChildren<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //no input = no addforce 
+        movementVector = Vector3.zero;
+
+        //movement inputs
         if (Input.GetKey(KeyCode.W))
         {
-            RB.AddForce(camera.transform.forward * ballSpeed);
+            movementVector.z = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            RB.AddForce(-camera.transform.forward * ballSpeed);
+            movementVector.z = -1;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            RB.AddForce(-camera.transform.right * ballSpeed);
+            movementVector.x = -1;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            RB.AddForce(camera.transform.right * ballSpeed);
-            
+            movementVector.x = 1;   
         }
+
+        //limit maximum speed/velocity
+        if(RB.velocity.x < -5) {
+            RB.velocity = new Vector3(-5, RB.velocity.y, RB.velocity.z);
+        }
+        if(RB.velocity.x > 5) {
+            RB.velocity = new Vector3(5, RB.velocity.y, RB.velocity.z);
+        }
+        if(RB.velocity.z < -5) {
+            RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, -5);
+        }
+        if(RB.velocity.z > 5) {
+            RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, 5);
+        }
+
+        //show velocity in Inspector
+        velocity = RB.velocity;
         
     }
+    void FixedUpdate() 
+    {
+        
+        RB.AddForce(movementVector.normalized * ballSpeed);
+
+        
+
+    }
 }
+/*
+//move in cameras Axis
+if (Input.GetKey(KeyCode.W))
+        {
+            RB.AddForce(cameraObj.transform.forward * ballSpeed);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            RB.AddForce(-cameraObj.transform.forward * ballSpeed);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            RB.AddForce(-cameraObj.transform.right * ballSpeed);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            RB.AddForce(cameraObj.transform.right * ballSpeed);
+            
+        }
+*/
