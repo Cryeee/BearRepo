@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3051332934427256738}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,9 +54,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3051332934930763465}
   - component: {fileID: 1461525976}
+  - component: {fileID: 5093405867390661298}
   m_Layer: 0
   m_Name: BearObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,6 +93,22 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   movementVector: {x: 0, y: 0, z: 0}
   cameraObj: {fileID: 0}
+--- !u!114 &5093405867390661298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3051332934930763462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa3693deaeeb2746bd3e3e42f61b327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfBerriesEaten: 1
+  playerPrefab: {fileID: 8047331776813234498}
+  playerCollider: {fileID: 3051332934427256736}
+  PlayerScaleSize: {x: 0, y: 0, z: 0}
 --- !u!1 &8807649141621129722
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +233,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b2b971192134c4682fbb22b666c4ec, type: 3}
+--- !u!1 &8047331776813234498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5041039529329038436, guid: c2b2b971192134c4682fbb22b666c4ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 3051332934007418150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6482514148306226001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8335608097725408887, guid: c2b2b971192134c4682fbb22b666c4ec,
