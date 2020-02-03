@@ -1,42 +1,32 @@
-﻿using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class BasicMovement : MonoBehaviour, InputManager.IPlayerActions
+public class BasicMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField]
+    private float speed;
 
-    // Input mappings:
-    private InputManager controls;
+    private PlayerInputs playerInputs;
+    private Rigidbody rb;
+    private Vector3 moveDir;
 
-
-    private void Awake()
+    void Start()
     {
-        // Luodaan inputtia kontrolloiva olio
-        controls = new InputManager();
-
-        // Kerrotaan DefaultInputs:lle, että tämä olio kuuntelee
-        // Player action map:iin liittyviä actioneita
-        controls.Player.SetCallbacks(this);
+        // Access script that handles input
+        playerInputs = GetComponent<PlayerInputs>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void Start()
-    {
-        // Ota kontrollit käyttöön
-        controls.Enable();
-    }
 
     void Update()
     {
-        Vector2 moveInput = controls.Player.Walking.ReadValue<Vector2>();
-        transform.Translate(moveInput * speed * Time.deltaTime);
+        // make player move on z-axis instead of y:
+        moveDir = new Vector3(playerInputs.MoveInput.x, 0, playerInputs.MoveInput.y);
     }
 
-    #region InputHandling
-
-    public void OnWalking(InputAction.CallbackContext context)
+    private void FixedUpdate()
     {
-        
+        rb.MovePosition(rb.position + moveDir * speed * Time.deltaTime);
     }
-
-    #endregion
 }
