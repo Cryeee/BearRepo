@@ -27,6 +27,6 @@ public class BasicMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + moveDir * speed * Time.deltaTime);
+        rb.MovePosition(transform.position + transform.TransformDirection(moveDir)  * speed * Time.deltaTime);
     }
 }
