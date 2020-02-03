@@ -17,37 +17,38 @@ public class RollingMovement : MonoBehaviour
 
     public GameObject cameraObj;
 
+    private PlayerInputs playerInputs;
+
+    public Vector3 faceDir;
+
+    public float childY;
+
+    public GameObject Parent;
+
+
     void Start()
     {
         //get RigidBody from childObject
         RB = this.GetComponentInChildren<Rigidbody>();
+        playerInputs = GetComponent<PlayerInputs>();
+
     }
 
     void Update()
     {
-        //no input = no addforce 
-        movementVector = Vector3.zero;
+        movementVector.Set(playerInputs.MoveInput.x, 0, playerInputs.MoveInput.y);
 
-        //movement inputs
-        if (Input.GetKey(KeyCode.W))
+        childY = GetComponentInChildren<Transform>().position.y;
+        if(Input.GetKey(KeyCode.RightArrow))
         {
-            movementVector.z = 1;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            movementVector.z = -1;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            movementVector.x = -1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            movementVector.x = 1;   
+            //transform.Rotate(new Vector3(0, 1, 0), Space.World);
+            //Parent.transform.Rotate(new Vector3(0, 1, 0), Space.World);
+            Parent.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
         }
 
+        faceDir = transform.rotation.eulerAngles;
         //limit maximum speed/velocity
-        if(RB.velocity.x < -5) {
+        if (RB.velocity.x < -5) {
             RB.velocity = new Vector3(-5, RB.velocity.y, RB.velocity.z);
         }
         if(RB.velocity.x > 5) {
@@ -67,9 +68,11 @@ public class RollingMovement : MonoBehaviour
     void FixedUpdate() 
     {
         
+        //RB.AddForce(movementVector.normalized * ballSpeed);
+
         RB.AddForce(movementVector.normalized * ballSpeed);
 
-        
+
 
     }
 }
