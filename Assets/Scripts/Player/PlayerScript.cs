@@ -26,9 +26,5 @@ public class PlayerScript : MonoBehaviour
             amountOfBerriesEaten++;
         }
     }
-    void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag == "PickUpable") {
-            print("collided with: " + collision);
-        }
-    }
+    
 }
