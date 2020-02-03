@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour
     public float amountOfBerriesEaten;
 
     public GameObject playerPrefab;
-    public GameObject playerCollider;
 
     public Vector3 PlayerScaleSize;
     // Start is called before the first frame update
