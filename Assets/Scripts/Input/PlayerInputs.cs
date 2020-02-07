@@ -38,4 +38,8 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
         
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        
+    }
 }
