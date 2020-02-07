@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8335608097725408887}
   - component: {fileID: 1077769720381692993}
   - component: {fileID: 6758083018122731704}
+  - component: {fileID: 4588110466133854572}
   m_Layer: 0
   m_Name: BearPrefab
   m_TagString: Untagged
@@ -78,3 +79,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4588110466133854572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041039529329038436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965725e1c9da36244aa0c29cfa7f4ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  drag: 0.2
+  dragLimit: 0
+  childObject: {fileID: 0}
+  movementVector: {x: 0, y: 0, z: 0}
+  rotateVector: {x: 0, y: 0, z: 0}
+  velocityZ: 0
+  velocityX: 0
