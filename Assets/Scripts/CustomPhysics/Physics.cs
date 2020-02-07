@@ -56,7 +56,7 @@ public class Physics : MonoBehaviour
 
         //childObject.transform.Rotate(velocityZ,0,velocityX);
 
-        childObject.transform.RotateAround(transform.position, rotateVector, 5);
+        //childObject.transform.RotateAround(transform.position, rotateVector, 5);
 
 
 

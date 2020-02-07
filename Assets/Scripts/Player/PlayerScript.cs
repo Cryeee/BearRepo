@@ -25,6 +25,9 @@ public class PlayerScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q)) {
             amountOfBerriesEaten++;
         }
+
+        //transform.rotation.y = 
+        //transform.rotation.y
     }
     
 }
