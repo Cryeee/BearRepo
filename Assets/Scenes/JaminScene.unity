@@ -336,7 +336,7 @@ Transform:
   m_Children:
   - {fileID: 2096027328}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &965261135
 MonoBehaviour:
@@ -523,43 +523,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c4a724d36a4ac044a6067fc50a6b53e, type: 3}
---- !u!1 &1403509429 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5574915259207589219, guid: 5ef88628f430400459e28c5f100cc9a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1707194423}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1403509432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403509429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60608d4b389aabc46915720697c02b00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1403509437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403509429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d5c5f5eb7ea2c46bfe929596817387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballSpeed: 11
-  velocity: {x: 0, y: 0, z: 0}
-  movementVector: {x: 0, y: 0, z: 0}
-  cameraObj: {fileID: 2142207957}
-  faceDir: {x: 0, y: 0, z: 0}
-  childY: 0
-  Parent: {fileID: 0}
 --- !u!1001 &1544370285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -629,87 +592,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b2b971192134c4682fbb22b666c4ec, type: 3}
---- !u!1001 &1707194423
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -7132257702214144772, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: cameraObj
-      value: 
-      objectReference: {fileID: 2142207957}
-    - target: {fileID: -7132257702214144772, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5574915259207589219, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_Name
-      value: Bear
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864573067174604656, guid: 5ef88628f430400459e28c5f100cc9a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -7132257702214144772, guid: 5ef88628f430400459e28c5f100cc9a4, type: 3}
-    - {fileID: -5345856702138353377, guid: 5ef88628f430400459e28c5f100cc9a4, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 5ef88628f430400459e28c5f100cc9a4, type: 3}
 --- !u!1 &1938811637
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +623,7 @@ Transform:
   - {fileID: 546617398}
   - {fileID: 2033914030}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033914029
 GameObject:
@@ -867,6 +749,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1544370285}
   m_PrefabAsset: {fileID: 0}
+--- !u!143 &2096027329
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096027324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.29
+  m_Radius: 0.22
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0.1, y: -0.02, z: -0.04}
 --- !u!1 &2142207957
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,5 +863,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bbba26070b26448b34bc30d1ca7af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1403509429}
+  target: {fileID: 965261133}
   distance: 2
