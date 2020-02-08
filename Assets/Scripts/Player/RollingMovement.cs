@@ -10,6 +10,8 @@ public class RollingMovement : MonoBehaviour
     //variable used to show velocity in Inspector
     public Vector3 velocity;
 
+    public float velocityLimit;
+
     //Vector for movement
     public Vector3 movementVector;
 
@@ -26,15 +28,11 @@ public class RollingMovement : MonoBehaviour
 
     public Vector3 faceDir;
 
-    public float childY;
-
-    public GameObject Parent;
-
 
     void Start()
     {
         //get RigidBody from childObject
-        RB = this.GetComponentInChildren<Rigidbody>();
+        RB = this.GetComponent<Rigidbody>();
         playerInputs = GetComponent<PlayerInputs>();
 
     }
@@ -48,22 +46,6 @@ public class RollingMovement : MonoBehaviour
         movementVector = (cameraObj.transform.right * Xinput + cameraObj.transform.forward * Yinput);
         movementVector.y = 0;
         
-        
-
-        childY = GetComponentInChildren<Transform>().position.y;
-        if(Input.GetKey(KeyCode.RightArrow))
-        {
-            //transform.Rotate(new Vector3(0, 1, 0), Space.World);
-            //Parent.transform.Rotate(new Vector3(0, 1, 0), Space.World);
-            //Parent.transform.rotation = Quaternion.Euler(0.0f, (Parent.transform.rotation.y + 1) * 5, 0);
-            //Parent.transform.rotation.SetFromToRotation(Parent.transform.position, transform.forward);
-
-            Parent.transform.rotation = Quaternion.LookRotation(transform.position - Parent.transform.position, Vector3.up);
-
-
-        }
-
-        //Parent.transform.rotation = gameObject.transform.rotation;
 
         faceDir = transform.rotation.eulerAngles;
         //limit maximum speed/velocity
@@ -83,19 +65,30 @@ public class RollingMovement : MonoBehaviour
 
         //show velocity in Inspector
         velocity = RB.velocity;
+
+        // limit max velocity
+        if(RB.velocity.x > velocityLimit) {
+            RB.velocity = new Vector3(velocityLimit, RB.velocity.y, RB.velocity.z);
+        }
+        if(RB.velocity.x < -velocityLimit) {
+            RB.velocity = new Vector3(-velocityLimit, RB.velocity.y, RB.velocity.z);
+        }
+
+        if(RB.velocity.z > velocityLimit) {
+            RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, velocityLimit);
+        }
+        if(RB.velocity.z < -velocityLimit) {
+            RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, -velocityLimit);
+        }
         
     }
     void FixedUpdate() 
     {
-        
-        //RB.AddForce(movementVector.normalized * ballSpeed);
-
         RB.AddForce(movementVector.normalized * ballSpeed);
-        //RB.velocity = movementVector.normalized * ballSpeed;
 
-
-
+        
     }
+
 }
 /*
 //move in cameras Axis

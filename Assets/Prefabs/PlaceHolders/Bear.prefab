@@ -100,6 +100,8 @@ MonoBehaviour:
   movementVector: {x: 0, y: 0, z: 0}
   cameraObj: {fileID: 0}
   faceDir: {x: 0, y: 0, z: 0}
+  childY: 0
+  Parent: {fileID: 0}
 --- !u!114 &-5345856702138353377
 MonoBehaviour:
   m_ObjectHideFlags: 0
