@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8864573067174604656}
-  - component: {fileID: 458888341398541638}
-  - component: {fileID: 6152697643990198719}
   - component: {fileID: -7132257702214144772}
   - component: {fileID: -5345856702138353377}
   - component: {fileID: -6467390601754549517}
+  - component: {fileID: 458888341398541638}
+  - component: {fileID: 6152697643990198719}
   - component: {fileID: 1403509431}
   - component: {fileID: 1403509430}
   m_Layer: 0
@@ -37,6 +37,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7132257702214144772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574915259207589219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d5c5f5eb7ea2c46bfe929596817387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballSpeed: 11
+  velocity: {x: 0, y: 0, z: 0}
+  velocityLimit: 0
+  movementVector: {x: 0, y: 0, z: 0}
+  cameraObj: {fileID: 0}
+  faceDir: {x: 0, y: 0, z: 0}
+--- !u!114 &-5345856702138353377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574915259207589219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60608d4b389aabc46915720697c02b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6467390601754549517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574915259207589219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa3693deaeeb2746bd3e3e42f61b327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfBerriesEaten: 0
+  PlayerScaleSize: {x: 0, y: 0, z: 0}
 --- !u!33 &458888341398541638
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83,51 +127,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-7132257702214144772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5574915259207589219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d5c5f5eb7ea2c46bfe929596817387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballSpeed: 11
-  velocity: {x: 0, y: 0, z: 0}
-  velocityLimit: 0
-  movementVector: {x: 0, y: 0, z: 0}
-  cameraObj: {fileID: 0}
-  faceDir: {x: 0, y: 0, z: 0}
---- !u!114 &-5345856702138353377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5574915259207589219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60608d4b389aabc46915720697c02b00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-6467390601754549517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5574915259207589219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa3693deaeeb2746bd3e3e42f61b327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountOfBerriesEaten: 0
-  playerPrefab: {fileID: 0}
-  PlayerScaleSize: {x: 0, y: 0, z: 0}
 --- !u!54 &1403509431
 Rigidbody:
   m_ObjectHideFlags: 0
