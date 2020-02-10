@@ -19,11 +19,11 @@ public class FreeLookCameraInput : MonoBehaviour
         if (axisName == "Cam X")
         {
             Debug.Log(controls.CameraInput.x);
-            return -controls.CameraInput.x;
+            return controls.CameraInput.x;
         }
         else if (axisName == "Cam Y")
         {
-            return -controls.CameraInput.y;
+            return controls.CameraInput.y;
         }
 
         return 0;
