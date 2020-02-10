@@ -5,9 +5,16 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
 {
     // Input mappings:
     private InputManager controls;
+    public bool disableControls;
 
     // value of WASD/Left Stick
     public Vector2 MoveInput
+    {
+        get;
+        private set;
+    }
+
+    public Vector2 CameraInput
     {
         get;
         private set;
@@ -19,7 +26,7 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
         // controls it
         controls = new InputManager();
 
-        // This objects listens to Player Actions -map's actions
+        // This object listens to Player Actions -map's actions
         controls.Player.SetCallbacks(this);
 
         // Enables controls
@@ -30,9 +37,15 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
     {
         // read value from keyboard/controller
         MoveInput = controls.Player.Walking.ReadValue<Vector2>();
+        CameraInput = controls.Player.Camera.ReadValue<Vector2>();
+
+        if (disableControls)
+        {
+            controls.Player.Camera.Disable();
+        }
     }
 
-    // Interface method:
+    #region Interface-methods (don't touch):
     public void OnWalking(InputAction.CallbackContext context)
     {
         
@@ -42,4 +55,10 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
     {
         
     }
+
+    public void OnCamera(InputAction.CallbackContext context)
+    {
+
+    }
+    #endregion
 }
