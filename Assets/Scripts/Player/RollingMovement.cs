@@ -33,7 +33,7 @@ public class RollingMovement : MonoBehaviour
     {
         //get RigidBody from childObject
         RB = this.GetComponent<Rigidbody>();
-        playerInputs = GetComponent<PlayerInputs>();
+        playerInputs = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInputs>();
 
     }
 

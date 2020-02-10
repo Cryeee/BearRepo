@@ -107,6 +107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounce: 1
-  bounceAmount: 200
+  bounceAmount: 5
   bounceOnMaterial: {fileID: 2100000, guid: c2d9f5fbe33710a478abf39194abb15b, type: 2}
   bounceOffMaterial: {fileID: 2100000, guid: 67d74df5ca7451d4291ec434e503d710, type: 2}

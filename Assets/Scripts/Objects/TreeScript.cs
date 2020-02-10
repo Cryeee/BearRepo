@@ -35,13 +35,17 @@ public class TreeScript : MonoBehaviour
             movementScript = collision.gameObject.GetComponent<RollingMovement>();
             Rigidbody RB = collision.gameObject.GetComponent<Rigidbody>();
 
-            print("eka: " + RB.velocity);
             // bounce player opposite direction of movement
+            /*
             RB.AddForce(-movementScript.velocity.x * bounceAmount,
               movementScript.velocity.y,
               -movementScript.velocity.z * bounceAmount);
-              
-            print("toka: " + RB.velocity);
+              */
+
+            RB.AddForce(Vector3.Reflect(gameObject.transform.position,new Vector3(-movementScript.velocity.x * bounceAmount,
+              movementScript.velocity.y,
+              -movementScript.velocity.z * bounceAmount)));
+
 
         }
     }

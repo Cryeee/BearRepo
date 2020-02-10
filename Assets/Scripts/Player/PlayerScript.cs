@@ -6,8 +6,6 @@ public class PlayerScript : MonoBehaviour
 {
     public float amountOfBerriesEaten;
 
-    public GameObject playerPrefab;
-
     public Vector3 PlayerScaleSize;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +16,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerScaleSize.Set(1 + amountOfBerriesEaten/10, 1 + amountOfBerriesEaten/10, 1 + amountOfBerriesEaten/10);
+        PlayerScaleSize.Set(6 + amountOfBerriesEaten/10, 6 + amountOfBerriesEaten/10, 6 + amountOfBerriesEaten/10);
         transform.localScale = PlayerScaleSize;
 
 
