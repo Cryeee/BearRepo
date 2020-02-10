@@ -33,6 +33,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""3fc360d2-a8dc-4f85-98e7-d6ca4306c9b1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -134,6 +142,55 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b05361ea-7118-4980-be62-6a9afae52d18"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""874ad165-5349-4327-a274-b79445c11839"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""a96de6b2-6168-4523-b050-a10619d1ca82"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""bbb62938-304f-47a9-97a1-b84ad3a34268"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""65e24342-cee7-4d6e-a089-aa6dfb4cef98"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -144,6 +201,10 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Walking = m_Player.FindAction("Walking", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -195,12 +256,14 @@ public class @InputManager : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Walking;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Camera;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
         public PlayerActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walking => m_Wrapper.m_Player_Walking;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -216,6 +279,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Camera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
+                @Camera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
+                @Camera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -226,13 +292,54 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Camera.started += instance.OnCamera;
+                @Camera.performed += instance.OnCamera;
+                @Camera.canceled += instance.OnCamera;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Move;
+    public struct UIActions
+    {
+        private @InputManager m_Wrapper;
+        public UIActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_UI_Move;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayerActions
     {
         void OnWalking(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnMove(InputAction.CallbackContext context);
     }
 }
