@@ -353,6 +353,10 @@ GameObject:
   - component: {fileID: 1654255330484552352}
   - component: {fileID: 8682689070582771674}
   - component: {fileID: 6021221150064636014}
+  - component: {fileID: -7932226935893944429}
+  - component: {fileID: 831976396889402702}
+  - component: {fileID: 8276703487048158428}
+  - component: {fileID: 3329049704054070479}
   m_Layer: 0
   m_Name: JigglyboiPrefab
   m_TagString: Untagged
@@ -480,6 +484,67 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!114 &-7932226935893944429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354891869445615795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa3693deaeeb2746bd3e3e42f61b327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfBerriesEaten: 0
+  PlayerScaleSize: {x: 0, y: 0, z: 0}
+--- !u!114 &831976396889402702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354891869445615795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d5c5f5eb7ea2c46bfe929596817387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballSpeed: 11
+  velocity: {x: 0, y: 0, z: 0}
+  velocityLimit: 0
+  movementVector: {x: 0, y: 0, z: 0}
+  cameraObj: {fileID: 0}
+  faceDir: {x: 0, y: 0, z: 0}
+--- !u!135 &8276703487048158428
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354891869445615795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8816643
+  m_Center: {x: 0, y: 0, z: -0.5}
+--- !u!54 &3329049704054070479
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354891869445615795}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2473071422724677953
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583707592356980320}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 9.95, z: -0}
   m_LocalScale: {x: 0.24525835, y: 0.24525835, z: 0.24525835}
   m_Children: []
   m_Father: {fileID: 1654255330484552352}

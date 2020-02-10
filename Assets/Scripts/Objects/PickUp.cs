@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    public float berryAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,8 @@ public class PickUp : MonoBehaviour
         if(collision.gameObject.tag == "Player") {
             
             //playerscript is in parent gameobject
-            collision.gameObject.GetComponentInParent<PlayerScript>().amountOfBerriesEaten++;
-            print("pickup collision");
+            collision.gameObject.GetComponent<PlayerScript>().amountOfBerriesEaten += berryAmount;
+            print(collision.gameObject.name + " collided with: " + gameObject.name);
             Destroy(gameObject);
         }
     }
