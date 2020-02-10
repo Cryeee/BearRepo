@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class UIinputs : MonoBehaviour, InputManager.IUIActions
 {
     // Input mappings:
-    private InputManager controls;
+    public InputManager controls;
 
     private void Awake()
     {
@@ -16,23 +16,32 @@ public class UIinputs : MonoBehaviour, InputManager.IUIActions
 
         // This object listens to Player Actions -map's actions
         controls.UI.SetCallbacks(this);
+
+        //Enables controls
+        controls.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    void EnableControls()
-    {
-        controls.Enable();
     }
 
     #region Interface-methods (don't touch)
-    public void OnMove(InputAction.CallbackContext context)
+
+    public void OnNavigate(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    public void OnSelect(InputAction.CallbackContext context)
     {
        
+    }
+
+    public void OnPoint(InputAction.CallbackContext context)
+    {
+        
     }
     #endregion
 }

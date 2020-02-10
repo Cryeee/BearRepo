@@ -5,7 +5,6 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
 {
     // Input mappings:
     private InputManager controls;
-    public bool disableControls;
 
     // value of WASD/Left Stick
     public Vector2 MoveInput
@@ -30,7 +29,7 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
         controls.Player.SetCallbacks(this);
 
         // Enables controls
-        controls.Enable();
+       // controls.Enable();
     }
 
     void Update()
@@ -38,11 +37,6 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
         // read value from keyboard/controller
         MoveInput = controls.Player.Walking.ReadValue<Vector2>();
         CameraInput = controls.Player.Camera.ReadValue<Vector2>();
-
-        if (disableControls)
-        {
-            controls.Player.Camera.Disable();
-        }
     }
 
     #region Interface-methods (don't touch):
