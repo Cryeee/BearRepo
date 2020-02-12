@@ -6,9 +6,6 @@ public class PlayerScript : MonoBehaviour
 {
     public float amountOfBerriesEaten;
 
-    public GameObject playerPrefab;
-    public GameObject playerCollider;
-
     public Vector3 PlayerScaleSize;
     // Start is called before the first frame update
     void Start()
@@ -26,10 +23,9 @@ public class PlayerScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q)) {
             amountOfBerriesEaten++;
         }
+
+        //transform.rotation.y = 
+        //transform.rotation.y
     }
-    void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag == "PickUpable") {
-            print("collided with: " + collision);
-        }
-    }
+    
 }

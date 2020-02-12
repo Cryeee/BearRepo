@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicMovement : MonoBehaviour
 {
     [SerializeField]
-    private float speed;
+    private float speed = 2f;
 
     private PlayerInputs playerInputs;
     private Rigidbody rb;
@@ -27,6 +27,6 @@ public class BasicMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + moveDir * speed * Time.deltaTime);
+        rb.MovePosition(transform.position + transform.TransformDirection(moveDir)  * speed * Time.deltaTime);
     }
 }

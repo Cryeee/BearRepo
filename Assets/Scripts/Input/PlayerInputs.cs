@@ -13,13 +13,19 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
         private set;
     }
 
+    public Vector2 CameraInput
+    {
+        get;
+        private set;
+    }
+
     private void Awake()
     {
         // InputManager is set in UnityEditor, this object
         // controls it
         controls = new InputManager();
 
-        // This objects listens to Player Actions -map's actions
+        // This object listens to Player Actions -map's actions
         controls.Player.SetCallbacks(this);
 
         // Enables controls
@@ -30,12 +36,23 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
     {
         // read value from keyboard/controller
         MoveInput = controls.Player.Walking.ReadValue<Vector2>();
+        CameraInput = controls.Player.Camera.ReadValue<Vector2>();
     }
 
-    // Interface method:
+    #region Interface-methods (don't touch):
     public void OnWalking(InputAction.CallbackContext context)
     {
         
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    public void OnCamera(InputAction.CallbackContext context)
+    {
+
+    }
+    #endregion
 }
