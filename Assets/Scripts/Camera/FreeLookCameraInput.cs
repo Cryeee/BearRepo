@@ -11,7 +11,7 @@ public class FreeLookCameraInput : MonoBehaviour
     void Start()
     {
         CinemachineCore.GetInputAxis = GetAxisCustom;
-        controls = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
+        controls = GameObject.FindGameObjectWithTag("Player").GetComponent<InputHandler>();
     }
 
     public float GetAxisCustom(string axisName)
