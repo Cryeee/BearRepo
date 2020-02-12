@@ -393,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1654255330484552352
 Transform:
   m_ObjectHideFlags: 0
@@ -524,9 +524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d5c5f5eb7ea2c46bfe929596817387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 200
+  ballSpeed: 11
   velocity: {x: 0, y: 0, z: 0}
-  velocityLimit: 0
+  velocityLimit: 5
   movementVector: {x: 0, y: 0, z: 0}
   cameraObj: {fileID: 0}
   faceDir: {x: 0, y: 0, z: 0}
@@ -853,6 +853,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
