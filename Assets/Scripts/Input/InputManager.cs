@@ -125,7 +125,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""cd38e87f-cc5a-40de-a870-e8beeae49e3a"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -135,7 +135,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6cf80ec7-b1ad-451d-8bcf-59ca0d90bc2e"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

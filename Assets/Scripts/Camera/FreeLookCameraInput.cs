@@ -6,7 +6,7 @@ using Cinemachine;
 public class FreeLookCameraInput : MonoBehaviour
 {
     [SerializeField]
-    PlayerInputs controls = null;
+    InputHandler controls = null;
 
     // Start is called before the first frame update
     void Start()
