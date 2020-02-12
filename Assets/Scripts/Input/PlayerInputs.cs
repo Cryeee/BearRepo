@@ -29,7 +29,7 @@ public class PlayerInputs : MonoBehaviour, InputManager.IPlayerActions
         controls.Player.SetCallbacks(this);
 
         // Enables controls
-       // controls.Enable();
+        controls.Enable();
     }
 
     void Update()
