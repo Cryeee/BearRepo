@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: e20f83f8299d0aa45b9aacc1de5276b9,
     type: 2}
   m_UseShadowmask: 1
@@ -139,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e054d839c09f64eab05d1d7dfb6f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuOn: 0
-  canvas: {fileID: 0}
+  canvas: {fileID: 1341388375}
+  first: {fileID: 2111537186}
 --- !u!114 &66500208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4abffc3215b4a45a0ede05264c57ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &124194983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1654255330484552352, guid: 94b794a07a23e2c4eabcf7ba5ab2fc44,
+    type: 3}
+  m_PrefabInstance: {fileID: 1711004768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &205743675
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +206,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -369,18 +377,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &670357409 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8099662947986768228, guid: 68932ecbd41a5774dbd8f5de879b0076,
-    type: 3}
-  m_PrefabInstance: {fileID: 2106030048}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66500205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60608d4b389aabc46915720697c02b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &748115935
@@ -575,7 +571,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752310061}
-  m_LocalRotation: {x: -0.3826834, y: 0.0000000038102796, z: 0.000000022594426, w: -0.9238796}
+  m_LocalRotation: {x: -0.38268343, y: -0.000000022915927, z: 0.00000003366477, w: -0.9238796}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -672,6 +668,7 @@ GameObject:
   - component: {fileID: 882349545}
   - component: {fileID: 882349544}
   - component: {fileID: 882349543}
+  - component: {fileID: 882349547}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -707,6 +704,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -757,6 +755,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882349547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882349542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baedd976e12657241bf7ff2d1c685342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Bound: 0
+  m_Radius: 0.5
+  m_Height: 0
 --- !u!1 &891329904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1027,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1288,7 +1304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392045368}
-  m_LocalRotation: {x: -0.3658152, y: -0.0000000159325, z: 0.000000006087604, w: -0.93068755}
+  m_LocalRotation: {x: -0.36581522, y: 0.0000000321088, z: -0.000000012795464, w: -0.93068755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1362,7 +1378,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527184580}
-  m_LocalRotation: {x: -0.34887096, y: 0.000000007556901, z: 0.000000017014495, w: -0.9371708}
+  m_LocalRotation: {x: -0.348871, y: 0.000000007556901, z: 0.000000017014493, w: -0.9371708}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1395,8 +1411,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559289645}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -1656,6 +1673,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JigglyboiPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2354891869445615795, guid: 94b794a07a23e2c4eabcf7ba5ab2fc44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6021221150064636014, guid: 94b794a07a23e2c4eabcf7ba5ab2fc44,
         type: 3}
       propertyPath: m_Enabled
@@ -1663,12 +1685,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b794a07a23e2c4eabcf7ba5ab2fc44, type: 3}
---- !u!4 &1757633779 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5764822491786037587, guid: 94b794a07a23e2c4eabcf7ba5ab2fc44,
-    type: 3}
-  m_PrefabInstance: {fileID: 1711004768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1763191357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2111537184}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1763191360
@@ -1806,6 +1822,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1898,6 +1915,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2102,6 +2120,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2184,8 +2203,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1757633779}
-  m_Follow: {fileID: 1757633779}
+  m_LookAt: {fileID: 124194983}
+  m_Follow: {fileID: 124194983}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 40
@@ -2303,7 +2322,7 @@ MonoBehaviour:
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_MinimumDistanceFromTarget: 0.1
+  m_MinimumDistanceFromTarget: 6
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
@@ -2311,7 +2330,7 @@ MonoBehaviour:
   m_Strategy: 0
   m_MaximumEffort: 4
   m_SmoothingTime: 0
-  m_Damping: 0
+  m_Damping: 2.05
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
 --- !u!1 &1981027191
@@ -2392,8 +2411,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981027191}
-  m_LocalRotation: {x: 0.38268346, y: -0.00000003179325, z: 0.0000000131691955, w: 0.92387956}
-  m_LocalPosition: {x: -3.26, y: 4.66, z: -4}
+  m_LocalRotation: {x: 0.3826835, y: 0.000000040416527, z: -0.000000016741076, w: 0.92387956}
+  m_LocalPosition: {x: -3.26, y: 4.9033475, z: -4.2433476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2411,7 +2430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69b645be1a5f814ea9c24d1728b6a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controls: {fileID: 670357409}
 --- !u!114 &1981027196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2506,6 +2524,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
