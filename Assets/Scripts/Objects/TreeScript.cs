@@ -13,6 +13,7 @@ public class TreeScript : MonoBehaviour
 
     MeshRenderer meshRenderer;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,9 @@ public class TreeScript : MonoBehaviour
         } else if (!bounce) {
             meshRenderer.material = bounceOffMaterial;
         }
+
+        //print("player pos:   " + player.transform.position);
+
     }
     void OnCollisionEnter(Collision collision) {
 
@@ -35,16 +39,28 @@ public class TreeScript : MonoBehaviour
             movementScript = collision.gameObject.GetComponent<RollingMovement>();
             Rigidbody RB = collision.gameObject.GetComponent<Rigidbody>();
 
+            //print("onko tää sama:  " + movementScript.gameObject.transform.position);
+
             // bounce player opposite direction of movement
             /*
             RB.AddForce(-movementScript.velocity.x * bounceAmount,
               movementScript.velocity.y,
               -movementScript.velocity.z * bounceAmount);
               */
-
+           
+            /*
+            print(Vector3.Reflect(gameObject.transform.position, new Vector3(movementScript.gameObject.transform.position.x,
+                movementScript.gameObject.transform.position.y,
+                movementScript.gameObject.transform.position.z)).normalized);
+            
             RB.AddForce(Vector3.Reflect(gameObject.transform.position,new Vector3(-movementScript.velocity.x * bounceAmount,
               movementScript.velocity.y,
               -movementScript.velocity.z * bounceAmount)));
+              */
+            
+            
+            //RB.AddForce(Vector3.Reflect(gameObject.transform.position, new Vector3(1,0,0) * bounceAmount));
+              
 
 
         }
