@@ -24,7 +24,7 @@ public class RollingMovement : MonoBehaviour
     private float Xinput;
     private float Yinput;
 
-    private Rigidbody RB;
+    public Rigidbody RB;
 
     public GameObject cameraObj;
 
@@ -38,10 +38,6 @@ public class RollingMovement : MonoBehaviour
     public Vector2 moveInput;
 
     public Vector2 cameraInput;
-
-
-    
-
 
     void Start()
     {
@@ -98,11 +94,24 @@ public class RollingMovement : MonoBehaviour
     void FixedUpdate() 
     {
         RB.AddForce(movementVector.normalized * ballSpeed);
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if(collision.gameObject.tag == "Ground")
+        {
+            canJump = true;
+        }
+    }
+
+    public void Jump()
+    {
+        if(canJump)
+        {
+            RB.AddForce(0, jumpForce, 0);
+            canJump = false;
+        }
     }
 }
 
