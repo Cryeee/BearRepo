@@ -5,13 +5,13 @@ using Cinemachine;
 
 public class FreeLookCameraInput : MonoBehaviour
 {
-    private PlayerInputs controls;
+    private InputHandler controls;
 
     // Start is called before the first frame update
     void Start()
     {
         CinemachineCore.GetInputAxis = GetAxisCustom;
-        controls = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInputs>();
+        controls = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
     }
 
     public float GetAxisCustom(string axisName)

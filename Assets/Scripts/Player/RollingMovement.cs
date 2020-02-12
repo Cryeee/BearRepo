@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RollingMovement : MonoBehaviour
 {
     //rolling speed
     public int ballSpeed;
 
+    public bool canJump = true;
+
+    public float jumpForce;
     //variable used to show velocity in Inspector
     public Vector3 velocity;
 
@@ -24,17 +28,26 @@ public class RollingMovement : MonoBehaviour
 
     public GameObject cameraObj;
 
-    private PlayerInputs playerInputs;
+    private InputHandler playerInputs;
 
     public Vector3 faceDir;
+
+    private InputManager inputManager;
+
+    // value of WASD/Left Stick
+    public Vector2 moveInput;
+
+    public Vector2 cameraInput;
+
+
+    
 
 
     void Start()
     {
         //get RigidBody from childObject
         RB = this.GetComponent<Rigidbody>();
-        playerInputs = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInputs>();
-
+        playerInputs = gameObject.GetComponent<InputHandler>();
     }
 
     void Update()
@@ -80,33 +93,16 @@ public class RollingMovement : MonoBehaviour
         if(RB.velocity.z < -velocityLimit) {
             RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, -velocityLimit);
         }
-        
     }
+    
     void FixedUpdate() 
     {
         RB.AddForce(movementVector.normalized * ballSpeed);
-
-        
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 }
-/*
-//move in cameras Axis
-if (Input.GetKey(KeyCode.W))
-        {
-            RB.AddForce(cameraObj.transform.forward * ballSpeed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            RB.AddForce(-cameraObj.transform.forward * ballSpeed);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            RB.AddForce(-cameraObj.transform.right * ballSpeed);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            RB.AddForce(cameraObj.transform.right * ballSpeed);
-            
-        }
-*/
+
