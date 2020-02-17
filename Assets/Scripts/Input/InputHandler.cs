@@ -7,10 +7,11 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager.IPlayerActions
 {
     // Input mappings:
-    public InputManager controls;
+    public InputManager inputManager;
 
     RollingMovement rollingMovement;
 
+    MenuController menuController;
     // value of WASD/Left Stick
     public Vector2 MoveInput
     {
@@ -28,24 +29,25 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
     {
         // InputManager is set in UnityEditor, this object
         // controls it
-        controls = new InputManager();
+        inputManager = new InputManager();
 
         // This object listens to Player Actions -map's actions
-        controls.Player.SetCallbacks(this);
-        controls.UI.SetCallbacks(this);
+        inputManager.Player.SetCallbacks(this);
+        inputManager.UI.SetCallbacks(this);
 
         //Enables controls
-        controls.Enable();
-
+        inputManager.Enable();
         
         rollingMovement = GetComponent<RollingMovement>();
+
+        menuController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MenuController>();
     }
 
     void Update()
     {
         // read value from keyboard/controller
-        MoveInput = controls.Player.Walking.ReadValue<Vector2>();
-        CameraInput = controls.Player.Camera.ReadValue<Vector2>();
+        MoveInput = inputManager.Player.Walking.ReadValue<Vector2>();
+        CameraInput = inputManager.Player.Camera.ReadValue<Vector2>();
     }
 
     #region Interface-methods (don't touch)
@@ -84,7 +86,15 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        
+        if (context.performed)
+        {
+            menuController.Pause();
+        }
+    }
+
+    public void OnSUbmit(InputAction.CallbackContext context)
+    {
+
     }
     #endregion
 }
