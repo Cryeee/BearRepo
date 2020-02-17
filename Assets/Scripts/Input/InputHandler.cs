@@ -37,6 +37,7 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
         //Enables controls
         inputManager.Enable();
 
+        
         rollingMovement = GetComponent<RollingMovement>();
     }
 
@@ -55,7 +56,10 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        
+        if(context.performed)
+        {
+            rollingMovement.Jump();
+        }
     }
 
     public void OnNavigate(InputAction.CallbackContext context)
