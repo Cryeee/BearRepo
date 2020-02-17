@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6269869007697005118
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Toon Material
+  m_Shader: {fileID: -6465566751694194690, guid: 9753fe851800c448da38eeff7dc238b3,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_E78CF93B:
+        m_Texture: {fileID: 2800000, guid: ee7e10d89f5c6d64e8c1628b231e913e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_37AAE46C: 0
+    - Vector1_3EA21445: 0
+    - Vector1_652CCD31: 0
+    - Vector1_992E780E: 0.24
+    - Vector1_AA4D56F5: 0.464
+    - Vector1_D38ADF1E: 0.316
+    m_Colors:
+    - Color_3635ABA8: {r: 0.8666667, g: 0.5294118, b: 0.7764706, a: 0}
+    - Color_47C1DAA8: {r: 1, g: 1, b: 1, a: 0}
+    - Color_A25C2C58: {r: 1, g: 1, b: 1, a: 0}
+    - Color_E97E485D: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 0}
