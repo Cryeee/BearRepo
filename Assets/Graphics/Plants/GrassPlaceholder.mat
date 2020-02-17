@@ -7,23 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bear test mateiral
-  m_Shader: {fileID: -6465566751694194690, guid: 78e6a32c76e4748a18e57a0fbdbd8e81,
-    type: 3}
+  m_Name: GrassPlaceholder
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2050
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_F6B69AD0:
-        m_Texture: {fileID: 2800000, guid: ee7e10d89f5c6d64e8c1628b231e913e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -53,12 +49,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_2801DE0A: 0
-    - Vector1_329F6A50: 0.372
-    - Vector1_4B95F52B: 0.291
-    - Vector1_9E0ACF92: 0
-    - Vector1_D28E5E4E: -0.1
-    - Vector1_FBB28E7E: 0.196
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -81,24 +71,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_7A8E7AD5: {r: 0.8679245, g: 0.52812386, b: 0.77720124, a: 0}
-    - Color_8880F95B: {r: 1, g: 0, b: 0, a: 0}
-    - Color_B43011EC: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
-    - Color_DFEB31CC: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
---- !u!114 &1052382591201830956
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
