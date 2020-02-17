@@ -15,10 +15,9 @@ public class UITimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TimeController.roundTime <= GameController.roundTimeLimit)
-        {
+        
             uiText.text = TimeController.roundTime.ToString("F2") + " / " + GameController.roundTimeLimit;
-        }
+        
         
     }
 }
