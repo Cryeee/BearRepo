@@ -22,6 +22,12 @@ public class TimeController : MonoBehaviour
     void Update()
     {
         time = Time.time;
+        roundTime = Time.time;
+
+
+        //inspector stuff
+        inspectorRoundTime = roundTime;
+        inspectorTime = time;
     }
 
     public void ResetTimers(float resetToAmount)
