@@ -7,7 +7,7 @@ public class MenuController : MonoBehaviour
 {
     // public stuff is for testing purposes:
     public GameObject canvas;
-    private UIinputs uiInputs;
+    private bool paused;
 
     void Awake()
     {
@@ -19,10 +19,21 @@ public class MenuController : MonoBehaviour
 
     }
 
-    // Resume button:
-    public void Resume()
+    public void Pause()
     {
-        Debug.Log("resumed");
+        print("pause was called");
+
+        if (!paused)
+        {
+            canvas.SetActive(true);
+            Time.timeScale = 0;
+        } else if (paused)
+        {
+            canvas.SetActive(false);
+            Time.timeScale = 1;
+        }
+
+        paused = !paused;
     }
 
 
