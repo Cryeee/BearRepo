@@ -141,6 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1341388375}
+  playerInput: {fileID: 1149986132}
+  eventSystem: {fileID: 1763191359}
+  firstSelectedObject: {fileID: 2111537184}
 --- !u!1 &205743675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,13 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21eb7718af349844abea255e265567d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1149986138 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2892484968205335934, guid: a23a97de1e819aa4d9b60d4438a882b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1799053710}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1149986139
+--- !u!114 &1149986132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1080,7 +1077,7 @@ MonoBehaviour:
   m_Actions: {fileID: -944628639613478452, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
     type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 1763191358}
+  m_UIInputModule: {fileID: 1763191361}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1104,37 +1101,32 @@ MonoBehaviour:
     m_ActionId: 3fc360d2-a8dc-4f85-98e7-d6ca4306c9b1
     m_ActionName: Player/Camera[/Mouse/delta,/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 66500207}
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9553299a-a2e7-4f14-8fe0-aed323fe6629
     m_ActionName: Player/Pause[/Keyboard/escape,/XInputControllerWindows/start]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: bbb62938-304f-47a9-97a1-b84ad3a34268
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5432acfc-a952-4c17-800a-ab4168327ad5
-    m_ActionName: UI/Select[/Mouse/leftButton,/XInputControllerWindows/buttonSouth]
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 7f2c34b7-c431-442e-82c6-1e93e19fdc34
     m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b6321c07-c80c-495f-80a3-01251bbccd45
+    m_ActionName: UI/SUbmit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1981027193}
+--- !u!4 &1149986138 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2892484968205335934, guid: a23a97de1e819aa4d9b60d4438a882b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1799053710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1281446828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1445,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527184580}
-  m_LocalRotation: {x: -0.348871, y: 0.0000000024169489, z: 0.000000018927908, w: -0.9371708}
+  m_LocalRotation: {x: -0.34887096, y: -0.000000038581014, z: 0.0000000341898, w: -0.9371708}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1681,7 +1673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763191360}
   - component: {fileID: 1763191359}
-  - component: {fileID: 1763191358}
+  - component: {fileID: 1763191361}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1689,39 +1681,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1763191358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763191357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RepeatDelay: 0.5
-  m_RepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
-    type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
-    type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
-    type: 3}
-  m_SubmitAction: {fileID: -4682142246220898272, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
-    type: 3}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: -4682142246220898272, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
-    type: 3}
-  m_MiddleClickAction: {fileID: -4682142246220898272, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
-    type: 3}
-  m_RightClickAction: {fileID: -4682142246220898272, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
-    type: 3}
-  m_ScrollWheelAction: {fileID: 0}
-  m_TrackedDevicePositionAction: {fileID: 0}
-  m_TrackedDeviceOrientationAction: {fileID: 0}
-  m_TrackedDeviceSelectAction: {fileID: 0}
 --- !u!114 &1763191359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,6 +1710,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1763191361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763191357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RepeatDelay: 0.5
+  m_RepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
+    type: 3}
+  m_PointAction: {fileID: 1054132383583890850, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
+    type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
+    type: 3}
+  m_SubmitAction: {fileID: -4651791712357639850, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
+    type: 3}
+  m_CancelAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_TrackedDeviceSelectAction: {fileID: -4682142246220898272, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
+    type: 3}
 --- !u!1001 &1799053710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1823,7 +1813,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1493476071, guid: a23a97de1e819aa4d9b60d4438a882b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a23a97de1e819aa4d9b60d4438a882b1, type: 3}
 --- !u!1 &1802061014
 GameObject:
@@ -2742,9 +2733,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1583957170}
+    m_SelectOnDown: {fileID: 993047682}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2780,7 +2771,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Player
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2111537187

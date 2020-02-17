@@ -11,6 +11,7 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 
     RollingMovement rollingMovement;
 
+    MenuController menuController;
     // value of WASD/Left Stick
     public Vector2 MoveInput
     {
@@ -36,9 +37,10 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 
         //Enables controls
         inputManager.Enable();
-
         
         rollingMovement = GetComponent<RollingMovement>();
+
+        menuController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MenuController>();
     }
 
     void Update()
@@ -84,7 +86,15 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        
+        if (context.performed)
+        {
+            menuController.Pause();
+        }
+    }
+
+    public void OnSUbmit(InputAction.CallbackContext context)
+    {
+
     }
     #endregion
 }
