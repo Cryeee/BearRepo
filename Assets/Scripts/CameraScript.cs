@@ -17,8 +17,21 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit = new RaycastHit();
+        //Physics.Raycast(transform.position, Vector3.forward, out hit, 2.60f);
         
-        //Camera position
-        this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + 1, target.transform.position.z - distance);
+        if(Physics.SphereCast(gameObject.transform.position,0.5f, target.transform.position, out hit, 10)) {
+            print("point: " + hit.point);
+            Debug.DrawLine(gameObject.transform.position, hit.point, Color.red, 1.0f, false);
+            gameObject.transform.position = hit.point;
+
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(gameObject.transform.position, target.transform.position);
+
     }
 }
