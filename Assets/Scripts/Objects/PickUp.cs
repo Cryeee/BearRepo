@@ -21,7 +21,7 @@ public class PickUp : MonoBehaviour
         if(collision.gameObject.tag == "Player") {
             
             //playerscript is in parent gameobject
-            collision.gameObject.GetComponent<PlayerScript>().amountOfBerriesEaten += berryAmount;
+            collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += berryAmount;
             print(collision.gameObject.name + " collided with: " + gameObject.name);
             Destroy(gameObject);
         }
