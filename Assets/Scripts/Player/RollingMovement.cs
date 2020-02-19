@@ -39,6 +39,10 @@ public class RollingMovement : MonoBehaviour
 
     public Vector2 cameraInput;
 
+    public static bool turboOn;
+    public Vector3 turboDirection;
+    public float turboSpeed = 150;
+
     void Start()
     {
         //get RigidBody from childObject
@@ -75,26 +79,39 @@ public class RollingMovement : MonoBehaviour
         //show velocity in Inspector
         velocity = RB.velocity;
 
-        // limit max velocity
-        if(RB.velocity.x > velocityLimit) {
-            RB.velocity = new Vector3(velocityLimit, RB.velocity.y, RB.velocity.z);
-        }
-        if(RB.velocity.x < -velocityLimit) {
-            RB.velocity = new Vector3(-velocityLimit, RB.velocity.y, RB.velocity.z);
-        }
+        if (!turboOn)
+        {
+            // limit max velocity
+            if (RB.velocity.x > velocityLimit)
+            {
+                RB.velocity = new Vector3(velocityLimit, RB.velocity.y, RB.velocity.z);
+            }
+            if (RB.velocity.x < -velocityLimit)
+            {
+                RB.velocity = new Vector3(-velocityLimit, RB.velocity.y, RB.velocity.z);
+            }
 
-        if(RB.velocity.z > velocityLimit) {
-            RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, velocityLimit);
+            if (RB.velocity.z > velocityLimit)
+            {
+                RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, velocityLimit);
+            }
+            if (RB.velocity.z < -velocityLimit)
+            {
+                RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, -velocityLimit);
+            }
         }
-        if(RB.velocity.z < -velocityLimit) {
-            RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, -velocityLimit);
-        }
+    
     }
     
     void FixedUpdate() 
     {
+
         RB.AddForce(movementVector.normalized * ballSpeed);
 
+        if (turboOn)
+        {
+            RB.AddForce(turboDirection * turboSpeed);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
