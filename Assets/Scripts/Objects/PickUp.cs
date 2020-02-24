@@ -23,6 +23,10 @@ public class PickUp : MonoBehaviour
             //playerscript is in parent gameobject
             collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += berryAmount;
             print(collision.gameObject.name + " collided with: " + gameObject.name);
+
+            //sound effect for picking up
+            FindObjectOfType<AudioManager>().Play("Nom");
+
             Destroy(gameObject);
         }
     }
