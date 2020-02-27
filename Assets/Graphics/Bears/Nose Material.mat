@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon Material
+  m_Name: Nose Material
   m_Shader: {fileID: -6465566751694194690, guid: 9753fe851800c448da38eeff7dc238b3,
     type: 3}
   m_ShaderKeywords: 
@@ -38,14 +38,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_37AAE46C: 0
-    - Vector1_3EA21445: 0
+    - Vector1_37AAE46C: 1
+    - Vector1_3EA21445: 0.931
     - Vector1_652CCD31: 0
     - Vector1_992E780E: 0.24
     - Vector1_AA4D56F5: 0.52
-    - Vector1_D38ADF1E: 0.254
+    - Vector1_D38ADF1E: 0.173
     m_Colors:
     - Color_3635ABA8: {r: 0.6226415, g: 0.50809896, b: 0.59200805, a: 0}
     - Color_47C1DAA8: {r: 1, g: 1, b: 1, a: 0}
-    - Color_A25C2C58: {r: 1, g: 1, b: 1, a: 0}
+    - Color_A25C2C58: {r: 0.15886438, g: 0.24328943, b: 0.2830189, a: 0}
     - Color_E97E485D: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 0}
