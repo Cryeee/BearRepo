@@ -4,5 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/JaminScene.unity
+    guid: acb17dad239d4bc4ebf58a1fe9a009a1
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 775a5477cf40eca40a625a4e2ecd62e6,
+      type: 2}
