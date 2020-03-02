@@ -60,7 +60,11 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
     {
         if(context.performed)
         {
-            rollingMovement.Jump();
+            if(rollingMovement != null)
+            {
+                rollingMovement.Jump();
+
+            }
         }
     }
 
