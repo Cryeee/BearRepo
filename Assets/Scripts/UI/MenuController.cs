@@ -18,7 +18,7 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerInput.currentActionMap);
+        //Debug.Log(playerInput.currentActionMap);
     }
 
     public void Pause()

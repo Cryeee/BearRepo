@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8099662947986768231}
-  - component: {fileID: 8099662947986768228}
+  - component: {fileID: 1856528550010506635}
+  - component: {fileID: 1125663358}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -31,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8099662947986768228
+--- !u!114 &1856528550010506635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +41,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8099662947986768229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60608d4b389aabc46915720697c02b00, type: 3}
+  m_Script: {fileID: 11500000, guid: 11e054d839c09f64eab05d1d7dfb6f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  playerInput: {fileID: 0}
+  eventSystem: {fileID: 0}
+  firstSelectedObject: {fileID: 0}
+--- !u!114 &1125663358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099662947986768229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce520e8f571780469a2c9553e954137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundTimeLimitEditValue: 10
+  roundEnded: 0
