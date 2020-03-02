@@ -21,8 +21,8 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time = Time.time;
-        roundTime = Time.time;
+        time += Time.deltaTime;
+        roundTime += Time.deltaTime;
 
 
         //inspector stuff
@@ -30,7 +30,7 @@ public class TimeController : MonoBehaviour
         inspectorTime = time;
     }
 
-    public void ResetTimers(float resetToAmount)
+    public static void ResetTimers(float resetToAmount)
     {
         time = resetToAmount;
         roundTime = resetToAmount;
