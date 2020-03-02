@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5714124056823497862}
   - component: {fileID: 3609533057338818224}
   - component: {fileID: 7001736612979556937}
+  - component: {fileID: -5837295673180865970}
   m_Layer: 0
   m_Name: rock medium
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &-5837295673180865970
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8725720253627922069}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.007968483
+  m_Height: 0.021858342
+  m_Direction: 1
+  m_Center: {x: -0.004512786, y: 0.002446581, z: 0.0006453367}
