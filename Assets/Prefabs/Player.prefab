@@ -81,7 +81,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 57ed7db3f30f7491697bf76fce48571d, type: 2}
+  - {fileID: 2100000, guid: 88a7cf95d3b434e7a9b497e7cd438105, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -374,7 +374,8 @@ GameObject:
   - component: {fileID: 8517087096372398898}
   - component: {fileID: 9056928336906040279}
   - component: {fileID: 7334965500601061286}
-  - component: {fileID: 1493476071}
+  - component: {fileID: 1149986131}
+  - component: {fileID: 1149986132}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -408,7 +409,7 @@ Animator:
   m_GameObject: {fileID: 2197600590712786797}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ad996e6da42a445b48531c591eea6525, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e60503a3a9415e4896935970d8f0362, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -497,17 +498,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d5c5f5eb7ea2c46bfe929596817387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 40
+  ballSpeed: 14
   canJump: 1
-  jumpForce: 400
+  jumpForce: 500
   velocity: {x: 0, y: 0, z: 0}
-  velocityLimit: 5
+  velocityLimit: 12
   movementVector: {x: 0, y: 0, z: 0}
   RB: {fileID: 0}
   cameraObj: {fileID: 0}
   faceDir: {x: 0, y: 0, z: 0}
   moveInput: {x: 0, y: 0}
   cameraInput: {x: 0, y: 0}
+  turboDirection: {x: 0, y: 0, z: 0}
+  turboSpeed: 150
 --- !u!114 &8517087096372398898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +523,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa3693deaeeb2746bd3e3e42f61b327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfBerriesEaten: 0
+  CMFreeLookCamera: {fileID: 0}
+  AmountOfFoodEaten: 0
+  playerAnimator: {fileID: 5093052214539030532}
+  fatteningAnimation: {fileID: 7400000, guid: 8fbe3435d313b3f468795425d5d95417, type: 2}
   PlayerScaleSize: {x: 0, y: 0, z: 0}
 --- !u!135 &9056928336906040279
 SphereCollider:
@@ -544,14 +550,14 @@ Rigidbody:
   m_GameObject: {fileID: 2197600590712786797}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Drag: 0
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1493476071
+--- !u!114 &1149986131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -563,6 +569,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21eb7718af349844abea255e265567d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1149986132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2197600590712786797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 58d1c7ef55c50734c938a0eafc6b7bc7,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e9f37b40-b6c9-4ca1-88f2-21fa6ed79d99
+    m_ActionName: Player/Walking[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick,/XInputControllerWindows/dpad]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c756ed24-7db9-4370-b4fe-caff17991df4
+    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3fc360d2-a8dc-4f85-98e7-d6ca4306c9b1
+    m_ActionName: Player/Camera[/Mouse/delta,/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9553299a-a2e7-4f14-8fe0-aed323fe6629
+    m_ActionName: Player/Pause[/Keyboard/escape,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bbb62938-304f-47a9-97a1-b84ad3a34268
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7f2c34b7-c431-442e-82c6-1e93e19fdc34
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b6321c07-c80c-495f-80a3-01251bbccd45
+    m_ActionName: UI/SUbmit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2466110245354126902
 GameObject:
   m_ObjectHideFlags: 0
