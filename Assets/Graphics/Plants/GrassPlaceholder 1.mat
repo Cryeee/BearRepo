@@ -92,7 +92,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - Color_EFD7A35E: {r: 0.24725443, g: 0.397, b: 0.17064036, a: 0}
+    - Color_EFD7A35E: {r: 0.31147546, g: 0.5, b: 0.21721312, a: 0}
     - Vector2_174947A2: {r: 3, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
