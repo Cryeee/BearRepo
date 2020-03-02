@@ -20,7 +20,7 @@ public class FreeLookCameraInput : MonoBehaviour
     {
         if (axisName == "Cam X")
         {
-            Debug.Log(controls.CameraInput.x);
+            //Debug.Log(controls.CameraInput.x);
             return controls.CameraInput.x;
         }
         else if (axisName == "Cam Y")
