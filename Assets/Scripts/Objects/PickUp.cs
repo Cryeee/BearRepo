@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public float berryAmount;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float growAmount;
 
     void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.tag == "Player") {
-            
+
             //playerscript is in parent gameobject
-            collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += berryAmount;
+            //collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += growAmount;
+
+            //Tell player to grow this amount:
+            collision.GetComponent<PlayerScript>().Grow(growAmount);
             print(collision.gameObject.name + " collided with: " + gameObject.name);
 
             //sound effect for picking up
