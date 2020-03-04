@@ -5,10 +5,17 @@ using UnityEngine.InputSystem;
 
 public class RollingMovement : MonoBehaviour
 {
+    float distToGround;
+
     //rolling speed
     public int ballSpeed;
 
     public bool canJump = true;
+    public bool jumped = false;
+
+    //bool to invoke cjeckjumping invoke only once
+    bool invokeOnlyOnce = true;
+
 
     public float jumpForce;
     //variable used to show velocity in Inspector
@@ -43,15 +50,52 @@ public class RollingMovement : MonoBehaviour
     public Vector3 turboDirection;
     public float turboSpeed = 150;
 
+
+
     void Start()
     {
         //get RigidBody from childObject
         RB = this.GetComponent<Rigidbody>();
         playerInputs = gameObject.GetComponent<InputHandler>();
+
+        
+    }
+    public void CheckJumping()
+    {
+        if (!IsGrounded() && !jumped)
+        {
+            if (invokeOnlyOnce)
+            {
+                invokeOnlyOnce = false;
+                Invoke("LedgeDelay", 0.5f);
+
+            }
+        }
+        else
+        {
+            canJump = IsGrounded();
+            invokeOnlyOnce = true;
+
+        }
+    }
+    private void LedgeDelay()
+    {
+        print("asd omnta kertaa tää tulee");
+        canJump = false;
+        invokeOnlyOnce = true;
     }
 
     void Update()
     {
+        canJump = IsGrounded();
+
+        //for groundcheck
+        distToGround = GetComponent<Collider>().bounds.extents.y;
+        //CheckJumping();
+        //canJump = IsGrounded();
+
+        print("isgrounded:   " + IsGrounded());
+        //print("distToGround:   " + distToGround);
         Xinput = playerInputs.MoveInput.x;
         Yinput = playerInputs.MoveInput.y;
         //movementVector.Set(playerInputs.MoveInput.x, 0, playerInputs.MoveInput.y);
@@ -100,9 +144,18 @@ public class RollingMovement : MonoBehaviour
                 RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, -velocityLimit);
             }
         }
-    
     }
-    
+
+    public bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+    }
+
+    private void OnDrawGizmos()
+    {
+        
+    }
+
     void FixedUpdate() 
     {
 
@@ -118,16 +171,20 @@ public class RollingMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground")
         {
-            canJump = true;
+            
+            jumped = false; // kivien pällä hyppiminen kusee tällä !!!
         }
     }
 
     public void Jump()
     {
-        if(canJump)
+
+        if (canJump)
         {
+            RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps
             RB.AddForce(0, jumpForce, 0);
             canJump = false;
+            jumped = true;
         }
     }
 }

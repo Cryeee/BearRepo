@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 537416170037010407}
   - component: {fileID: 8804061835026523601}
   - component: {fileID: 2959646693414377768}
+  - component: {fileID: -3726170286876641089}
   m_Layer: 0
   m_Name: kanto
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-3726170286876641089
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543788580437339636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4579454407841743219, guid: 5c8e5cb560d134bf39a527c019a133c0, type: 3}
