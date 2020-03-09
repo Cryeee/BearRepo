@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class UIFoodsEaten : MonoBehaviour
 {
-    enum Foods
+    public enum Foods
     {
         Blueberry,
         Salmon, 
@@ -58,34 +58,34 @@ public class UIFoodsEaten : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            // Get every slot
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                tempImage = transform.GetChild(i);
-                
-                //If slot is empty (not active), set correct sprite and start animating on y-axis
-                if (!tempImage.gameObject.activeSelf)
-                {
-                    tempImage.position = transform.position;
-                    //TODO: ASSIGN CURRENT SPRITE TO IMAGE:
-                    tempImage.GetComponent<Image>().color = slots[Random.Range(0, slots.Length)];
-                    tempImage.gameObject.SetActive(true);
-                    animationTimer = 0;
-                    childIndex++;
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    // Get every slot
+        //    for (int i = 0; i < transform.childCount; i++)
+        //    {
+        //        tempImage = transform.GetChild(i);
 
-                    // Set image's index back to 0 when it fades away:
-                    if (childIndex >= slots.Length)
-                    {
-                        childIndex = 0;
-                    }
+        //        //If slot is empty (not active), set correct sprite and start animating on y-axis
+        //        if (!tempImage.gameObject.activeSelf)
+        //        {
+        //            tempImage.position = transform.position;
+        //            //TODO: ASSIGN CURRENT SPRITE TO IMAGE:
+        //            tempImage.GetComponent<Image>().color = slots[Random.Range(0, slots.Length)];
+        //            tempImage.gameObject.SetActive(true);
+        //            animationTimer = 0;
+        //            childIndex++;
 
-                    doAnimation = true;
-                    break;
-                }
-            }
-        }
+        //            // Set image's index back to 0 when it fades away:
+        //            if (childIndex >= slots.Length)
+        //            {
+        //                childIndex = 0;
+        //            }
+
+        //            doAnimation = true;
+        //            break;
+        //        }
+        //    }
+        //}
 
         // Animate image to move one slot up:
         if (doAnimation && animationTimer < animationTime)
@@ -106,6 +106,8 @@ public class UIFoodsEaten : MonoBehaviour
                 }
                 doAnimation = false;
                 fadeOutImage.gameObject.SetActive(false);
+                // if we have actual color, chnage this:
+                fadeOutImage.color = new Color(1, 1, 1, 1);
             }
 			#endregion
 
@@ -119,10 +121,42 @@ public class UIFoodsEaten : MonoBehaviour
                 {
                     fadeOutImage = tempImage.GetComponent<Image>();
                     Color oldColor = fadeOutImage.color;
+
+                    // changes alpha:
                     fadeOutImage.color = new Color(oldColor.r, oldColor.g, oldColor.b, oldColor.a - Time.deltaTime / animationTime);
                 }
             }
 			#endregion
 		}
 	}
+
+    public void DisplayFoodItem(Sprite icon)
+    {
+        // Get every slot
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            tempImage = transform.GetChild(i);
+
+            //If slot is empty (not active), set correct sprite and start animating on y-axis
+            if (!tempImage.gameObject.activeSelf)
+            {
+                tempImage.position = transform.position;
+                //TODO: ASSIGN CURRENT SPRITE TO IMAGE:
+                //tempImage.GetComponent<Image>().color = slots[Random.Range(0, slots.Length)];
+                tempImage.GetComponent<Image>().sprite = icon;
+                tempImage.gameObject.SetActive(true);
+                animationTimer = 0;
+                childIndex++;
+
+                // Set image's index back to 0 when it fades away:
+                if (childIndex >= slots.Length)
+                {
+                    childIndex = 0;
+                }
+
+                doAnimation = true;
+                break;
+            }
+        }
+    }
 }

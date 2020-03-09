@@ -429,22 +429,22 @@ PrefabInstance:
     - target: {fileID: 8685747467045049346, guid: 6952d7a0a92b67b40af4e201374630dc,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.16025291
+      value: -0.1602529
       objectReference: {fileID: 0}
     - target: {fileID: 8685747467045049346, guid: 6952d7a0a92b67b40af4e201374630dc,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6728395
+      value: -0.6728396
       objectReference: {fileID: 0}
     - target: {fileID: 8685747467045049346, guid: 6952d7a0a92b67b40af4e201374630dc,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.15275061
+      value: 0.15275063
       objectReference: {fileID: 0}
     - target: {fileID: 8685747467045049346, guid: 6952d7a0a92b67b40af4e201374630dc,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.70588475
+      value: -0.7058847
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6952d7a0a92b67b40af4e201374630dc, type: 3}
@@ -496,15 +496,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3886b85bf18854f97f0ff9ba0cf877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allFoods:
-  - {r: 0, g: 0.37680292, b: 1, a: 1}
-  - {r: 1, g: 0.43867922, b: 0.7169529, a: 1}
-  - {r: 0.8818307, g: 1, b: 0, a: 1}
+  slots:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.038576365, a: 1}
+  - {r: 0.9084568, g: 0, b: 1, a: 1}
   imageRef: {fileID: 520278760}
-  animationTime: 2
-  animationTimer: 0
-  childIndex: 0
-  fadeOutImage: {fileID: 0}
+  animationTime: 0.5
 --- !u!4 &421377060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2892484968205335934, guid: a23a97de1e819aa4d9b60d4438a882b1,
