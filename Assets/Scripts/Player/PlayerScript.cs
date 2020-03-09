@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
 
     float sizeIncrease = 0;
 
+    // Reference to food display UI-script
+    public UIFoodsEaten uiFoodsEaten;
 
     public Vector3 PlayerScaleSize;
     // Start is called before the first frame update
@@ -48,7 +50,7 @@ public class PlayerScript : MonoBehaviour
 
     // Grows player an amount and updates camera
     // TODO: Updates UI to display eaten food
-    public void Grow(float amount)
+    public void Grow(float amount, Sprite uiIcon)
     {
         AmountOfFoodEaten += amount;
 
@@ -56,8 +58,7 @@ public class PlayerScript : MonoBehaviour
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[0].m_Radius = sizeIncrease * 5 + 5;
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = sizeIncrease * 7 + 7;
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[2].m_Radius = sizeIncrease * 5 + 5;
-
-        
+        uiFoodsEaten.DisplayFoodItem(uiIcon);
     }
     
 }
