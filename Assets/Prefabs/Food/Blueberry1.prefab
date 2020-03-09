@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growAmount: 1
+  uiIcon: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
 --- !u!135 &6820405235341515843
 SphereCollider:
   m_ObjectHideFlags: 0
