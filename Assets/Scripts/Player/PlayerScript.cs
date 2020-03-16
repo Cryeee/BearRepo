@@ -38,10 +38,9 @@ public class PlayerScript : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.Q)) {
-            AmountOfFoodEaten++;
-            //fatteningAnimation.time = 5;
-            //TODO: REMOVE THIS, TESTING PURPOSES ONLY:
-            sizeIncrease = AmountOfFoodEaten / 100;
+            //AmountOfFoodEaten++;
+            //sizeIncrease = AmountOfFoodEaten / 100;
+            Grow(1, null);
         }
 
         //transform.rotation.y = 
