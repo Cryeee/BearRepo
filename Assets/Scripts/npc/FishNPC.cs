@@ -4,12 +4,29 @@ using UnityEngine;
 
 public class FishNPC : MonoBehaviour
 {
-    public GameObject cube;
-    public float speed;
+    public GameObject center;
+    public float orbitSpeed;
+    [SerializeField] private float height = 1f;
+    [SerializeField] private float swimSpeed = 0.05f;
+    [SerializeField] private float frequency = 0.1f;
 
     void Orbit()
     {
-        transform.RotateAround(cube.transform.position, Vector3.right, speed * Time.deltaTime);
+        transform.RotateAround(center.transform.position, Vector3.right, orbitSpeed * Time.deltaTime);
+    }
+
+    void Swim()
+    {
+        float x = transform.position.x;
+        float y = Mathf.Sin(Time.time * frequency) *height; 
+        float z = transform.position.z;
+
+        transform.position = new Vector3(x, y, z);
+    }
+
+    void Move()
+    {
+        transform.position += new Vector3(0f, 0f, swimSpeed);
     }
 
     private void Start()
@@ -19,7 +36,9 @@ public class FishNPC : MonoBehaviour
 
     private void Update()
     {
-        Orbit();
+        //Orbit();
+        Swim();
+        Move();
     }
 
 }
