@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
 
     float sizeIncrease = 0;
 
+    // Reference to food display UI-script
+    public UIFoodsEaten uiFoodsEaten;
 
     public Vector3 PlayerScaleSize;
     // Start is called before the first frame update
@@ -27,15 +29,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            //TODO put these somewhere else =)
-            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[0].m_Radius = sizeIncrease * 5 + 5;
-            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = sizeIncrease * 7 + 7;
-            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[2].m_Radius = sizeIncrease * 5 + 5;
-
-        
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
-
-        sizeIncrease = AmountOfFoodEaten / 100;
 
         playerAnimator.Play("Fattening", 0, sizeIncrease);
 
@@ -44,12 +38,26 @@ public class PlayerScript : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.Q)) {
-            AmountOfFoodEaten++;
-            //fatteningAnimation.time = 5;
+            //AmountOfFoodEaten++;
+            //sizeIncrease = AmountOfFoodEaten / 100;
+            Grow(1, null);
         }
 
         //transform.rotation.y = 
         //transform.rotation.y
+    }
+
+    // Grows player an amount and updates camera
+    // TODO: Updates UI to display eaten food
+    public void Grow(float amount, Sprite uiIcon)
+    {
+        AmountOfFoodEaten += amount;
+
+        sizeIncrease = AmountOfFoodEaten / 100;
+        CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[0].m_Radius = sizeIncrease * 5 + 5;
+        CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = sizeIncrease * 7 + 7;
+        CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[2].m_Radius = sizeIncrease * 5 + 5;
+        uiFoodsEaten.DisplayFoodItem(uiIcon);
     }
     
 }
