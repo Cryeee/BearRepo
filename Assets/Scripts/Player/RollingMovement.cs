@@ -177,7 +177,7 @@ public class RollingMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.2f);
         //return Physics.CapsuleCast(transform.position, new Vector3(transform.position.x -distToGround - 0.1f, transform.position.x, transform.position.z), 1, -Vector3.up, distToGround + 0.1f);
         
     }

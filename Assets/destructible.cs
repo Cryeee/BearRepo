@@ -6,8 +6,9 @@ public class destructible : MonoBehaviour
 {
     public GameObject destroyedVersion;
 
-   void OnMouseDown()
+   void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "Player")
         Instantiate(destroyedVersion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
