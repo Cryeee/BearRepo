@@ -9,8 +9,11 @@ public class BearSquash : MonoBehaviour
     public GameObject BearArmature;
     public Vector3 Offset;
     public bool canSquash;
+    public bool canJumpSquish;
 
     public bool up;
+
+    public float playerYVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,7 @@ public class BearSquash : MonoBehaviour
     void Update()
     {
 
-        if(player.GetComponent<Rigidbody>().velocity.y < 0)
+        if (player.GetComponent<Rigidbody>().velocity.y < 0)
         {
             up = false;
         }
@@ -31,6 +34,7 @@ public class BearSquash : MonoBehaviour
             up = true;
         }
 
+        GetComponent<Animator>().SetLayerWeight(1, Mathf.Abs(playerYVelocity)/10);
 
         transform.rotation = Quaternion.identity;
         BearTargerParentPos.transform.position = player.transform.position - Offset;
@@ -39,12 +43,24 @@ public class BearSquash : MonoBehaviour
 
         if (player.GetComponent<RollingMovement>().canJump && canSquash && !up)
         {
+            playerYVelocity = player.GetComponent<Rigidbody>().velocity.y;
             GetComponent<Animator>().SetTrigger("Squash");
             canSquash = false;
         }
-        if(!player.GetComponent<RollingMovement>().canJump)
+        if (!player.GetComponent<RollingMovement>().canJump)
         {
             canSquash = true;
+        }
+
+        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up)
+        {
+            GetComponent<Animator>().SetTrigger("Jump Squish");
+            canJumpSquish = false;
+        }
+
+        if (player.GetComponent<RollingMovement>().canJump && !up)
+        {
+            canJumpSquish = true;
         }
     }
 }

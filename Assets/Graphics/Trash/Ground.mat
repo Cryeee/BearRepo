@@ -134,7 +134,7 @@ Material:
     - Vector1_652CCD31: 0
     - Vector1_992E780E: 1
     - Vector1_AA4D56F5: 1
-    - Vector1_D38ADF1E: 1.271
+    - Vector1_D38ADF1E: 1.551
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -179,6 +179,8 @@ Material:
     - Color_47C1DAA8: {r: 1, g: 1, b: 1, a: 0}
     - Color_A25C2C58: {r: 1, g: 1, b: 1, a: 0}
     - Color_E97E485D: {r: 1, g: 1, b: 1, a: 0}
+    - Vector2_2145F0D6: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - Vector2_BC9FCFEC: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
