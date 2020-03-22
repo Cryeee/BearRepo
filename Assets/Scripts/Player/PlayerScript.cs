@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
     {
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
 
-        playerAnimator.Play("Fattening", 0, sizeIncrease);
+        //playerAnimator.Play("Fattening", 0, sizeIncrease);
 
         //PlayerScaleSize.Set(1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10);
         //transform.localScale = PlayerScaleSize;
@@ -52,6 +52,9 @@ public class PlayerScript : MonoBehaviour
     public void Grow(float amount, Sprite uiIcon)
     {
         AmountOfFoodEaten += amount;
+
+		// If food item has grow amount of one, bear gets 1 unit fatter
+		GetComponent<NormalMovement>().Fatten(amount / 10);
 
         sizeIncrease = AmountOfFoodEaten / 100;
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[0].m_Radius = sizeIncrease * 5 + 5;
