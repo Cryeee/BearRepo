@@ -52,7 +52,7 @@ public class BearSquash : MonoBehaviour
             canSquash = true;
         }
 
-        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up)
+        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up && Input.GetButtonDown("Jump"))
         {
             GetComponent<Animator>().SetTrigger("Jump Squish");
             canJumpSquish = false;
