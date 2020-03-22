@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public float growAmount;
+	[Tooltip("1 means 1/10 of max fatness")]
+	public float growAmount;
     public Sprite uiIcon;
 
     void OnTriggerEnter(Collider collision) {
