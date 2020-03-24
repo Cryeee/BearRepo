@@ -184,6 +184,21 @@ public class NormalMovement : MonoBehaviour
 		{
 			animator.SetBool("Walk", false);
 		}
+
+		float direction = Vector3.SignedAngle(movementVector, transform.forward, Vector3.up);
+
+		//Debug.Log("direction float is :  " + direction);
+		if (direction > 5)
+		{
+			animator.SetFloat("Direction", 0f, 0.2f, Time.deltaTime);
+		} else if (direction > -5 && direction < 5)
+		{
+			animator.SetFloat("Direction", 0.5f, 0.2f, Time.deltaTime);
+		} else if (direction < -5)
+		{
+			animator.SetFloat("Direction", 1f, 0.2f, Time.deltaTime);
+		}
+		
 	}
 
 	public void Run()
