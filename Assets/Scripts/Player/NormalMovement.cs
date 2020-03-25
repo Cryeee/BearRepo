@@ -13,10 +13,15 @@ public class NormalMovement : MonoBehaviour
 	[SerializeField]
 	private float runSpeed = 6;
 
+	[SerializeField]
+	private Collider collider;
+
     //Vector for movement
     public Vector3 movementVector;
     public Vector3 rotationVector;
 	Quaternion faceRotation;
+	public float luku;
+	public LayerMask wahstGround;
 
 	// value of WASD/Left Stick
 	public Vector2 moveInput;
@@ -49,8 +54,11 @@ public class NormalMovement : MonoBehaviour
 		{
 			if (invokeOnlyOnce)
 			{
+				//canJump = true;
 				invokeOnlyOnce = false;
 				Invoke("LedgeDelay", 0.3f); // TODO ei aika based
+
+
 			}
 		}
 		else if (IsGrounded() && jumped)
@@ -68,15 +76,17 @@ public class NormalMovement : MonoBehaviour
 
 	private void LedgeDelay()
 	{
-			print("asd omnta kertaa tää tulee");
-			canJump = false;
-			invokeOnlyOnce = true;
-			//jumped = false;
+		print("asd omnta kertaa tää tulee");
+		canJump = false;
+		invokeOnlyOnce = true;
+		//jumped = false;
 	}
-
 	public bool IsGrounded()
 	{
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.4f);
+		//Vector3 test = new Vector3(0, -1.5f, 0);
+		//Debug.DrawRay(transform.position, test, Color.blue);
+		Debug.DrawRay(transform.position, -Vector3.up * luku, Color.blue);
+		return Physics.Raycast(transform.position, -Vector3.up, luku, wahstGround);
 	}
 
 	public void Jump()
@@ -85,7 +95,6 @@ public class NormalMovement : MonoBehaviour
 		{
 			RB.velocity = new Vector3(RB.velocity.x, jumpForce, RB.velocity.z);
 			animator.SetTrigger("Jump");
-			//animator.SetBool("Grounded", false);
 			canJump = false;
 			jumped = true;
 		}
@@ -107,7 +116,6 @@ public class NormalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		distToGround = GetComponent<Collider>().bounds.extents.y;
 		CheckJumping();
 
 		Xinput = playerInputs.MoveInput.x;
@@ -132,6 +140,7 @@ public class NormalMovement : MonoBehaviour
 
     private void Movement()
     {
+		
 		RB.velocity = movementVector.normalized * speed + new Vector3(0.0f, RB.velocity.y, 0.0f);
 		//RB.AddForce(movementVector.normalized * speed, ForceMode.Impulse);
 	}
