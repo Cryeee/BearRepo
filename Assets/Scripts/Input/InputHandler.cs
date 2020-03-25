@@ -112,19 +112,19 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 
 	public void OnRun(InputAction.CallbackContext context)
 	{
-		if(context.started)
-		{
-			if (normalMovement != null)
-			{
-				normalMovement.Run();
-			}
-		} else if (context.canceled)
-		{
-			if (normalMovement != null)
-			{
-				normalMovement.Walk();
-			}
-		}
+		//if(context.started)
+		//{
+		//	if (normalMovement != null)
+		//	{
+		//		normalMovement.Run();
+		//	}
+		//} else if (context.canceled)
+		//{
+		//	if (normalMovement != null)
+		//	{
+		//		normalMovement.Walk();
+		//	}
+		//}
 	}
 	#endregion
 }

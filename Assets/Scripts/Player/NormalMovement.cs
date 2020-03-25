@@ -49,11 +49,8 @@ public class NormalMovement : MonoBehaviour
 		{
 			if (invokeOnlyOnce)
 			{
-				//canJump = true;
 				invokeOnlyOnce = false;
 				Invoke("LedgeDelay", 0.3f); // TODO ei aika based
-
-
 			}
 		}
 		else if (IsGrounded() && jumped)
@@ -80,19 +77,15 @@ public class NormalMovement : MonoBehaviour
 	public bool IsGrounded()
 	{
 		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.4f);
-		//return Physics.CapsuleCast(transform.position, new Vector3(transform.position.x -distToGround - 0.1f, transform.position.x, transform.position.z), 1, -Vector3.up, distToGround + 0.1f);
-
 	}
 
 	public void Jump()
 	{
-
 		if (canJump)
 		{
-			//RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps
-			//RB.AddForce(0, jumpForce, 0, ForceMode.Impulse);
 			RB.velocity = new Vector3(RB.velocity.x, jumpForce, RB.velocity.z);
 			animator.SetTrigger("Jump");
+			//animator.SetBool("Grounded", false);
 			canJump = false;
 			jumped = true;
 		}
@@ -139,7 +132,6 @@ public class NormalMovement : MonoBehaviour
 
     private void Movement()
     {
-		//RB.velocity = movementVector.normalized * speed;
 		RB.velocity = movementVector.normalized * speed + new Vector3(0.0f, RB.velocity.y, 0.0f);
 		//RB.AddForce(movementVector.normalized * speed, ForceMode.Impulse);
 	}
@@ -178,16 +170,29 @@ public class NormalMovement : MonoBehaviour
 	{
 		if (movementVector != Vector3.zero)
 		{
-			animator.SetBool("Walk", true);
-			Debug.Log(movementVector);
+			// Jos tatti pohjassa, juoksuanimaatio
+			if(Mathf.Approximately(movementVector.sqrMagnitude, 1f))
+			{
+				animator.SetBool("Run", true);
+				animator.SetBool("Walk", false);
+				speed = runSpeed;
+			}
+			else
+			{
+				animator.SetBool("Walk", true);
+				animator.SetBool("Run", false);
+				speed = walkSpeed;
+			}
 		} else
 		{
+			animator.SetBool("Run", false);
 			animator.SetBool("Walk", false);
+			speed = walkSpeed;
 		}
 
 		float direction = Vector3.SignedAngle(movementVector, transform.forward, Vector3.up);
 
-		//Debug.Log("direction float is :  " + direction);
+		// Pään kääntyminen, kusee 180 asteella:
 		if (direction > 5)
 		{
 			animator.SetFloat("Direction", 0f, 0.2f, Time.deltaTime);
@@ -198,23 +203,6 @@ public class NormalMovement : MonoBehaviour
 		{
 			animator.SetFloat("Direction", 1f, 0.2f, Time.deltaTime);
 		}
-		
-	}
-
-	public void Run()
-	{
-		speed = runSpeed;
-		rotationSpeed += 2;
-		animator.SetBool("Run", true);
-		animator.SetBool("Walk", false);
-	}
-
-	public void Walk()
-	{
-		speed = walkSpeed;
-		rotationSpeed -= 2;
-		animator.SetBool("Walk", true);
-		animator.SetBool("Run", false);
 	}
 
 	public void Fatten(float amount)
@@ -235,6 +223,5 @@ public class NormalMovement : MonoBehaviour
 		GameObject ball = transform.Find("pallokarhu").gameObject;
 		ball.SetActive(true);
 		this.enabled = false;
-
 	}
 }
