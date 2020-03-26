@@ -51,7 +51,7 @@ Material:
     - Vector1_587CE1BB: 0.7
     - Vector1_5ABBF917: 2.71
     - Vector1_603AF2C5: 0
-    - Vector1_8F61DC3: 0.05
+    - Vector1_8F61DC3: 0.08
     - Vector1_989B476B: 0.28
     - Vector1_9F4844ED: 0.2
     - Vector1_A4EB0529: 1
@@ -67,4 +67,4 @@ Material:
     - Vector2_8A83D2AA: {r: 0, g: 10, b: 0, a: 0}
     - Vector2_BBDBAB96: {r: 0, g: -1, b: 0, a: 0}
     - Vector2_EA0C5DAA: {r: 100, g: 0, b: 0, a: 0}
-    - Vector2_F8005A23: {r: 0.1, g: 3, b: 0, a: 0}
+    - Vector2_F8005A23: {r: 0.05, g: 1, b: 0, a: 0}
