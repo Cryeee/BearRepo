@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
 
-        playerAnimator = gameObject.GetComponent<Animator>();
+        //playerAnimator = gameObject.GetComponent<Animator>();
         //fatteningAnimation = playerAnimator.
     }
 
@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
     {
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
 
-        playerAnimator.Play("Fattening", 0, sizeIncrease);
+        playerAnimator.Play("Fattening", 2, sizeIncrease);
 
         //PlayerScaleSize.Set(1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10);
         //transform.localScale = PlayerScaleSize;
