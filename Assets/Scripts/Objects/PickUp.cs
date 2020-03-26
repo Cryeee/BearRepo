@@ -6,11 +6,12 @@ public class PickUp : MonoBehaviour
 {
     public float growAmount;
     public Sprite uiIcon;
+    public ParticleSystem foodParticles;
 
     void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.tag == "Player") {
 
-            if(uiIcon == null)
+            if (uiIcon == null)
             {
                 Debug.LogError("uiIcon not assigned!!");
             }
@@ -24,6 +25,9 @@ public class PickUp : MonoBehaviour
 
             //sound effect for picking up
             FindObjectOfType<AudioManager>().Play("Nom");
+
+            //particle effect
+            foodParticles.Play();
 
             Destroy(gameObject);
         }

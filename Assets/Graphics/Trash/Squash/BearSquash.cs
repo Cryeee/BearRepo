@@ -11,6 +11,9 @@ public class BearSquash : MonoBehaviour
     public bool canSquash;
     public bool canJumpSquish;
 
+    public ParticleSystem rollingPuffParticles;
+    public ParticleSystem landingParticles;
+
     public bool up;
 
     public float playerYVelocity;
@@ -24,6 +27,11 @@ public class BearSquash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //particle system
+        if (!player.GetComponent<RollingMovement>().canJump)
+        {
+            rollingPuffParticles.Play();
+        }
 
         if (player.GetComponent<Rigidbody>().velocity.y < 0)
         {
@@ -45,6 +53,7 @@ public class BearSquash : MonoBehaviour
         {
             playerYVelocity = player.GetComponent<Rigidbody>().velocity.y;
             GetComponent<Animator>().SetTrigger("Squash");
+            landingParticles.Play();
             canSquash = false;
         }
         if (!player.GetComponent<RollingMovement>().canJump)
