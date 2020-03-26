@@ -21,6 +21,12 @@ public class GameController : MonoBehaviour
     public bool enoughEaten = false;
 
     private PlayerScript playerScript;
+
+    public int mapID;
+    public int amountNeededFor1Star;
+    public int amountNeededFor2Stars;
+    public int amountNeededFor3Stars;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +42,7 @@ public class GameController : MonoBehaviour
         if(roundTimeLimit < TimeController.roundTime && roundEnded == false)
         {
             roundEnded = true;
+            CheckStars(playerScript.AmountOfFoodEaten);
             TimeLimitReached();
         }
         
@@ -58,4 +65,26 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    void CheckStars(float foodEaten)
+    {
+        int score = 0;
+
+        if(foodEaten >= amountNeededFor1Star)
+        {
+            score = 1;
+        }
+        if (foodEaten >= amountNeededFor2Stars)
+        {
+            score = 2;
+        }
+        if (foodEaten >= amountNeededFor3Stars)
+        {
+            score = 3;
+        }
+
+        if(score > StaticScoreScript.starArray[mapID])
+        {
+            StaticScoreScript.starArray[mapID] = score;
+        }
+    }
 }
