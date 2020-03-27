@@ -13,10 +13,15 @@ public class NormalMovement : MonoBehaviour
 	[SerializeField]
 	private float runSpeed = 6;
 
+	[SerializeField]
+	private Collider collider;
+
     //Vector for movement
     public Vector3 movementVector;
     public Vector3 rotationVector;
 	Quaternion faceRotation;
+	public float luku;
+	public LayerMask wahstGround;
 
 	// value of WASD/Left Stick
 	public Vector2 moveInput;
@@ -71,26 +76,23 @@ public class NormalMovement : MonoBehaviour
 
 	private void LedgeDelay()
 	{
-			print("asd omnta kertaa tää tulee");
-			canJump = false;
-			invokeOnlyOnce = true;
-			//jumped = false;
+		print("asd omnta kertaa tää tulee");
+		canJump = false;
+		invokeOnlyOnce = true;
+		//jumped = false;
 	}
-
 	public bool IsGrounded()
 	{
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.4f);
-		//return Physics.CapsuleCast(transform.position, new Vector3(transform.position.x -distToGround - 0.1f, transform.position.x, transform.position.z), 1, -Vector3.up, distToGround + 0.1f);
-
+		//Vector3 test = new Vector3(0, -1.5f, 0);
+		//Debug.DrawRay(transform.position, test, Color.blue);
+		Debug.DrawRay(transform.position, -Vector3.up * luku, Color.blue);
+		return Physics.Raycast(transform.position, -Vector3.up, luku, wahstGround);
 	}
 
 	public void Jump()
 	{
-
 		if (canJump)
 		{
-			//RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps
-			//RB.AddForce(0, jumpForce, 0, ForceMode.Impulse);
 			RB.velocity = new Vector3(RB.velocity.x, jumpForce, RB.velocity.z);
 			animator.SetTrigger("Jump");
 			canJump = false;
@@ -114,7 +116,6 @@ public class NormalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		distToGround = GetComponent<Collider>().bounds.extents.y;
 		CheckJumping();
 
 		Xinput = playerInputs.MoveInput.x;
@@ -139,7 +140,7 @@ public class NormalMovement : MonoBehaviour
 
     private void Movement()
     {
-		//RB.velocity = movementVector.normalized * speed;
+		
 		RB.velocity = movementVector.normalized * speed + new Vector3(0.0f, RB.velocity.y, 0.0f);
 		//RB.AddForce(movementVector.normalized * speed, ForceMode.Impulse);
 	}
@@ -178,28 +179,39 @@ public class NormalMovement : MonoBehaviour
 	{
 		if (movementVector != Vector3.zero)
 		{
-			animator.SetBool("Walk", true);
-			Debug.Log(movementVector);
+			// Jos tatti pohjassa, juoksuanimaatio
+			if(Mathf.Approximately(movementVector.sqrMagnitude, 1f))
+			{
+				animator.SetBool("Run", true);
+				animator.SetBool("Walk", false);
+				speed = runSpeed;
+			}
+			else
+			{
+				animator.SetBool("Walk", true);
+				animator.SetBool("Run", false);
+				speed = walkSpeed;
+			}
 		} else
 		{
+			animator.SetBool("Run", false);
 			animator.SetBool("Walk", false);
+			speed = walkSpeed;
 		}
-	}
 
-	public void Run()
-	{
-		speed = runSpeed;
-		rotationSpeed += 2;
-		animator.SetBool("Run", true);
-		animator.SetBool("Walk", false);
-	}
+		float direction = Vector3.SignedAngle(movementVector, transform.forward, Vector3.up);
 
-	public void Walk()
-	{
-		speed = walkSpeed;
-		rotationSpeed -= 2;
-		animator.SetBool("Walk", true);
-		animator.SetBool("Run", false);
+		// Pään kääntyminen, kusee 180 asteella:
+		if (direction > 5)
+		{
+			animator.SetFloat("Direction", 0f, 0.2f, Time.deltaTime);
+		} else if (direction > -5 && direction < 5)
+		{
+			animator.SetFloat("Direction", 0.5f, 0.2f, Time.deltaTime);
+		} else if (direction < -5)
+		{
+			animator.SetFloat("Direction", 1f, 0.2f, Time.deltaTime);
+		}
 	}
 
 	public void Fatten(float amount)
@@ -220,6 +232,5 @@ public class NormalMovement : MonoBehaviour
 		GameObject ball = transform.Find("pallokarhu").gameObject;
 		ball.SetActive(true);
 		this.enabled = false;
-
 	}
 }
