@@ -39,8 +39,8 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
         //Enables controls
         inputManager.Enable();
         
-        rollingMovement = GetComponent<RollingMovement>();
-		normalMovement = GetComponent<NormalMovement>();
+        rollingMovement = GetComponentInChildren<RollingMovement>();
+		normalMovement = GetComponentInChildren<NormalMovement>();
 
         menuController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MenuController>();
     }
