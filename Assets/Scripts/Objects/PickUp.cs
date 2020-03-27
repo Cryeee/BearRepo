@@ -20,7 +20,7 @@ public class PickUp : MonoBehaviour
             //collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += growAmount;
 
             //Tell player to grow this amount:
-            collision.GetComponent<PlayerScript>().Grow(growAmount, uiIcon);
+            collision.GetComponentInParent<PlayerScript>().Grow(growAmount, uiIcon);
             print(collision.gameObject.name + " collided with: " + gameObject.name);
 
             //sound effect for picking up

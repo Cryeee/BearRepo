@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<PlayerScript>();
     }
 
     // Update is called once per frame
