@@ -8,8 +8,11 @@ public class BearSquash : MonoBehaviour
     public GameObject BearTargerParentPos;
     public GameObject BearArmature;
     public Vector3 Offset;
+    public Vector3 Offset2;
     public bool canSquash;
     public bool canJumpSquish;
+
+    public GameObject root;
 
     public ParticleSystem rollingPuffParticles;
     public ParticleSystem landingParticles;
@@ -17,6 +20,8 @@ public class BearSquash : MonoBehaviour
     public bool up;
 
     public float playerYVelocity;
+
+    public SphereCollider sphere;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +32,8 @@ public class BearSquash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sphere.radius = 0.97f + (player.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
+
         //particle system
         if (!player.GetComponent<RollingMovement>().canJump)
         {
