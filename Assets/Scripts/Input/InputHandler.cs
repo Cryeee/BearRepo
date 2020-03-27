@@ -10,6 +10,7 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
     public InputManager inputManager;
 
     RollingMovement rollingMovement;
+	NormalMovement normalMovement;
 
     MenuController menuController;
     // value of WASD/Left Stick
@@ -38,7 +39,8 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
         //Enables controls
         inputManager.Enable();
         
-        rollingMovement = GetComponent<RollingMovement>();
+        rollingMovement = GetComponentInChildren<RollingMovement>();
+		normalMovement = GetComponentInChildren<NormalMovement>();
 
         menuController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MenuController>();
     }
@@ -64,7 +66,10 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
             {
                 rollingMovement.Jump();
 
-            }
+            } else if (normalMovement != null)
+			{
+				normalMovement.Jump();
+			}
         }
     }
 
@@ -104,5 +109,22 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
     {
 
     }
-    #endregion
+
+	public void OnRun(InputAction.CallbackContext context)
+	{
+		//if(context.started)
+		//{
+		//	if (normalMovement != null)
+		//	{
+		//		normalMovement.Run();
+		//	}
+		//} else if (context.canceled)
+		//{
+		//	if (normalMovement != null)
+		//	{
+		//		normalMovement.Walk();
+		//	}
+		//}
+	}
+	#endregion
 }

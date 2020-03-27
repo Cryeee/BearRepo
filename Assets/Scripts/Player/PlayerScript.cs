@@ -8,14 +8,16 @@ public class PlayerScript : MonoBehaviour
     public GameObject CMFreeLookCamera;
     public float AmountOfFoodEaten;
 
-    public Animator playerAnimator;
+    private Animator playerAnimator;
 
-    public AnimationClip fatteningAnimation;
+    private AnimationClip fatteningAnimation;
 
     float sizeIncrease = 0;
 
+    // Reference to food display UI-script
+    public UIFoodsEaten uiFoodsEaten;
 
-    public Vector3 PlayerScaleSize;
+    private Vector3 PlayerScaleSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,17 +31,16 @@ public class PlayerScript : MonoBehaviour
     {
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
 
-        playerAnimator.Play("Fattening", 0, sizeIncrease);
+        //playerAnimator.Play("Fattening", 0, sizeIncrease);
 
         //PlayerScaleSize.Set(1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10);
         //transform.localScale = PlayerScaleSize;
 
 
         if (Input.GetKeyDown(KeyCode.Q)) {
-            AmountOfFoodEaten++;
-            //fatteningAnimation.time = 5;
-            //TODO: REMOVE THIS, TESTING PURPOSES ONLY:
-            sizeIncrease = AmountOfFoodEaten / 100;
+            //AmountOfFoodEaten++;
+            //sizeIncrease = AmountOfFoodEaten / 100;
+            Grow(1, null);
         }
 
         //transform.rotation.y = 
@@ -47,17 +48,32 @@ public class PlayerScript : MonoBehaviour
     }
 
     // Grows player an amount and updates camera
-    // TODO: Updates UI to display eaten food
-    public void Grow(float amount)
+    // PickUp.cs calls this method
+    public void Grow(float amount, Sprite uiIcon)
     {
         AmountOfFoodEaten += amount;
 
+		// Fattens skinny bear if player is in skinny mode
+		if(GetComponentInChildren<NormalMovement>() != null)
+		{
+			// If food item has grow amount of one, bear gets 1 unit fatter
+			GetComponentInChildren<NormalMovement>().Fatten(amount / 10);
+		}
+		
         sizeIncrease = AmountOfFoodEaten / 100;
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[0].m_Radius = sizeIncrease * 5 + 5;
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = sizeIncrease * 7 + 7;
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[2].m_Radius = sizeIncrease * 5 + 5;
-
-        
+        uiFoodsEaten.DisplayFoodItem(uiIcon);
     }
+
+	public void TurnToBall(Vector3 currentPostion)
+	{
+		GameObject ball = transform.Find("pallokarhu").gameObject;
+		ball.transform.position = currentPostion;
+		ball.SetActive(true);
+		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
+		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
+	}
     
 }

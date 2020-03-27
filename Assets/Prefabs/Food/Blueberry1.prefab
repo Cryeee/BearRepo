@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2441385063838755000}
   m_LocalRotation: {x: -0.000000081460335, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2441385063838755000}
-  m_Mesh: {fileID: 6140146594488846890, guid: 889cee65728be404895dd098002c59d0, type: 3}
+  m_Mesh: {fileID: 8480617925513198523, guid: d014bff983cf84d4da13bae815090879, type: 3}
 --- !u!23 &7524673085180498664
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,8 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 691ddc6bb55c26740bf35427c980c3d3, type: 2}
-  - {fileID: 2100000, guid: 7efd8496a5285e048ba8a0bc0e0cf92d, type: 2}
+  - {fileID: 2100000, guid: d1d986672641e9b45bf09082650a1370, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growAmount: 1
+  uiIcon: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
 --- !u!135 &6820405235341515843
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -106,5 +106,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.21259628
+  m_Radius: 0.4
   m_Center: {x: 0.02782917, y: 0.21259628, z: -0.1023891}

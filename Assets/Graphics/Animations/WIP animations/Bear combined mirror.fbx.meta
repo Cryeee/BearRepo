@@ -1,0 +1,264 @@
+fileFormatVersion: 2
+guid: 6f567ea53fbbf9a4f9c716c0dc030e16
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: -9207339877199213794
+    second: Good boy|Action
+  - first:
+      74: -462605171607660037
+    second: Good boy|Blink
+  - first:
+      74: -1988772029327590856
+    second: Good boy|Chomp
+  - first:
+      74: 5524421765670711360
+    second: Good boy|Circle.037Action
+  - first:
+      74: 4357057772358107138
+    second: Good boy|Circle.038Action
+  - first:
+      74: -8282295223026223478
+    second: Good boy|Circle.039Action
+  - first:
+      74: -2587601106057356336
+    second: Good boy|Circle.040Action
+  - first:
+      74: -6133889585782726506
+    second: Good boy|Circle.041Action
+  - first:
+      74: 4778432036496289548
+    second: Good boy|Circle.042Action
+  - first:
+      74: 4317020023040108237
+    second: Good boy|Circle.043Action
+  - first:
+      74: -2073680726655855740
+    second: Good boy|Circle.044Action
+  - first:
+      74: -9197397566170082568
+    second: Good boy|Circle.045Action
+  - first:
+      74: 3967730545553266270
+    second: Good boy|Circle.046Action
+  - first:
+      74: 5408278062644766433
+    second: Good boy|Circle.047Action
+  - first:
+      74: -4082570300372199213
+    second: Good boy|Circle.048Action
+  - first:
+      74: -692211863306172551
+    second: Good boy|Circle.049Action
+  - first:
+      74: -260271795415848248
+    second: Good boy|Circle.050Action
+  - first:
+      74: 3609952924781150877
+    second: Good boy|Circle.051Action
+  - first:
+      74: 6886853950717414051
+    second: Good boy|Circle.052Action
+  - first:
+      74: 7543844037746374607
+    second: Good boy|Circle.053Action
+  - first:
+      74: -4344569234847556140
+    second: Good boy|Circle.054Action
+  - first:
+      74: -3714502306060587675
+    second: Good boy|Circle.055Action
+  - first:
+      74: -4601503683872915678
+    second: Good boy|Circle.056Action
+  - first:
+      74: 4597266035029856237
+    second: Good boy|Circle.057Action
+  - first:
+      74: -8525818666675278301
+    second: Good boy|FatStance
+  - first:
+      74: -7267938268235413974
+    second: Good boy|Fattening
+  - first:
+      74: 9135487600737969190
+    second: Good boy|Idle
+  - first:
+      74: -403025263137749515
+    second: Good boy|LookAround
+  - first:
+      74: 142869985609553669
+    second: Good boy|Run
+  - first:
+      74: 6402280390328073733
+    second: Good boy|Run2
+  - first:
+      74: -136029115366090970
+    second: Good boy|Skinny
+  - first:
+      74: -8663856031002470872
+    second: Good boy|Sniff
+  - first:
+      74: 1799387372699167860
+    second: Good boy|Walk
+  - first:
+      74: -6264942214747565593
+    second: Plane.004|Action
+  - first:
+      74: -4077573084448902999
+    second: Plane.004|Circle.037Action
+  - first:
+      74: 3331386031050424166
+    second: Plane.004|Circle.038Action
+  - first:
+      74: 5013413222329210136
+    second: Plane.004|Circle.039Action
+  - first:
+      74: -8376210350514997125
+    second: Plane.004|Circle.040Action
+  - first:
+      74: -8193311801494641985
+    second: Plane.004|Circle.041Action
+  - first:
+      74: 3227598797504235322
+    second: Plane.004|Circle.042Action
+  - first:
+      74: 8387360771897372248
+    second: Plane.004|Circle.043Action
+  - first:
+      74: -8275218140213199331
+    second: Plane.004|Circle.044Action
+  - first:
+      74: 4417394887920432932
+    second: Plane.004|Circle.045Action
+  - first:
+      74: 4900603424134701570
+    second: Plane.004|Circle.046Action
+  - first:
+      74: -1407779149206005744
+    second: Plane.004|Circle.047Action
+  - first:
+      74: 1754494024628073028
+    second: Plane.004|Circle.048Action
+  - first:
+      74: 5828940609451607901
+    second: Plane.004|Circle.049Action
+  - first:
+      74: -1147697592364780896
+    second: Plane.004|Circle.050Action
+  - first:
+      74: 3903738341927774459
+    second: Plane.004|Circle.051Action
+  - first:
+      74: -107054588931370526
+    second: Plane.004|Circle.052Action
+  - first:
+      74: -1055905808115054764
+    second: Plane.004|Circle.053Action
+  - first:
+      74: 4867153652029870815
+    second: Plane.004|Circle.054Action
+  - first:
+      74: -6650061001560408369
+    second: Plane.004|Circle.055Action
+  - first:
+      74: -5501336659045998964
+    second: Plane.004|Circle.056Action
+  - first:
+      74: 143080510082118387
+    second: Plane.004|Circle.057Action
+  - first:
+      74: 6311415306606552505
+    second: Plane.004|Walk
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
