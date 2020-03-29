@@ -32,7 +32,7 @@ public class BearSquash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sphere.radius = 0.97f + (player.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
+        //sphere.radius = 0.97f + (player.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
 
         //particle system
         if (!player.GetComponent<RollingMovement>().canJump)
