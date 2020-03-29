@@ -7,6 +7,7 @@ public class PickUp : MonoBehaviour
 	[Tooltip("1 means 1/10 of max fatness")]
 	public float growAmount;
     public Sprite uiIcon;
+    public ParticleSystem foodParticles;
 
     void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.tag == "Player") {
@@ -25,6 +26,9 @@ public class PickUp : MonoBehaviour
 
             //sound effect for picking up
             FindObjectOfType<AudioManager>().Play("Nom");
+
+            //particle effect
+            foodParticles.Play();
 
             Destroy(gameObject);
         }
