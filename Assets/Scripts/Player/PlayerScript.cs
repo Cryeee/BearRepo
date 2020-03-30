@@ -8,11 +8,13 @@ public class PlayerScript : MonoBehaviour
     public GameObject CMFreeLookCamera;
     public float AmountOfFoodEaten;
 
-    private Animator playerAnimator;
+    public Animator fatAnimator;
 
     private AnimationClip fatteningAnimation;
 
     float sizeIncrease = 0;
+
+	public static bool inBallMode = false;
 
     // Reference to food display UI-script
     public UIFoodsEaten uiFoodsEaten;
@@ -22,8 +24,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
 
-        playerAnimator = gameObject.GetComponent<Animator>();
-        //fatteningAnimation = playerAnimator.
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
     {
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
 
-        //playerAnimator.Play("Fattening", 0, sizeIncrease);
+        fatAnimator.Play("Fattening", 2, sizeIncrease);
 
         //PlayerScaleSize.Set(1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10);
         //transform.localScale = PlayerScaleSize;
@@ -72,6 +72,7 @@ public class PlayerScript : MonoBehaviour
 		GameObject ball = transform.Find("pallokarhu").gameObject;
 		ball.transform.position = currentPostion;
 		ball.SetActive(true);
+		inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
 	}
