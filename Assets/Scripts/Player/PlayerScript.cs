@@ -8,8 +8,6 @@ public class PlayerScript : MonoBehaviour
     public GameObject CMFreeLookCamera;
     public float AmountOfFoodEaten;
 
-    private Animator playerAnimator;
-
     public Animator fatAnimator;
 
     private AnimationClip fatteningAnimation;
@@ -24,8 +22,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
 
-        playerAnimator = gameObject.GetComponent<Animator>();
-        //fatteningAnimation = playerAnimator.
     }
 
     // Update is called once per frame
