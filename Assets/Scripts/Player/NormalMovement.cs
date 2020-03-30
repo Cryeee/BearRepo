@@ -106,11 +106,10 @@ public class NormalMovement : MonoBehaviour
 		RaycastHit hit;
 
 		// Check if the body's current velocity will result in a collision
-		if (!IsGrounded() && rb.SweepTest(horizontalMove, out hit, distance))
+		if (!IsGrounded() && rb.SweepTest(horizontalMove, out hit, distance, QueryTriggerInteraction.Ignore))
 		{
 			// If so, stop the movement
-			// Debug.Log("stop movement");
-			rb.velocity = new Vector3(0, Physics.gravity.y, 0);
+			rb.velocity = new Vector3(0, -10, 0);
 		} 
 		else
 		{
