@@ -17,24 +17,23 @@ public class BirdNPC : MonoBehaviour
 
         if (distance < fleeDistance && !spooked)
         {
-            Debug.Log("kumoituskaatamus");
-            Invoke("goAway", 2f);
+            Invoke("goAway", fleeTime);
         }
 
         if (spooked == true)
         {
-            StartCoroutine(Wait());
+           // StartCoroutine(Wait());
            
 
             transform.position += new Vector3(0.03f, 0.1f * speed, 0f);
         }
     }
 
-    IEnumerator Wait()
+   /* IEnumerator Wait()
     {
         yield return new WaitForSeconds(fleeTime);
     }
-    
+    */
     void goAway()
     {
         spooked = true;
