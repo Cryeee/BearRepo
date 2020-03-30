@@ -26,12 +26,20 @@ public class FishNPC : MonoBehaviour
 
     void Move()
     {
+        
         transform.position += new Vector3(0f, 0f, swimSpeed);
+        
+    }
+
+    void TurnAround()
+    {
+        swimSpeed = (-1 * swimSpeed);
+        Debug.Log("saatana");
     }
 
     private void Start()
     {
-        
+        InvokeRepeating("TurnAround", 5.0f, 10.0f);
     }
 
     private void Update()
@@ -39,6 +47,7 @@ public class FishNPC : MonoBehaviour
         //Orbit();
         Swim();
         Move();
+        
     }
 
 }

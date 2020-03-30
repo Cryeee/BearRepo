@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public float growAmount;
+	[Tooltip("1 means 1/10 of max fatness")]
+	public float growAmount;
     public Sprite uiIcon;
+    public ParticleSystem foodParticles;
 
     void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.tag == "Player") {
@@ -19,11 +21,14 @@ public class PickUp : MonoBehaviour
             //collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += growAmount;
 
             //Tell player to grow this amount:
-            collision.GetComponent<PlayerScript>().Grow(growAmount, uiIcon);
+            collision.GetComponentInParent<PlayerScript>().Grow(growAmount, uiIcon);
             print(collision.gameObject.name + " collided with: " + gameObject.name);
 
             //sound effect for picking up
             FindObjectOfType<AudioManager>().Play("Nom");
+
+            //particle effect
+            foodParticles.Play();
 
             Destroy(gameObject);
         }

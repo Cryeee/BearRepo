@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destructible : MonoBehaviour
+public class destructibleParticles : MonoBehaviour
 {
-    public GameObject destroyedVersion;
+    public ParticleSystem particles;
 
    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player" && PlayerScript.inBallMode)
         {
-            Instantiate(destroyedVersion, transform.position, transform.rotation);
+            particles.Play();
             Destroy(gameObject);
         }
-
     }
 }
