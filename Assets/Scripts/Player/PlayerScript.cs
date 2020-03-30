@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
 
     private Animator playerAnimator;
 
+    public Animator fatAnimator;
+
     private AnimationClip fatteningAnimation;
 
     float sizeIncrease = 0;
@@ -31,7 +33,7 @@ public class PlayerScript : MonoBehaviour
     {
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
 
-        //playerAnimator.Play("Fattening", 0, sizeIncrease);
+        fatAnimator.Play("Fattening", 2, sizeIncrease);
 
         //PlayerScaleSize.Set(1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10);
         //transform.localScale = PlayerScaleSize;

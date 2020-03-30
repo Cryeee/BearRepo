@@ -9,7 +9,10 @@ public class destructible : MonoBehaviour
    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
-        Instantiate(destroyedVersion, transform.position, transform.rotation);
-        Destroy(gameObject);
+        {
+            Instantiate(destroyedVersion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+
     }
 }
