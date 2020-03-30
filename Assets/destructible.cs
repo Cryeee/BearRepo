@@ -8,7 +8,7 @@ public class destructible : MonoBehaviour
 
    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && PlayerScript.inBallMode)
         {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);

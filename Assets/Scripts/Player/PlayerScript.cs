@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
 
     float sizeIncrease = 0;
 
+	public static bool inBallMode = false;
+
     // Reference to food display UI-script
     public UIFoodsEaten uiFoodsEaten;
 
@@ -70,6 +72,7 @@ public class PlayerScript : MonoBehaviour
 		GameObject ball = transform.Find("pallokarhu").gameObject;
 		ball.transform.position = currentPostion;
 		ball.SetActive(true);
+		inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
 	}

@@ -8,7 +8,7 @@ public class destructibleParticles : MonoBehaviour
 
    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && PlayerScript.inBallMode)
         {
             particles.Play();
             Destroy(gameObject);
