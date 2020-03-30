@@ -9719,7 +9719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfd290af32331a48bb330e43459e255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growAmount: 3
+  growAmount: 2
   uiIcon: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
   foodParticles: {fileID: 3833047843621666519}
 --- !u!135 &4418076575773350812
