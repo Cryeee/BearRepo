@@ -35,35 +35,37 @@ public class NormalMovement : MonoBehaviour
 	private GameController gameController;
 	private InputHandler playerInputs;
 	private GameObject cameraObj;
-	private Rigidbody RB;
+	private Rigidbody rb;
 	private Animator animator;
+	private bool hitWall = false;
 
 	#region Jump Stuff
 	
 	public bool IsGrounded()
 	{
-		Debug.DrawRay(groundCheckCollider.bounds.center,
-			Vector3.down * (groundCheckCollider.bounds.extents.y + 0.1f));
+		//Debug.DrawRay(groundCheckCollider.bounds.center,
+		//	Vector3.down * (groundCheckCollider.bounds.extents.y + 0.1f));
 
 		return Physics.Raycast(groundCheckCollider.bounds.center, Vector3.down,
 			groundCheckCollider.bounds.extents.y + 0.1f);
-
 	}
 
 	public void Jump()
 	{
 		if(IsGrounded())
 		{
-			RB.velocity = new Vector3(RB.velocity.x, jumpForce, RB.velocity.z);
+			rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+			//rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
 			animator.SetTrigger("Jump");
 		}
 	}
+
 	#endregion
 
 
 	void Start()
     {
-        RB = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         playerInputs = gameObject.GetComponentInParent<InputHandler>();
 		animator = GetComponent<Animator>();
 		cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
@@ -76,7 +78,8 @@ public class NormalMovement : MonoBehaviour
 		Xinput = playerInputs.MoveInput.x;
         Yinput = playerInputs.MoveInput.y;
 
-		// for getting a movement vector without y force:
+		//for getting a movement vector without y force:
+
 		Vector3 forward = cameraObj.transform.forward;
 		Vector3 right = cameraObj.transform.right;
 		forward.y = 0f;
@@ -85,18 +88,39 @@ public class NormalMovement : MonoBehaviour
 		right.Normalize();
 
 		movementVector = right * Xinput + forward * Yinput;
+
 		SetAnimations();
 	}
 
     private void FixedUpdate()
     {
-        Movement();
-        Rotation();
+		// Get the velocity
+		Vector3 horizontalMove = rb.velocity;
+		// Don't use the vertical velocity
+		horizontalMove.y = 0;
+		// Calculate the approximate distance that will be traversed
+		float distance = horizontalMove.magnitude * Time.fixedDeltaTime;
+		// Normalize horizontalMove since it should be used to indicate direction
+		horizontalMove.Normalize();
+
+		RaycastHit hit;
+
+		// Check if the body's current velocity will result in a collision
+		if (!IsGrounded() && rb.SweepTest(horizontalMove, out hit, distance, QueryTriggerInteraction.Ignore))
+		{
+			// If so, stop the movement
+			rb.velocity = new Vector3(0, -10, 0);
+		} 
+		else
+		{
+			MovementVelocity();
+			Rotation();
+		}
     }
 
-    private void Movement()
+    private void MovementVelocity()
     {
-			RB.velocity = movementVector.normalized * speed + new Vector3(0.0f, RB.velocity.y, 0.0f);
+		rb.velocity = movementVector.normalized * speed + new Vector3(0.0f, rb.velocity.y, 0.0f);
 	}
 
     private void Rotation()
@@ -127,7 +151,7 @@ public class NormalMovement : MonoBehaviour
 			faceRotation = Quaternion.LookRotation(movementVector);
 		}
 
-		RB.rotation = Quaternion.Slerp(RB.rotation, faceRotation, rotationSpeed * Time.deltaTime);
+		rb.rotation = Quaternion.Slerp(rb.rotation, faceRotation, rotationSpeed * Time.deltaTime);
 	}
 
 	private void SetAnimations()
@@ -156,7 +180,7 @@ public class NormalMovement : MonoBehaviour
 
 		float direction = Vector3.SignedAngle(movementVector, transform.forward, Vector3.up);
 
-		// Pään kääntyminen, kusee 180 asteella:
+		// Pään kääntyminen:
 		if (direction > 5)
 		{
 			animator.SetFloat("Direction", 0f, 0.2f, Time.deltaTime);
