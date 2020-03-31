@@ -9670,6 +9670,7 @@ GameObject:
   - component: {fileID: 8015385247905240609}
   - component: {fileID: 297630585115066162}
   - component: {fileID: 2248579621394851753}
+  - component: {fileID: 281340829520726145}
   m_Layer: 2
   m_Name: pine new (8)
   m_TagString: Untagged
@@ -9765,3 +9766,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 297630584806769344}
+--- !u!136 &281340829520726145
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575003665719255805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.93
+  m_Height: 2.73
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.4, z: 0}
