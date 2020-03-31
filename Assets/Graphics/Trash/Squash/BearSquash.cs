@@ -25,10 +25,11 @@ public class BearSquash : MonoBehaviour
     void Start()
     {
         canSquash = false;
+        canJumpSquish = true;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         sphere.radius = 0.97f + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
 
@@ -55,18 +56,18 @@ public class BearSquash : MonoBehaviour
         BearArmature.transform.rotation = player.transform.rotation;
 
         if (player.GetComponent<RollingMovement>().canJump && canSquash && !up)
-        {
+            {
             playerYVelocity = player.GetComponent<Rigidbody>().velocity.y;
             GetComponent<Animator>().SetTrigger("Squash");
             landingParticles.Play();
             canSquash = false;
         }
-        if (!player.GetComponent<RollingMovement>().canJump)
+        if (!player.GetComponent<RollingMovement>().canJump && player.GetComponent<Rigidbody>().velocity.y < -0.1)
         {
             canSquash = true;
         }
 
-        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up)
+        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up && Input.GetButton("Jump"))
         {
             GetComponent<Animator>().SetTrigger("Jump Squish");
             canJumpSquish = false;
