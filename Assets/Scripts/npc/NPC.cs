@@ -6,16 +6,20 @@ using UnityEngine.AI;
 public class NPC : MonoBehaviour
 {
     private NavMeshAgent navagent;
-    public GameObject Player;
+    public GameObject skinnyBear;
+    public GameObject fatBear;
+    private GameObject player;
     public float fleeDistance = 4.0f;
+    private float speed;
 
     public Vector3[] patrolPoints;
     private int patrolPoint = 0;
 
     void Patrol()
     {
+        GetComponent<NavMeshAgent>().speed = speed;
         //navagent.Resume();
-        if(patrolPoints.Length > 0)
+        if (patrolPoints.Length > 0)
         {
             navagent.SetDestination(patrolPoints[patrolPoint]);
             if (transform.position.x == patrolPoints[patrolPoint].x && transform.position.z == patrolPoints[patrolPoint].z)
@@ -35,18 +39,28 @@ public class NPC : MonoBehaviour
     void Start()
     {
         navagent = GetComponent<NavMeshAgent>();
+        speed = GetComponent<NavMeshAgent>().speed; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Patrol();
+        if(PlayerScript.inBallMode == false) {
+            player = skinnyBear;
+        }
+        if(PlayerScript.inBallMode == true)
+        {
+            player = fatBear;
+        }
+        
 
-        float distance = Vector3.Distance(transform.position, Player.transform.position);
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        
 
         if (distance < fleeDistance)
         {
-            Vector3 dirToPlayer = transform.position - Player.transform.position;
+            GetComponent<NavMeshAgent>().speed = (speed * 3);
+            Vector3 dirToPlayer = transform.position - player.transform.position;
             Vector3 newPosition = transform.position + dirToPlayer;
 
             navagent.SetDestination(newPosition);
