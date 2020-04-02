@@ -211,7 +211,6 @@ public class NormalMovement : MonoBehaviour
 
 	public void ChangeToBall()
 	{
-	
 		GetComponentInParent<PlayerScript>().TurnToBall(transform.position);
 		gameObject.SetActive(false);
 	}

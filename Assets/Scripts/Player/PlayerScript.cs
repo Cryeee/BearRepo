@@ -76,7 +76,8 @@ public class PlayerScript : MonoBehaviour
         GameObject skinny = transform.Find("BearSkinny").gameObject;
         ball.transform.position = currentPostion;
         ball.transform.rotation = skinny.transform.rotation;
-        //ball.transform.Rotate(-90, 0, 0);
+        //ball.transform.localRotation = Quaternion.Euler(new Vector3(skinny.transform.rotation.x, skinny.transform.rotation.y, skinny.transform.rotation.z));
+        ball.transform.Rotate(-90, 0, 0);
         ball.SetActive(true);
         inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;

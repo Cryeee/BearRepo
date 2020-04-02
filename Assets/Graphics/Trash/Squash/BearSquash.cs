@@ -21,20 +21,21 @@ public class BearSquash : MonoBehaviour
 
     public SphereCollider sphere;
 
-    public Quaternion rotOffset;
+    public float foodEaten;
 
     // Start is called before the first frame update
     void Start()
     {
         canSquash = false;
         canJumpSquish = true;
-        player.transform.Rotate(-90, 0, 0);
+        foodEaten = playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        sphere.radius = 0.97f + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
+        
+        sphere.radius = 0.97f - foodEaten + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
 
         //particle system
         if (!player.GetComponent<RollingMovement>().canJump)
