@@ -20,7 +20,10 @@ public class PlayerScript : MonoBehaviour
     public UIFoodsEaten uiFoodsEaten;
 
     private Vector3 PlayerScaleSize;
+
+    public GameObject postpros;
     // Start is called before the first frame update
+
     void Start()
     {
 
@@ -70,9 +73,12 @@ public class PlayerScript : MonoBehaviour
 	public void TurnToBall(Vector3 currentPostion)
 	{
 		GameObject ball = transform.Find("pallokarhu").gameObject;
-		ball.transform.position = currentPostion;
-		ball.SetActive(true);
-		inBallMode = true;
+        GameObject skinny = transform.Find("BearSkinny").gameObject;
+        ball.transform.position = currentPostion;
+        ball.transform.rotation = skinny.transform.rotation;
+        ball.transform.Rotate(-90, 0, 0);
+        ball.SetActive(true);
+        inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
 	}
