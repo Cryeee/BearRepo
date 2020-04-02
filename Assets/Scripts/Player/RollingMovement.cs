@@ -60,7 +60,8 @@ public class RollingMovement : MonoBehaviour
         RB = this.GetComponent<Rigidbody>();
         playerInputs = gameObject.GetComponent<InputHandler>();
 
-        
+
+
     }
     public void CheckJumping()
     {
@@ -234,5 +235,7 @@ public class RollingMovement : MonoBehaviour
             jumped = true;
         }
     }
+
+
 }
 

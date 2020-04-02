@@ -76,11 +76,12 @@ public class PlayerScript : MonoBehaviour
         GameObject skinny = transform.Find("BearSkinny").gameObject;
         ball.transform.position = currentPostion;
         ball.transform.rotation = skinny.transform.rotation;
-        ball.transform.Rotate(-90, 0, 0);
+        //ball.transform.Rotate(-90, 0, 0);
         ball.SetActive(true);
         inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
 	}
+
     
 }

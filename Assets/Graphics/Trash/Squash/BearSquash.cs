@@ -21,11 +21,14 @@ public class BearSquash : MonoBehaviour
 
     public SphereCollider sphere;
 
+    public Quaternion rotOffset;
+
     // Start is called before the first frame update
     void Start()
     {
         canSquash = false;
         canJumpSquish = true;
+        player.transform.Rotate(-90, 0, 0);
     }
 
     // Update is called once per frame
