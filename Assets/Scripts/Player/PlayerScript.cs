@@ -22,6 +22,8 @@ public class PlayerScript : MonoBehaviour
     private Vector3 PlayerScaleSize;
 
     public GameObject postpros;
+
+    public ParticleSystem puffParticles;
     // Start is called before the first frame update
 
     void Start()
@@ -68,6 +70,11 @@ public class PlayerScript : MonoBehaviour
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = sizeIncrease * 7 + 7;
         CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[2].m_Radius = sizeIncrease * 5 + 5;
         uiFoodsEaten.DisplayFoodItem(uiIcon);
+
+        if (AmountOfFoodEaten > 80)
+        {
+            puffParticles.Play();
+        }
     }
 
 	public void TurnToBall(Vector3 currentPostion)

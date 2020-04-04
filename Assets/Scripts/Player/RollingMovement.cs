@@ -54,6 +54,10 @@ public class RollingMovement : MonoBehaviour
 
     private float acceleration;
 
+    public ParticleSystem puffParticles;
+
+    private bool playedParticles = false;
+
     void Start()
     {
         //get RigidBody from childObject
@@ -98,6 +102,14 @@ public class RollingMovement : MonoBehaviour
 
     void Update()
     {
+        //particle when second fattness level
+        if (GetComponentInParent<PlayerScript>().AmountOfFoodEaten >= 50 && !playedParticles)
+        {
+            puffParticles.Play();
+            Jump();
+            playedParticles = true;
+        }
+
         //canJump = IsGrounded();
         //print("magnitude * 0.3:      -->" + 0.3f * RB.velocity.magnitude);
 
