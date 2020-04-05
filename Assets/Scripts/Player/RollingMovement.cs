@@ -58,6 +58,8 @@ public class RollingMovement : MonoBehaviour
 
     private bool playedParticles = false;
 
+    public Animator ballAnim;
+
     void Start()
     {
         //get RigidBody from childObject
@@ -75,8 +77,7 @@ public class RollingMovement : MonoBehaviour
             {
                 //canJump = true;
                 invokeOnlyOnce = false;
-                Invoke("LedgeDelay", 0.3f); // TODO ei aika based
-                
+                Invoke("LedgeDelay", 0.3f); // TODO ei aika base
 
             }
         }
@@ -106,8 +107,11 @@ public class RollingMovement : MonoBehaviour
         if (GetComponentInParent<PlayerScript>().AmountOfFoodEaten >= 50 && !playedParticles)
         {
             puffParticles.Play();
-            Jump();
+            RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps
+            RB.AddForce(0, jumpForce/2, 0);
+            ballAnim.SetTrigger("XL");
             playedParticles = true;
+
         }
 
         //canJump = IsGrounded();
