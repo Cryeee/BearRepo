@@ -195,6 +195,7 @@ public class NormalMovement : MonoBehaviour
 
 	public void Fatten(float amount)
 	{
+		animator.SetTrigger("Chomp");
 		fatnessAmount += amount;
 		if (fatnessAmount < 1)
 		{
