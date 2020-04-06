@@ -21,16 +21,25 @@ public class BearSquash : MonoBehaviour
 
     public SphereCollider sphere;
 
+    public float foodEaten;
+
     // Start is called before the first frame update
     void Start()
     {
         canSquash = false;
+        canJumpSquish = true;
+        foodEaten = playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110;
     }
 
     // Update is called once per frame
     void Update()
     {
-        sphere.radius = 0.97f + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
+        //So that collider won't grow bigger than player model
+        if(playerparent.GetComponent<PlayerScript>().sizeIncrease <= 1)
+        {
+            sphere.radius = 0.97f + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
+        }
+       
 
         //particle system
         if (!player.GetComponent<RollingMovement>().canJump)
@@ -55,18 +64,18 @@ public class BearSquash : MonoBehaviour
         BearArmature.transform.rotation = player.transform.rotation;
 
         if (player.GetComponent<RollingMovement>().canJump && canSquash && !up)
-        {
+            {
             playerYVelocity = player.GetComponent<Rigidbody>().velocity.y;
             GetComponent<Animator>().SetTrigger("Squash");
             landingParticles.Play();
             canSquash = false;
         }
-        if (!player.GetComponent<RollingMovement>().canJump)
+        if (!player.GetComponent<RollingMovement>().canJump && player.GetComponent<Rigidbody>().velocity.y < -0.1)
         {
             canSquash = true;
         }
 
-        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up)
+        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up && Input.GetButton("Jump"))
         {
             GetComponent<Animator>().SetTrigger("Jump Squish");
             canJumpSquish = false;

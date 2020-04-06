@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
 
     private AnimationClip fatteningAnimation;
 
-    float sizeIncrease = 0;
+    public float sizeIncrease = 0;
 
 	public static bool inBallMode = false;
 
@@ -20,18 +20,18 @@ public class PlayerScript : MonoBehaviour
     public UIFoodsEaten uiFoodsEaten;
 
     private Vector3 PlayerScaleSize;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+    public GameObject postpros;
+
+    public ParticleSystem puffParticles;
+    // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
 
-        fatAnimator.Play("Fattening", 2, sizeIncrease);
+       
 
         //PlayerScaleSize.Set(1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10);
         //transform.localScale = PlayerScaleSize;
@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) {
             //AmountOfFoodEaten++;
             //sizeIncrease = AmountOfFoodEaten / 100;
-            Grow(1, null);
+            Grow(10, null);
         }
 
         //transform.rotation.y = 
@@ -61,20 +61,37 @@ public class PlayerScript : MonoBehaviour
 		}
 		
         sizeIncrease = AmountOfFoodEaten / 100;
-        CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[0].m_Radius = sizeIncrease * 5 + 5;
-        CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = sizeIncrease * 7 + 7;
-        CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[2].m_Radius = sizeIncrease * 5 + 5;
+
+        // 1 means max fatness
+        if(sizeIncrease <= 1)
+        {
+            fatAnimator.Play("Fattening", 2, sizeIncrease);
+            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[0].m_Radius = sizeIncrease * 5 + 5;
+            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = sizeIncrease * 7 + 7;
+            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[2].m_Radius = sizeIncrease * 5 + 5;
+        }
+       
         uiFoodsEaten.DisplayFoodItem(uiIcon);
+
+        if (AmountOfFoodEaten > 80)
+        {
+            puffParticles.Play();
+        }
     }
 
 	public void TurnToBall(Vector3 currentPostion)
 	{
 		GameObject ball = transform.Find("pallokarhu").gameObject;
-		ball.transform.position = currentPostion;
-		ball.SetActive(true);
-		inBallMode = true;
+        GameObject skinny = transform.Find("BearSkinny").gameObject;
+        ball.transform.position = currentPostion;
+        ball.transform.rotation = skinny.transform.rotation;
+        //ball.transform.localRotation = Quaternion.Euler(new Vector3(skinny.transform.rotation.x, skinny.transform.rotation.y, skinny.transform.rotation.z));
+        ball.transform.Rotate(-90, 0, 0);
+        ball.SetActive(true);
+        inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
 	}
+
     
 }

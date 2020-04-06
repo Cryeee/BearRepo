@@ -195,15 +195,24 @@ public class NormalMovement : MonoBehaviour
 
 	public void Fatten(float amount)
 	{
+		animator.SetTrigger("Chomp");
 		fatnessAmount += amount;
 		if (fatnessAmount < 1)
 		{
 			animator.SetFloat("Fatness", fatnessAmount);
 		} else if (fatnessAmount > 1)
 		{
-			GetComponentInParent<PlayerScript>().TurnToBall(transform.position);
-			gameObject.SetActive(false);
+			//GetComponentInParent<PlayerScript>().TurnToBall(transform.position);
+			animator.SetTrigger("Ball");
+			Jump();
+			//gameObject.SetActive(false);
 		}
 		
+	}
+
+	public void ChangeToBall()
+	{
+		GetComponentInParent<PlayerScript>().TurnToBall(transform.position);
+		gameObject.SetActive(false);
 	}
 }
