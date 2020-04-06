@@ -49,7 +49,7 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
     {
         // read value from keyboard/controller
         MoveInput = inputManager.Player.Walking.ReadValue<Vector2>();
-        CameraInput = inputManager.Player.Camera.ReadValue<Vector2>();
+        CameraInput = inputManager.Player.Camera.ReadValue<Vector2>().normalized;
     }
 
     #region Interface-methods (don't touch)
