@@ -21,15 +21,18 @@ public class BearSquash : MonoBehaviour
 
     public SphereCollider sphere;
 
+    public float foodEaten;
+
     // Start is called before the first frame update
     void Start()
     {
         canSquash = false;
         canJumpSquish = true;
+        foodEaten = playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //So that collider won't grow bigger than player model
         if(playerparent.GetComponent<PlayerScript>().sizeIncrease <= 1)
