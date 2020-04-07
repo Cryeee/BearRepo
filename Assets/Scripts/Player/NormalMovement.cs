@@ -61,7 +61,7 @@ public class NormalMovement : MonoBehaviour
 
 	IEnumerator LandCheck()
 	{
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.01f);
 		while (true)
 		{
 			if (IsGrounded())

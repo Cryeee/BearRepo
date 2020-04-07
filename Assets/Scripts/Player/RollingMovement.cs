@@ -60,6 +60,8 @@ public class RollingMovement : MonoBehaviour
 
     public Animator ballAnim;
 
+    public static bool pressedJumpButton;
+
     void Start()
     {
         //get RigidBody from childObject
@@ -98,6 +100,7 @@ public class RollingMovement : MonoBehaviour
         print("asd omnta kertaa tää tulee");
         canJump = false;
         invokeOnlyOnce = true;
+        pressedJumpButton = false;
         //jumped = false;
     }
 
@@ -249,7 +252,13 @@ public class RollingMovement : MonoBehaviour
             RB.AddForce(0, jumpForce, 0);
             canJump = false;
             jumped = true;
+            pressedJumpButton = true;
         }
+    }
+
+    public void Fatten()
+    {
+        ballAnim.SetTrigger("Chomp");
     }
 
 
