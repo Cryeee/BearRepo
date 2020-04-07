@@ -21,9 +21,6 @@ public class PlayerScript : MonoBehaviour
 
     private Vector3 PlayerScaleSize;
 
-    public GameObject postpros;
-
-    public ParticleSystem puffParticles;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -72,11 +69,6 @@ public class PlayerScript : MonoBehaviour
         }
        
         uiFoodsEaten.DisplayFoodItem(uiIcon);
-
-        if (AmountOfFoodEaten > 80)
-        {
-            puffParticles.Play();
-        }
     }
 
 	public void TurnToBall(Vector3 currentPostion)
