@@ -56,7 +56,12 @@ public class PlayerScript : MonoBehaviour
 			// If food item has grow amount of one, bear gets 1 unit fatter
 			GetComponentInChildren<NormalMovement>().Fatten(amount / 10);
 		}
-		
+        else if (GetComponentInChildren<RollingMovement>() != null)
+        {
+            // If food item has grow amount of one, bear gets 1 unit fatter
+            GetComponentInChildren<RollingMovement>().Fatten();
+        }
+
         sizeIncrease = AmountOfFoodEaten / 100;
 
         // 1 means max fatness
