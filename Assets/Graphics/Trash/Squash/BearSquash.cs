@@ -37,7 +37,7 @@ public class BearSquash : MonoBehaviour
         //So that collider won't grow bigger than player model
         if(playerparent.GetComponent<PlayerScript>().sizeIncrease <= 1)
         {
-            sphere.radius = 0.97f + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
+            sphere.radius = 0.9f - foodEaten + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
         }
        
 
