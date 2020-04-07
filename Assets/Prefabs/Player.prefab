@@ -9909,18 +9909,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2197600590712786797}
+  playerparent: {fileID: 0}
   BearTargerParentPos: {fileID: 0}
   BearArmature: {fileID: 9089453820591120520}
   Offset: {x: 0, y: 1, z: 0}
-  Offset2: {x: 0, y: 0, z: 0}
   canSquash: 0
   canJumpSquish: 0
-  root: {fileID: 0}
   rollingPuffParticles: {fileID: 677056410}
   landingParticles: {fileID: 1134022164}
   up: 0
   playerYVelocity: 0
   sphere: {fileID: 9056928336906040279}
+  foodEaten: 0
 --- !u!1 &1485970635442068717
 GameObject:
   m_ObjectHideFlags: 0
@@ -10167,6 +10167,8 @@ MonoBehaviour:
   turboDirection: {x: 0, y: 0, z: 0}
   turboSpeed: 150
   accelerationVector: {x: 0, y: 0, z: 0}
+  puffParticles: {fileID: 0}
+  ballAnim: {fileID: 0}
 --- !u!114 &8517087096372398898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10181,7 +10183,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CMFreeLookCamera: {fileID: 0}
   AmountOfFoodEaten: 0
+  fatAnimator: {fileID: 0}
+  sizeIncrease: 0
   uiFoodsEaten: {fileID: 0}
+  postpros: {fileID: 0}
+  puffParticles: {fileID: 0}
 --- !u!135 &9056928336906040279
 SphereCollider:
   m_ObjectHideFlags: 0
