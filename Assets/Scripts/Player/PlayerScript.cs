@@ -23,6 +23,9 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject postpros;
 
+    public ParticleSystem puffParticles;
+    // Start is called before the first frame update
+
     // Update is called once per frame
     void Update()
     {
@@ -69,6 +72,11 @@ public class PlayerScript : MonoBehaviour
         }
        
         uiFoodsEaten.DisplayFoodItem(uiIcon);
+
+        if (AmountOfFoodEaten > 80)
+        {
+            puffParticles.Play();
+        }
     }
 
 	public void TurnToBall(Vector3 currentPostion)
@@ -77,11 +85,13 @@ public class PlayerScript : MonoBehaviour
         GameObject skinny = transform.Find("BearSkinny").gameObject;
         ball.transform.position = currentPostion;
         ball.transform.rotation = skinny.transform.rotation;
+        //ball.transform.localRotation = Quaternion.Euler(new Vector3(skinny.transform.rotation.x, skinny.transform.rotation.y, skinny.transform.rotation.z));
         ball.transform.Rotate(-90, 0, 0);
         ball.SetActive(true);
         inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
 	}
+
     
 }
