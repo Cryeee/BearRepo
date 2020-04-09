@@ -21,9 +21,6 @@ public class PlayerScript : MonoBehaviour
 
     private Vector3 PlayerScaleSize;
 
-    public GameObject postpros;
-
-    public ParticleSystem puffParticles;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -59,7 +56,12 @@ public class PlayerScript : MonoBehaviour
 			// If food item has grow amount of one, bear gets 1 unit fatter
 			GetComponentInChildren<NormalMovement>().Fatten(amount / 10);
 		}
-		
+        else if (GetComponentInChildren<RollingMovement>() != null)
+        {
+            // If food item has grow amount of one, bear gets 1 unit fatter
+            GetComponentInChildren<RollingMovement>().Fatten();
+        }
+
         sizeIncrease = AmountOfFoodEaten / 100;
 
         // 1 means max fatness
@@ -72,11 +74,6 @@ public class PlayerScript : MonoBehaviour
         }
        
         uiFoodsEaten.DisplayFoodItem(uiIcon);
-
-        if (AmountOfFoodEaten > 80)
-        {
-            puffParticles.Play();
-        }
     }
 
 	public void TurnToBall(Vector3 currentPostion)

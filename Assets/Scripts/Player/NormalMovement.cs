@@ -32,12 +32,10 @@ public class NormalMovement : MonoBehaviour
 	private float speed;
 	private float fatnessAmount = 0;
 
-	private GameController gameController;
 	private InputHandler playerInputs;
 	private GameObject cameraObj;
 	private Rigidbody rb;
 	private Animator animator;
-	private bool hitWall = false;
 
 	#region Jump Stuff
 	
@@ -57,6 +55,22 @@ public class NormalMovement : MonoBehaviour
 			rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
 			//rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
 			animator.SetTrigger("Jump");
+			StartCoroutine(LandCheck());
+		}
+	}
+
+	IEnumerator LandCheck()
+	{
+		yield return new WaitForSeconds(0.01f);
+		while (true)
+		{
+			if (IsGrounded())
+			{
+				Debug.Log("ländäs");
+				animator.SetTrigger("Land");
+				break;
+			}
+			yield return new WaitForSeconds(0.1f);
 		}
 	}
 
@@ -69,7 +83,6 @@ public class NormalMovement : MonoBehaviour
         playerInputs = gameObject.GetComponentInParent<InputHandler>();
 		animator = GetComponent<Animator>();
 		cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
-		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 		speed = walkSpeed;
     }
 
