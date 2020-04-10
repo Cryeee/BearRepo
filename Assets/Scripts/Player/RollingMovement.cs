@@ -54,13 +54,22 @@ public class RollingMovement : MonoBehaviour
 
     private float acceleration;
 
+    public ParticleSystem puffParticles;
+
+    private bool playedParticles = false;
+
+    public Animator ballAnim;
+
+    public static bool pressedJumpButton;
+
     void Start()
     {
         //get RigidBody from childObject
         RB = this.GetComponent<Rigidbody>();
         playerInputs = gameObject.GetComponent<InputHandler>();
 
-        
+
+
     }
     public void CheckJumping()
     {
@@ -70,8 +79,7 @@ public class RollingMovement : MonoBehaviour
             {
                 //canJump = true;
                 invokeOnlyOnce = false;
-                Invoke("LedgeDelay", 0.3f); // TODO ei aika based
-                
+                Invoke("LedgeDelay", 0.3f); // TODO ei aika base
 
             }
         }
@@ -92,11 +100,23 @@ public class RollingMovement : MonoBehaviour
         print("asd omnta kertaa tää tulee");
         canJump = false;
         invokeOnlyOnce = true;
+        pressedJumpButton = false;
         //jumped = false;
     }
 
     void Update()
     {
+        //particle when second fattness level
+        if (GetComponentInParent<PlayerScript>().AmountOfFoodEaten >= 50 && !playedParticles)
+        {
+            puffParticles.Play();
+            RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps
+            RB.AddForce(0, jumpForce/2, 0);
+            ballAnim.SetTrigger("XL");
+            playedParticles = true;
+
+        }
+
         //canJump = IsGrounded();
         //print("magnitude * 0.3:      -->" + 0.3f * RB.velocity.magnitude);
 
@@ -232,7 +252,15 @@ public class RollingMovement : MonoBehaviour
             RB.AddForce(0, jumpForce, 0);
             canJump = false;
             jumped = true;
+            pressedJumpButton = true;
         }
     }
+
+    public void Fatten()
+    {
+        ballAnim.SetTrigger("Chomp");
+    }
+
+
 }
 

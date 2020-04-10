@@ -21,30 +21,47 @@ public class BearSquash : MonoBehaviour
 
     public SphereCollider sphere;
 
+    public float foodEaten;
+
+    // References for scripts & components
+    private PlayerScript playerScript;
+    private RollingMovement rollingMovement;
+    private Rigidbody rb;
+    private Animator animator;
+
+    private void Awake()
+    {
+        playerScript = playerparent.GetComponent<PlayerScript>();
+        rollingMovement = player.GetComponent<RollingMovement>();
+        rb = player.GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         canSquash = false;
         canJumpSquish = true;
+        foodEaten = playerScript.AmountOfFoodEaten / 110;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //So that collider won't grow bigger than player model
-        if(playerparent.GetComponent<PlayerScript>().sizeIncrease <= 1)
+        if (playerScript.sizeIncrease <= 1)
         {
-            sphere.radius = 0.97f + (playerparent.GetComponent<PlayerScript>().AmountOfFoodEaten / 110);
+            sphere.radius = 0.9f - foodEaten + (playerScript.AmountOfFoodEaten / 110);
         }
-       
+
 
         //particle system
-        if (!player.GetComponent<RollingMovement>().canJump)
+        if (!rollingMovement.canJump)
         {
             rollingPuffParticles.Play();
         }
 
-        if (player.GetComponent<Rigidbody>().velocity.y < 0)
+        if (rb.velocity.y < 0)
         {
             up = false;
         }
@@ -53,32 +70,34 @@ public class BearSquash : MonoBehaviour
             up = true;
         }
 
-        GetComponent<Animator>().SetLayerWeight(1, Mathf.Abs(playerYVelocity)/10);
+        animator.SetLayerWeight(1, Mathf.Abs(playerYVelocity) / 10);
 
         transform.rotation = Quaternion.identity;
         BearTargerParentPos.transform.position = player.transform.position - Offset;
         transform.position = BearTargerParentPos.transform.position;
         BearArmature.transform.rotation = player.transform.rotation;
 
-        if (player.GetComponent<RollingMovement>().canJump && canSquash && !up)
-            {
-            playerYVelocity = player.GetComponent<Rigidbody>().velocity.y;
-            GetComponent<Animator>().SetTrigger("Squash");
+        if (rollingMovement.canJump && canSquash && !up)
+        {
+            playerYVelocity = rb.velocity.y;
+            animator.SetTrigger("Squash");
             landingParticles.Play();
             canSquash = false;
         }
-        if (!player.GetComponent<RollingMovement>().canJump && player.GetComponent<Rigidbody>().velocity.y < -0.1)
+        if (!rollingMovement.canJump && rb.velocity.y < -0.1)
         {
             canSquash = true;
         }
 
-        if (!player.GetComponent<RollingMovement>().canJump && canJumpSquish && up && Input.GetButton("Jump"))
+        Debug.Log(rollingMovement.jumped);
+
+        if (!rollingMovement.canJump && canJumpSquish && up && RollingMovement.pressedJumpButton)
         {
-            GetComponent<Animator>().SetTrigger("Jump Squish");
+            animator.SetTrigger("Jump Squish");
             canJumpSquish = false;
         }
 
-        if (player.GetComponent<RollingMovement>().canJump && !up)
+        if (rollingMovement.canJump && !up)
         {
             canJumpSquish = true;
         }

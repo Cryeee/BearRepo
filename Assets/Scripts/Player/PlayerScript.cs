@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 
     private Vector3 PlayerScaleSize;
 
-    public GameObject postpros;
+    // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
@@ -56,7 +56,12 @@ public class PlayerScript : MonoBehaviour
 			// If food item has grow amount of one, bear gets 1 unit fatter
 			GetComponentInChildren<NormalMovement>().Fatten(amount / 10);
 		}
-		
+        else if (GetComponentInChildren<RollingMovement>() != null)
+        {
+            // If food item has grow amount of one, bear gets 1 unit fatter
+            GetComponentInChildren<RollingMovement>().Fatten();
+        }
+
         sizeIncrease = AmountOfFoodEaten / 100;
 
         // 1 means max fatness
@@ -77,11 +82,13 @@ public class PlayerScript : MonoBehaviour
         GameObject skinny = transform.Find("BearSkinny").gameObject;
         ball.transform.position = currentPostion;
         ball.transform.rotation = skinny.transform.rotation;
+        //ball.transform.localRotation = Quaternion.Euler(new Vector3(skinny.transform.rotation.x, skinny.transform.rotation.y, skinny.transform.rotation.z));
         ball.transform.Rotate(-90, 0, 0);
         ball.SetActive(true);
         inBallMode = true;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = ball.transform;
 		CMFreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = ball.transform;
 	}
+
     
 }
