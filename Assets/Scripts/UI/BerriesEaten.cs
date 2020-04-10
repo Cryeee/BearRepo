@@ -18,6 +18,10 @@ public class BerriesEaten : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        uiText.text = "Food Eaten: " + player.GetComponent<PlayerScript>().AmountOfFoodEaten + " / " + GameController.targetFoodAmount;
+        if(GameController.gameOn)
+        {
+            uiText.text = "Food Eaten: " + player.GetComponent<PlayerScript>().AmountOfFoodEaten + " / " + GameController.targetFoodAmount;
+        }
+       
     }
 }
