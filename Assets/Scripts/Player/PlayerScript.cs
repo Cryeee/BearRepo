@@ -21,9 +21,23 @@ public class PlayerScript : MonoBehaviour
 
     private Vector3 PlayerScaleSize;
 
-    // Start is called before the first frame update
+    public GameObject bodyColldier;
 
-    // Update is called once per frame
+    private void OnEnable()
+    {
+        GameController.OnGameStart += EnableCollider;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnGameStart -= EnableCollider;
+    }
+
+    private void EnableCollider()
+    {
+        bodyColldier.SetActive(true);
+    }
+
     void Update()
     {
        // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;

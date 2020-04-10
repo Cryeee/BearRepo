@@ -62,15 +62,18 @@ public class RollingMovement : MonoBehaviour
 
     public static bool pressedJumpButton;
 
-    void Start()
+    void Awake()
     {
         //get RigidBody from childObject
         RB = this.GetComponent<Rigidbody>();
-        playerInputs = gameObject.GetComponent<InputHandler>();
-
-
-
+        playerInputs = gameObject.GetComponentInParent<InputHandler>();
     }
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void CheckJumping()
     {
         if (!IsGrounded() && !jumped)

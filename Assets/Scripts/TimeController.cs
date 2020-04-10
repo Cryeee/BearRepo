@@ -21,13 +21,17 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        roundTime += Time.deltaTime;
+        if(GameController.gameOn)
+        {
+            time += Time.deltaTime;
+            roundTime += Time.deltaTime;
 
 
-        //inspector stuff
-        inspectorRoundTime = roundTime;
-        inspectorTime = time;
+            //inspector stuff
+            inspectorRoundTime = roundTime;
+            inspectorTime = time;
+        }
+       
     }
 
     public static void ResetTimers(float resetToAmount)
