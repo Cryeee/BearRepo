@@ -142,5 +142,15 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 		//	}
 		//}
 	}
-	#endregion
+
+    public void OnMouse(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    public void OnMouseClick(InputAction.CallbackContext context)
+    {
+       
+    }
+    #endregion
 }

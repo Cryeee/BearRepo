@@ -216,17 +216,25 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Point",
+                    "name": "SUbmit",
                     "type": "PassThrough",
-                    "id": "7f2c34b7-c431-442e-82c6-1e93e19fdc34",
-                    "expectedControlType": "Vector2",
+                    "id": "b6321c07-c80c-495f-80a3-01251bbccd45",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "SUbmit",
-                    "type": "Button",
-                    "id": "b6321c07-c80c-495f-80a3-01251bbccd45",
+                    "name": "Mouse",
+                    "type": "PassThrough",
+                    "id": "4f721fdb-95ff-4019-97be-80f69da62723",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MouseClick",
+                    "type": "PassThrough",
+                    "id": "b53ebea5-c0d0-480b-ac2f-d10f83a28f9a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -455,23 +463,34 @@
                 },
                 {
                     "name": "",
-                    "id": "b9406f82-05a2-4267-aec5-cbd0a45a800c",
-                    "path": "<Pointer>/position",
+                    "id": "e8df3b8c-b82c-47f8-96ef-7775697494b0",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Point",
+                    "action": "SUbmit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b871d7d8-72b0-4523-9356-25a7fe5a4de6",
-                    "path": "*/{Submit}",
+                    "id": "4737292e-1257-4082-a924-f9a81e34f99a",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SUbmit",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e6f6035-3b29-4612-a329-c6993da00d2c",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
