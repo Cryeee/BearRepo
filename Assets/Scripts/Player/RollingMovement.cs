@@ -60,6 +60,8 @@ public class RollingMovement : MonoBehaviour
 
     public Animator ballAnim;
 
+    public ParticleSystem splashParticles;
+
     void Start()
     {
         //get RigidBody from childObject
@@ -252,6 +254,21 @@ public class RollingMovement : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            splashParticles.Play();
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            splashParticles.Play();
+        }
+    }
 
 }
 
