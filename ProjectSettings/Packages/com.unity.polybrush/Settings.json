@@ -89,11 +89,6 @@
                 "value": "{\"m_Value\":5.0}"
             },
             {
-                "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-                "key": "Brush.VertexBillboardSize",
-                "value": "{\"m_Value\":2.0}"
-            },
-            {
                 "type": "UnityEditor.Polybrush.PrefabLoadout, Unity.Polybrush.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ScatteringEditor.userLoadout",
                 "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"129427c1c280f449f85798df4fb4e459\",\"type\":2},\"prefab\":{\"fileID\":4938463173624599279,\"guid\":\"a563edb357488214da54ac4334ceea6e\",\"type\":3}}]}}"
