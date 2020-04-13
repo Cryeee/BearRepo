@@ -14,6 +14,7 @@ public class BearSquash : MonoBehaviour
 
     public ParticleSystem rollingPuffParticles;
     public ParticleSystem landingParticles;
+    public ParticleSystem splashParticles;
 
     public bool up;
 
@@ -100,6 +101,14 @@ public class BearSquash : MonoBehaviour
         if (rollingMovement.canJump && !up)
         {
             canJumpSquish = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            splashParticles.Play();
         }
     }
 }

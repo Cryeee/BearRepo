@@ -62,15 +62,13 @@ public class RollingMovement : MonoBehaviour
 
     public static bool pressedJumpButton;
 
-    void Awake()
+    public ParticleSystem splashParticles;
+
+    void Start()
     {
         //get RigidBody from childObject
         RB = this.GetComponent<Rigidbody>();
         playerInputs = gameObject.GetComponentInParent<InputHandler>();
-    }
-
-    private void Start()
-    {
         gameObject.SetActive(false);
     }
 
@@ -262,6 +260,21 @@ public class RollingMovement : MonoBehaviour
     public void Fatten()
     {
         ballAnim.SetTrigger("Chomp");
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            splashParticles.Play();
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            splashParticles.Play();
+        }
     }
 
 
