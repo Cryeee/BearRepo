@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grass textre3
+  m_Name: Grass calm1
   m_Shader: {fileID: -6465566751694194690, guid: 5744aa203e35cd940a04cbbd19cf0a6f,
     type: 3}
   m_ShaderKeywords: 
@@ -84,14 +84,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_1EF03AF9: 0
-    - Vector1_10A03F58: 0.5
+    - Vector1_10A03F58: 0.4
     - Vector1_37AAE46C: 1
     - Vector1_3EA21445: 0.5
     - Vector1_652CCD31: 0
     - Vector1_80716DE: 0.2
     - Vector1_992E780E: 0.75
     - Vector1_AA4D56F5: 1
-    - Vector1_AFD4237A: 0.2
+    - Vector1_AFD4237A: 0.1
     - Vector1_D38ADF1E: 0.5
     - Vector1_D95F5F92: 0.2
     - Vector1_EBD2F3E7: 0.5
