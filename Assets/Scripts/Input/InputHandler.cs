@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 
 public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager.IPlayerActions
@@ -13,6 +14,9 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 	NormalMovement normalMovement;
 
     MenuController menuController;
+
+    public static Action OnPaused;
+
     // value of WASD/Left Stick
     public Vector2 MoveInput
     {
@@ -26,6 +30,16 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
         private set;
     }
 
+    private void OnEnable()
+    {
+        GameController.OnGameStart += EnableControls;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnGameStart -= EnableControls;
+    }
+
     private void Awake()
     {
         // InputManager is set in UnityEditor, this object
@@ -36,12 +50,8 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
         inputManager.Player.SetCallbacks(this);
         inputManager.UI.SetCallbacks(this);
 
-        //Enables controls
-        inputManager.Enable();
-        
         rollingMovement = GetComponentInChildren<RollingMovement>();
 		normalMovement = GetComponentInChildren<NormalMovement>();
-
         menuController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MenuController>();
     }
 
@@ -50,6 +60,12 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
         // read value from keyboard/controller
         MoveInput = inputManager.Player.Walking.ReadValue<Vector2>();
         CameraInput = inputManager.Player.Camera.ReadValue<Vector2>().normalized;
+    }
+
+    private void EnableControls()
+    {
+        //Enables controls
+        inputManager.Enable();
     }
 
     #region Interface-methods (don't touch)
@@ -62,11 +78,11 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
     {
         if(context.performed)
         {
-            if(rollingMovement != null)
+            if(rollingMovement != null && PlayerScript.inBallMode)
             {
                 rollingMovement.Jump();
 
-            } else if (normalMovement != null)
+            } else if (normalMovement != null && PlayerScript.inBallMode == false)
 			{
 				normalMovement.Jump();
 			}
@@ -126,5 +142,15 @@ public class InputHandler : MonoBehaviour, InputManager.IUIActions, InputManager
 		//	}
 		//}
 	}
-	#endregion
+
+    public void OnMouse(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    public void OnMouseClick(InputAction.CallbackContext context)
+    {
+       
+    }
+    #endregion
 }

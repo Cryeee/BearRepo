@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -27,11 +28,46 @@ public class GameController : MonoBehaviour
     public int amountNeededFor2Stars;
     public int amountNeededFor3Stars;
 
+
+    public bool skipStartCutsceneButton = true;
+    public static bool skipCutscene = true;
+    public float startCutsceneTime = 10;
+    public static Action OnGameStart;
+    public static bool gameOn = false;
+
+    private void Awake()
+    {
+        // So we don't have to watch the start animation every time:
+        skipCutscene = skipStartCutsceneButton;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<PlayerScript>();
+
+        // Set skipCutsceneButton to true on inspector to skip start:
+        if (!skipCutscene)
+        {
+            Invoke("GameStart", startCutsceneTime);
+        }
+        else
+        {
+            GameStart();
+        }
     }
+
+    void GameStart()
+    {
+        // Tell listeners that gameplay starts now:
+        // Controls, collider, camera movement enable
+        OnGameStart?.Invoke();
+
+        // Tell UI elements to be visible
+        // (Time- and Food UI scripts check this bool on update)
+        gameOn = true;
+    }
+
 
     // Update is called once per frame
     void Update()
