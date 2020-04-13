@@ -62,7 +62,6 @@ public class RollingMovement : MonoBehaviour
 
     public static bool pressedJumpButton;
 
-    void Awake()
     public ParticleSystem splashParticles;
 
     void Start()
@@ -70,10 +69,6 @@ public class RollingMovement : MonoBehaviour
         //get RigidBody from childObject
         RB = this.GetComponent<Rigidbody>();
         playerInputs = gameObject.GetComponentInParent<InputHandler>();
-    }
-
-    private void Start()
-    {
         gameObject.SetActive(false);
     }
 
