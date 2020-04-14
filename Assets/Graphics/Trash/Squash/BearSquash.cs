@@ -43,7 +43,7 @@ public class BearSquash : MonoBehaviour
     {
         canSquash = false;
         canJumpSquish = true;
-        foodEaten = playerScript.AmountOfFoodEaten / 110;
+        foodEaten = PlayerScript.AmountOfFoodEaten / 110;
     }
 
     // Update is called once per frame
@@ -52,7 +52,7 @@ public class BearSquash : MonoBehaviour
         //So that collider won't grow bigger than player model
         if (playerScript.sizeIncrease <= 1)
         {
-            sphere.radius = 0.9f - foodEaten + (playerScript.AmountOfFoodEaten / 110);
+            sphere.radius = 0.9f - foodEaten + (PlayerScript.AmountOfFoodEaten / 110);
         }
 
 
@@ -89,8 +89,6 @@ public class BearSquash : MonoBehaviour
         {
             canSquash = true;
         }
-
-        Debug.Log(rollingMovement.jumped);
 
         if (!rollingMovement.canJump && canJumpSquish && up && RollingMovement.pressedJumpButton)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class MenuController : MonoBehaviour
@@ -15,11 +16,6 @@ public class MenuController : MonoBehaviour
     public InputManager inputManager;
     public EventSystem eventSystem;
     public GameObject firstSelectedObject;
-
-    void Update()
-    {
-        //Debug.Log(playerInput.currentActionMap);
-    }
 
     public void Pause()
     {
@@ -43,6 +39,18 @@ public class MenuController : MonoBehaviour
         }
 
         paused = !paused;
+    }
+
+    public void LoadScene(int index)
+    {
+        StartCoroutine(LoadSceneIE(index));
+    }
+    
+    private IEnumerator LoadSceneIE(int index)
+    {
+        yield return new WaitForSecondsRealtime(1);
+        SceneManager.LoadScene(index);
+        Time.timeScale = 1;
     }
 
 
