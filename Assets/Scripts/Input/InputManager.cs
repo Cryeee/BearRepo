@@ -229,17 +229,25 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Point"",
+                    ""name"": ""SUbmit"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""7f2c34b7-c431-442e-82c6-1e93e19fdc34"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""b6321c07-c80c-495f-80a3-01251bbccd45"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""SUbmit"",
-                    ""type"": ""Button"",
-                    ""id"": ""b6321c07-c80c-495f-80a3-01251bbccd45"",
+                    ""name"": ""Mouse"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4f721fdb-95ff-4019-97be-80f69da62723"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b53ebea5-c0d0-480b-ac2f-d10f83a28f9a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -468,23 +476,34 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b9406f82-05a2-4267-aec5-cbd0a45a800c"",
-                    ""path"": ""<Pointer>/position"",
+                    ""id"": ""e8df3b8c-b82c-47f8-96ef-7775697494b0"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Point"",
+                    ""action"": ""SUbmit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b871d7d8-72b0-4523-9356-25a7fe5a4de6"",
-                    ""path"": ""*/{Submit}"",
+                    ""id"": ""4737292e-1257-4082-a924-f9a81e34f99a"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SUbmit"",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e6f6035-3b29-4612-a329-c6993da00d2c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -503,8 +522,9 @@ public class @InputManager : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
-        m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_SUbmit = m_UI.FindAction("SUbmit", throwIfNotFound: true);
+        m_UI_Mouse = m_UI.FindAction("Mouse", throwIfNotFound: true);
+        m_UI_MouseClick = m_UI.FindAction("MouseClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -620,15 +640,17 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Navigate;
-    private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_SUbmit;
+    private readonly InputAction m_UI_Mouse;
+    private readonly InputAction m_UI_MouseClick;
     public struct UIActions
     {
         private @InputManager m_Wrapper;
         public UIActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
-        public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputAction @SUbmit => m_Wrapper.m_UI_SUbmit;
+        public InputAction @Mouse => m_Wrapper.m_UI_Mouse;
+        public InputAction @MouseClick => m_Wrapper.m_UI_MouseClick;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -641,12 +663,15 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Navigate.started -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
                 @Navigate.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
                 @Navigate.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
-                @Point.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
-                @Point.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
-                @Point.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
                 @SUbmit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSUbmit;
                 @SUbmit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSUbmit;
                 @SUbmit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSUbmit;
+                @Mouse.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMouse;
+                @Mouse.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMouse;
+                @Mouse.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMouse;
+                @MouseClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMouseClick;
+                @MouseClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMouseClick;
+                @MouseClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMouseClick;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -654,12 +679,15 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Navigate.started += instance.OnNavigate;
                 @Navigate.performed += instance.OnNavigate;
                 @Navigate.canceled += instance.OnNavigate;
-                @Point.started += instance.OnPoint;
-                @Point.performed += instance.OnPoint;
-                @Point.canceled += instance.OnPoint;
                 @SUbmit.started += instance.OnSUbmit;
                 @SUbmit.performed += instance.OnSUbmit;
                 @SUbmit.canceled += instance.OnSUbmit;
+                @Mouse.started += instance.OnMouse;
+                @Mouse.performed += instance.OnMouse;
+                @Mouse.canceled += instance.OnMouse;
+                @MouseClick.started += instance.OnMouseClick;
+                @MouseClick.performed += instance.OnMouseClick;
+                @MouseClick.canceled += instance.OnMouseClick;
             }
         }
     }
@@ -675,7 +703,8 @@ public class @InputManager : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnNavigate(InputAction.CallbackContext context);
-        void OnPoint(InputAction.CallbackContext context);
         void OnSUbmit(InputAction.CallbackContext context);
+        void OnMouse(InputAction.CallbackContext context);
+        void OnMouseClick(InputAction.CallbackContext context);
     }
 }
