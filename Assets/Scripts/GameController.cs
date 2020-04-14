@@ -8,31 +8,25 @@ using System;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField]
-    float roundTimeLimitEditValue = 0;
-    public static float roundTimeLimit;
+    //[SerializeField]
+    //float roundTimeLimitEditValue = 0;
+    //public static float roundTimeLimit;
 
     [SerializeField]
-    float targetFoodAmountValue = 0;
-    public static float targetFoodAmount;
-
-    public TMP_Text text;
-
-    public bool roundEnded = false;
-    public bool enoughEaten = false;
+    float targetFoodAmount = 1;
 
     private PlayerScript playerScript;
 
-    public int mapID;
-    public int amountNeededFor1Star;
-    public int amountNeededFor2Stars;
-    public int amountNeededFor3Stars;
-
+    public float timeFor1Star;
+    public float timeFor2Stars;
+    public float timeFor3Stars;
+    private int stars = 0;
 
     public bool skipStartCutsceneButton = true;
     public static bool skipCutscene = true;
     public float startCutsceneTime = 10;
     public static Action OnGameStart;
+    public static Action OnGameEnd;
     public static bool gameOn = false;
 
     private void Awake()
@@ -55,6 +49,8 @@ public class GameController : MonoBehaviour
         {
             GameStart();
         }
+
+       
     }
 
     void GameStart()
@@ -68,59 +64,60 @@ public class GameController : MonoBehaviour
         gameOn = true;
     }
 
-
-    // Update is called once per frame
-    void Update()
+    void GameEnd()
     {
-        roundTimeLimit = roundTimeLimitEditValue;
-        targetFoodAmount = targetFoodAmountValue;
+        gameOn = false;
+        OnGameEnd?.Invoke();
+        CountScore();
+        //CheckStars(playerScript.AmountOfFoodEaten);
+    }
 
-        if(roundTimeLimit < TimeController.roundTime && roundEnded == false)
+    private void Update()
+    {
+        if(PlayerScript.AmountOfFoodEaten >= targetFoodAmount && gameOn)
         {
-            roundEnded = true;
-            CheckStars(playerScript.AmountOfFoodEaten);
-            TimeLimitReached();
+            GameEnd();
         }
+    }
+
+    private void CountScore()
+    {
         
-        if(playerScript.AmountOfFoodEaten >= targetFoodAmount)
-        {
-            enoughEaten = true;
-        }
     }
 
-    void TimeLimitReached()
-    {
-        text.gameObject.SetActive(true);
-        Debug.Log("Round Ended!!!!!!!!!");
-        Invoke("RestartScene", 2);
-    }
+    //void TimeLimitReached()
+    //{
+    //    text.gameObject.SetActive(true);
+    //    Debug.Log("Round Ended!!!!!!!!!");
+    //    Invoke("RestartScene", 2);
+    //}
 
-    public void RestartScene()
-    {
-        TimeController.ResetTimers(0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    //public void RestartScene()
+    //{
+    //    TimeController.ResetTimers(0);
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //}
 
-    void CheckStars(float foodEaten)
-    {
-        int score = 0;
+    //void CheckStars(float foodEaten)
+    //{
+    //    int score = 0;
 
-        if(foodEaten >= amountNeededFor1Star)
-        {
-            score = 1;
-        }
-        if (foodEaten >= amountNeededFor2Stars)
-        {
-            score = 2;
-        }
-        if (foodEaten >= amountNeededFor3Stars)
-        {
-            score = 3;
-        }
+    //    if(foodEaten >= amountNeededFor1Star)
+    //    {
+    //        score = 1;
+    //    }
+    //    if (foodEaten >= amountNeededFor2Stars)
+    //    {
+    //        score = 2;
+    //    }
+    //    if (foodEaten >= amountNeededFor3Stars)
+    //    {
+    //        score = 3;
+    //    }
 
-        if(score > StaticScoreScript.starArray[mapID])
-        {
-            StaticScoreScript.starArray[mapID] = score;
-        }
-    }
+    //    if(score > StaticScoreScript.starArray[mapID])
+    //    {
+    //        StaticScoreScript.starArray[mapID] = score;
+    //    }
+    //}
 }

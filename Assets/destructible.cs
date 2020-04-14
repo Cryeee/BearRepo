@@ -18,7 +18,7 @@ public class destructible : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //if(other.gameObject.tag == "Player" && PlayerScript.inBallMode && player.GetComponent<Rigidbody>().velocity.y < -2)
-           if (other.gameObject.tag == "Player" && PlayerScript.inBallMode && player.GetComponent<PlayerScript>().AmountOfFoodEaten >= 50)
+           if (other.gameObject.tag == "Player" && PlayerScript.inBallMode && PlayerScript.AmountOfFoodEaten >= 50)
             {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);

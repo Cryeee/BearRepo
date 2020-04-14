@@ -108,7 +108,7 @@ public class RollingMovement : MonoBehaviour
     void Update()
     {
         //particle when second fattness level
-        if (GetComponentInParent<PlayerScript>().AmountOfFoodEaten >= 50 && !playedParticles)
+        if (PlayerScript.AmountOfFoodEaten >= 50 && !playedParticles)
         {
             puffParticles.Play();
             RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps
