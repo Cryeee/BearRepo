@@ -15,12 +15,13 @@ public class GameController : MonoBehaviour
     [SerializeField]
     float targetFoodAmount = 1;
 
-    private PlayerScript playerScript;
+    public static float targetFoodAmountValue;
 
     public float timeFor1Star;
     public float timeFor2Stars;
     public float timeFor3Stars;
-    private int stars = 0;
+
+    public static int stars = 0;
 
     public bool skipStartCutsceneButton = true;
     public static bool skipCutscene = true;
@@ -38,7 +39,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<PlayerScript>();
+        targetFoodAmountValue = targetFoodAmount;
 
         // Set skipCutsceneButton to true on inspector to skip start:
         if (!skipCutscene)
@@ -67,9 +68,15 @@ public class GameController : MonoBehaviour
     void GameEnd()
     {
         gameOn = false;
-        OnGameEnd?.Invoke();
         CountScore();
+        OnGameEnd?.Invoke();
+        Invoke("BackToMenu", 4f);
         //CheckStars(playerScript.AmountOfFoodEaten);
+    }
+
+    void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void Update()
@@ -82,7 +89,23 @@ public class GameController : MonoBehaviour
 
     private void CountScore()
     {
-        
+        if(TimeController.time <= timeFor3Stars)
+        {
+            // 3 tähteä
+            stars = 3;
+        } else if (TimeController.time <= timeFor2Stars)
+        {
+            //2 tähteä
+            stars = 2;
+        } else if(TimeController.time <= timeFor1Star)
+        {
+            // 1 tähti
+            stars = 1;
+        } else if(TimeController.time > timeFor1Star)
+        {
+            // 0 tähteä
+            stars = 0;
+        }
     }
 
     //void TimeLimitReached()
