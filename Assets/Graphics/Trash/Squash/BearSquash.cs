@@ -90,8 +90,6 @@ public class BearSquash : MonoBehaviour
             canSquash = true;
         }
 
-        Debug.Log(rollingMovement.jumped);
-
         if (!rollingMovement.canJump && canJumpSquish && up && RollingMovement.pressedJumpButton)
         {
             animator.SetTrigger("Jump Squish");

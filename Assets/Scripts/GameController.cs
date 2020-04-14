@@ -9,11 +9,11 @@ using System;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
-    float roundTimeLimitEditValue;
+    float roundTimeLimitEditValue = 0;
     public static float roundTimeLimit;
 
     [SerializeField]
-    float targetFoodAmountValue;
+    float targetFoodAmountValue = 0;
     public static float targetFoodAmount;
 
     public TMP_Text text;
