@@ -35,6 +35,11 @@ public class PlayerScript : MonoBehaviour
         GameController.OnGameStart -= EnableCollider;
     }
 
+    private void Start()
+    {
+        AmountOfFoodEaten = 0;
+    }
+
     private void EnableCollider()
     {
         bodyColldier.SetActive(true);

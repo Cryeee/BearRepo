@@ -24,13 +24,14 @@ public class UIManager : MonoBehaviour
 	{
 		if (GameController.gameOn)
 		{
-			foodEatenText.text = "Food Eaten: " + PlayerScript.AmountOfFoodEaten;
+			foodEatenText.text = "Food Eaten: " + PlayerScript.AmountOfFoodEaten + " / " + GameController.targetFoodAmountValue;
 			timeText.text = TimeController.roundTime.ToString("F2");
 		}
 	}
 
 	private void ShowStars()
 	{
-		//endScoreText.text = ""
+		endScoreText.text = "Stars earned: " + GameController.stars.ToString();
+		endScoreText.gameObject.SetActive(true);
 	}
 }
