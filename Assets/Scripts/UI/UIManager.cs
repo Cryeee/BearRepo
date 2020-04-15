@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
 	{
 		// hakee animaattorin canvas objektista
 		canvasAnimator = GetComponent<Animator>();
+		canLevelUp = true;
 	}
 
 	private void Update()
@@ -39,12 +40,12 @@ public class UIManager : MonoBehaviour
 		}
 
 		// UI Bounce 
-		if (PlayerScript.AmountOfFoodEaten >= 11 && PlayerScript.AmountOfFoodEaten <= 20 && canLevelUp || PlayerScript.AmountOfFoodEaten >= 50 && canLevelUp)
+		if (PlayerScript.AmountOfFoodEaten >= 30 && PlayerScript.AmountOfFoodEaten <= 35 && canLevelUp || PlayerScript.AmountOfFoodEaten >= 50 && canLevelUp)
 		{
 			canvasAnimator.SetTrigger("LevelUp");
 			canLevelUp = false;
 		}
-		if (PlayerScript.AmountOfFoodEaten > 20 && PlayerScript.AmountOfFoodEaten < 40)
+		if (PlayerScript.AmountOfFoodEaten > 35 && PlayerScript.AmountOfFoodEaten < 40)
 		{
 			canLevelUp = true;
 		}
