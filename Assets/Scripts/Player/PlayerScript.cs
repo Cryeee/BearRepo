@@ -39,6 +39,7 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         AmountOfFoodEaten = 0;
+        inBallMode = false;
     }
 
     private void EnableCollider()
