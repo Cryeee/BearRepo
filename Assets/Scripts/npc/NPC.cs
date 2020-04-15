@@ -11,9 +11,12 @@ public class NPC : MonoBehaviour
     private GameObject player;
     public float fleeDistance = 4.0f;
     private float speed;
+    private Animator animator;
+    public GameObject rabbitAnims;
 
     public Vector3[] patrolPoints;
     private int patrolPoint = 0;
+
 
     void Patrol()
     {
@@ -32,30 +35,35 @@ public class NPC : MonoBehaviour
                 patrolPoint = 0;
             }
         }
-    } 
+    }
 
+    void Awake()
+    {
+        animator = rabbitAnims.GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         navagent = GetComponent<NavMeshAgent>();
-        speed = GetComponent<NavMeshAgent>().speed; 
+        speed = GetComponent<NavMeshAgent>().speed;
+        //animator = GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PlayerScript.inBallMode == false) {
+        if (PlayerScript.inBallMode == false) {
             player = skinnyBear;
         }
-        if(PlayerScript.inBallMode == true)
+        if (PlayerScript.inBallMode == true)
         {
             player = fatBear;
         }
-        
+
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        
+
 
         if (distance < fleeDistance)
         {
@@ -70,6 +78,15 @@ public class NPC : MonoBehaviour
         else
         {
             Patrol();
+        }
+        if (navagent.velocity != Vector3.zero)
+        {
+            Debug.Log("liikkuu");
+            animator.SetBool("walk", true);
+        }
+        else
+        {
+            animator.SetBool("walk", false);
         }
     }
 }
