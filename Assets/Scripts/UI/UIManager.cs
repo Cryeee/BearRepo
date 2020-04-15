@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
 	{
 		if (GameController.gameOn)
 		{
-			foodEatenText.text = "Food Eaten: " + PlayerScript.AmountOfFoodEaten + " / " + GameController.targetFoodAmountValue;
+			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " / " + GameController.targetFoodAmountValue + " kg";
 			timeText.text = TimeController.roundTime.ToString("F2");
 		}
 	}
