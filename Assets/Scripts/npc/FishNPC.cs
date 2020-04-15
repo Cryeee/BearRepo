@@ -42,7 +42,7 @@ public class FishNPC : MonoBehaviour
         //InvokeRepeating("TurnAround", 5.0f, 10.0f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Orbit();
         Swim();
