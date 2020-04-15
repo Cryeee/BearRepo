@@ -492,7 +492,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 260, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -8644705368740883066}
+  m_DefaultState: {fileID: 8050390689465919541}
 --- !u!1109 &-5834436861985917397
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -1231,13 +1231,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Land
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

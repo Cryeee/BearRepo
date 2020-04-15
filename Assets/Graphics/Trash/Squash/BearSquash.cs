@@ -14,7 +14,6 @@ public class BearSquash : MonoBehaviour
 
     public ParticleSystem rollingPuffParticles;
     public ParticleSystem landingParticles;
-    public ParticleSystem splashParticles;
 
     public bool up;
 
@@ -110,3 +109,5 @@ public class BearSquash : MonoBehaviour
         }
     }
 }
+
+
