@@ -101,13 +101,13 @@ public class BearSquash : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Ground")
-        {
-            splashParticles.Play();
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Ground")
+    //    {
+    //        splashParticles.Play();
+    //    }
+    //}
 }
 
 
