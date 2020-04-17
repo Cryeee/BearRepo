@@ -32,7 +32,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8093166262658094749}
   m_Layer: 0
-  m_Name: Rabbit (2) 1
+  m_Name: Rabbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9713,7 +9713,7 @@ PrefabInstance:
     - target: {fileID: 6031628264401685548, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: growAmount
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685549, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
@@ -9778,7 +9778,7 @@ PrefabInstance:
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
@@ -9793,7 +9793,7 @@ PrefabInstance:
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[0].x
-      value: 11
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
@@ -9803,12 +9803,12 @@ PrefabInstance:
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[0].z
-      value: 77
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[1].x
-      value: 12
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
@@ -9818,7 +9818,7 @@ PrefabInstance:
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[1].z
-      value: 78
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
@@ -9833,32 +9833,32 @@ PrefabInstance:
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[3].x
-      value: -75
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[3].z
-      value: 4
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[2].x
-      value: -70
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[2].y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[2].z
-      value: 7
+      value: 117
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: patrolPoints.Array.data[3].y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685554, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
@@ -10000,7 +10000,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9605e0ba3d14d0e4e97aba2e1f680a80,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.97
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9605e0ba3d14d0e4e97aba2e1f680a80,
         type: 3}

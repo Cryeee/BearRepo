@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
 	public TMP_Text timeText;
 	public Image goldenBerry;
 
+	private Animator canvasAnimator;
+	public bool canLevelUp;
+
 	private void OnEnable()
 	{
 		GameController.OnGameEnd += ShowStars;
@@ -23,12 +26,31 @@ public class UIManager : MonoBehaviour
 		GoldenBerry.OnPickedGoldenBerry -= DisplayBerry;
 	}
 
+	private void Awake()
+	{
+		// hakee animaattorin canvas objektista
+		canvasAnimator = GetComponent<Animator>();
+		canLevelUp = true;
+	}
+
 	private void Update()
 	{
+		// näyttää syödyn määrän ja ajan
 		if (GameController.gameOn)
 		{
-			foodEatenText.text = "Food Eaten: " + PlayerScript.AmountOfFoodEaten + " / " + GameController.targetFoodAmountValue;
+			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " / " + GameController.targetFoodAmountValue + " kg";
 			timeText.text = TimeController.roundTime.ToString("F2");
+		}
+
+		// UI Bounce 
+		if (PlayerScript.AmountOfFoodEaten >= 30 && PlayerScript.AmountOfFoodEaten <= 35 && canLevelUp || PlayerScript.AmountOfFoodEaten >= 50 && canLevelUp)
+		{
+			canvasAnimator.SetTrigger("LevelUp");
+			canLevelUp = false;
+		}
+		if (PlayerScript.AmountOfFoodEaten > 35 && PlayerScript.AmountOfFoodEaten < 40)
+		{
+			canLevelUp = true;
 		}
 	}
 

@@ -24,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     private Vector3 PlayerScaleSize;
 
     public GameObject bodyColldier;
+    private float tmp = 0;
 
     private void OnEnable()
     {
@@ -38,6 +39,7 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         AmountOfFoodEaten = 0;
+        inBallMode = false;
     }
 
     private void EnableCollider()
@@ -70,7 +72,12 @@ public class PlayerScript : MonoBehaviour
     public void Grow(float amount, Sprite uiIcon)
     {
         AmountOfFoodEaten += amount;
-        Debug.Log(AmountOfFoodEaten);
+        if(inBallMode)
+        {
+            tmp += amount;
+            sizeIncrease = tmp / 100;
+        }
+
 		// Fattens skinny bear if player is in skinny mode
 		if(GetComponentInChildren<NormalMovement>() != null)
 		{
@@ -83,7 +90,7 @@ public class PlayerScript : MonoBehaviour
             GetComponentInChildren<RollingMovement>().Fatten();
         }
 
-        sizeIncrease = AmountOfFoodEaten / 100;
+        
 
         // 1 means max fatness
         if(sizeIncrease <= 1)
