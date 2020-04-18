@@ -6,8 +6,10 @@ using Cinemachine;
 public class PlayerScript : MonoBehaviour
 {
     public GameObject CMFreeLookCamera;
-    public float AmountOfFoodEaten;
+    public static float AmountOfFoodEaten = 0;
 
+    [Tooltip("Paljonko pitää syödä että muuttuu palloks? 1 = 1 marja")]
+    public int amountFoodToBallMode = 30;
     public Animator fatAnimator;
 
     private AnimationClip fatteningAnimation;
@@ -22,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     private Vector3 PlayerScaleSize;
 
     public GameObject bodyColldier;
+    private float tmp = 0;
 
     private void OnEnable()
     {
@@ -31,6 +34,12 @@ public class PlayerScript : MonoBehaviour
     private void OnDisable()
     {
         GameController.OnGameStart -= EnableCollider;
+    }
+
+    private void Start()
+    {
+        AmountOfFoodEaten = 0;
+        inBallMode = false;
     }
 
     private void EnableCollider()
@@ -63,12 +72,17 @@ public class PlayerScript : MonoBehaviour
     public void Grow(float amount, Sprite uiIcon)
     {
         AmountOfFoodEaten += amount;
+        if(inBallMode)
+        {
+            tmp += amount;
+            sizeIncrease = tmp / 100;
+        }
 
 		// Fattens skinny bear if player is in skinny mode
 		if(GetComponentInChildren<NormalMovement>() != null)
 		{
-			// If food item has grow amount of one, bear gets 1 unit fatter
-			GetComponentInChildren<NormalMovement>().Fatten(amount / 10);
+			// If food item has grow amount of one, bear gets 1/30 unit fatter
+			GetComponentInChildren<NormalMovement>().Fatten(amount / amountFoodToBallMode);
 		}
         else if (GetComponentInChildren<RollingMovement>() != null)
         {
@@ -76,7 +90,7 @@ public class PlayerScript : MonoBehaviour
             GetComponentInChildren<RollingMovement>().Fatten();
         }
 
-        sizeIncrease = AmountOfFoodEaten / 100;
+        
 
         // 1 means max fatness
         if(sizeIncrease <= 1)

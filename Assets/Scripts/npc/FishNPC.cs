@@ -12,13 +12,13 @@ public class FishNPC : MonoBehaviour
 
     void Orbit()
     {
-        transform.RotateAround(center.transform.position, Vector3.right, orbitSpeed * Time.deltaTime);
+        transform.RotateAround(center.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
     }
 
     void Swim()
     {
         float x = transform.position.x;
-        float y = Mathf.Sin(Time.time * frequency) *height; 
+        float y = transform.position.y + Mathf.Sin(Time.time * frequency) *height; 
         float z = transform.position.z;
 
         transform.position = new Vector3(x, y, z);
@@ -34,19 +34,19 @@ public class FishNPC : MonoBehaviour
     void TurnAround()
     {
         swimSpeed = (-1 * swimSpeed);
-        Debug.Log("saatana");
+        //Debug.Log("saatana");
     }
 
     private void Start()
     {
-        InvokeRepeating("TurnAround", 5.0f, 10.0f);
+        //InvokeRepeating("TurnAround", 5.0f, 10.0f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //Orbit();
+        Orbit();
         Swim();
-        Move();
+        //Move();
         
     }
 

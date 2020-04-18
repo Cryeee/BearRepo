@@ -8,31 +8,26 @@ using System;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField]
-    float roundTimeLimitEditValue;
-    public static float roundTimeLimit;
+    //[SerializeField]
+    //float roundTimeLimitEditValue = 0;
+    //public static float roundTimeLimit;
 
     [SerializeField]
-    float targetFoodAmountValue;
-    public static float targetFoodAmount;
+    float targetFoodAmount = 1;
 
-    public TMP_Text text;
+    public static float targetFoodAmountValue;
 
-    public bool roundEnded = false;
-    public bool enoughEaten = false;
+    public float timeFor1Star;
+    public float timeFor2Stars;
+    public float timeFor3Stars;
 
-    private PlayerScript playerScript;
-
-    public int mapID;
-    public int amountNeededFor1Star;
-    public int amountNeededFor2Stars;
-    public int amountNeededFor3Stars;
-
+    public static int stars = 0;
 
     public bool skipStartCutsceneButton = true;
     public static bool skipCutscene = true;
     public float startCutsceneTime = 10;
     public static Action OnGameStart;
+    public static Action OnGameEnd;
     public static bool gameOn = false;
 
     private void Awake()
@@ -44,7 +39,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<PlayerScript>();
+        targetFoodAmountValue = targetFoodAmount;
 
         // Set skipCutsceneButton to true on inspector to skip start:
         if (!skipCutscene)
@@ -55,6 +50,8 @@ public class GameController : MonoBehaviour
         {
             GameStart();
         }
+
+       
     }
 
     void GameStart()
@@ -68,59 +65,82 @@ public class GameController : MonoBehaviour
         gameOn = true;
     }
 
-
-    // Update is called once per frame
-    void Update()
+    void GameEnd()
     {
-        roundTimeLimit = roundTimeLimitEditValue;
-        targetFoodAmount = targetFoodAmountValue;
+        gameOn = false;
+        CountScore();
+        OnGameEnd?.Invoke();
+        Invoke("BackToMenu", 4f);
+        //CheckStars(playerScript.AmountOfFoodEaten);
+    }
 
-        if(roundTimeLimit < TimeController.roundTime && roundEnded == false)
+    void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void Update()
+    {
+        if(PlayerScript.AmountOfFoodEaten >= targetFoodAmount && gameOn)
         {
-            roundEnded = true;
-            CheckStars(playerScript.AmountOfFoodEaten);
-            TimeLimitReached();
-        }
-        
-        if(playerScript.AmountOfFoodEaten >= targetFoodAmount)
-        {
-            enoughEaten = true;
+            GameEnd();
         }
     }
 
-    void TimeLimitReached()
+    private void CountScore()
     {
-        text.gameObject.SetActive(true);
-        Debug.Log("Round Ended!!!!!!!!!");
-        Invoke("RestartScene", 2);
+        if(TimeController.time <= timeFor3Stars)
+        {
+            // 3 tähteä
+            stars = 3;
+        } else if (TimeController.time <= timeFor2Stars)
+        {
+            //2 tähteä
+            stars = 2;
+        } else if(TimeController.time <= timeFor1Star)
+        {
+            // 1 tähti
+            stars = 1;
+        } else if(TimeController.time > timeFor1Star)
+        {
+            // 0 tähteä
+            stars = 0;
+        }
     }
 
-    public void RestartScene()
-    {
-        TimeController.ResetTimers(0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    //void TimeLimitReached()
+    //{
+    //    text.gameObject.SetActive(true);
+    //    Debug.Log("Round Ended!!!!!!!!!");
+    //    Invoke("RestartScene", 2);
+    //}
 
-    void CheckStars(float foodEaten)
-    {
-        int score = 0;
+    //public void RestartScene()
+    //{
+    //    TimeController.ResetTimers(0);
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //}
 
-        if(foodEaten >= amountNeededFor1Star)
-        {
-            score = 1;
-        }
-        if (foodEaten >= amountNeededFor2Stars)
-        {
-            score = 2;
-        }
-        if (foodEaten >= amountNeededFor3Stars)
-        {
-            score = 3;
-        }
+    //void CheckStars(float foodEaten)
+    //{
+    //    int score = 0;
 
-        if(score > StaticScoreScript.starArray[mapID])
-        {
-            StaticScoreScript.starArray[mapID] = score;
-        }
-    }
+    //    if(foodEaten >= amountNeededFor1Star)
+    //    {
+    //        score = 1;
+    //    }
+    //    if (foodEaten >= amountNeededFor2Stars)
+    //    {
+    //        score = 2;
+    //    }
+    //    if (foodEaten >= amountNeededFor3Stars)
+    //    {
+    //        score = 3;
+    //    }
+
+    //    if(score > StaticScoreScript.starArray[mapID])
+    //    {
+    //        StaticScoreScript.starArray[mapID] = score;
+    //    }
+    //}
 }
