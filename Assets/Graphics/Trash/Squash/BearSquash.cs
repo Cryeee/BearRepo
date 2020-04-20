@@ -14,7 +14,6 @@ public class BearSquash : MonoBehaviour
 
     public ParticleSystem rollingPuffParticles;
     public ParticleSystem landingParticles;
-    public ParticleSystem splashParticles;
 
     public bool up;
 
@@ -52,7 +51,7 @@ public class BearSquash : MonoBehaviour
         //So that collider won't grow bigger than player model
         if (playerScript.sizeIncrease <= 1)
         {
-            sphere.radius = 0.9f - foodEaten + (PlayerScript.AmountOfFoodEaten / 110);
+            sphere.radius = 0.9f - foodEaten + ((PlayerScript.AmountOfFoodEaten - 30) / 110);
         }
 
 
@@ -102,11 +101,13 @@ public class BearSquash : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Ground")
-        {
-            splashParticles.Play();
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Ground")
+    //    {
+    //        splashParticles.Play();
+    //    }
+    //}
 }
+
+
