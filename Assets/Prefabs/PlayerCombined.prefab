@@ -11040,19 +11040,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2818066505796497292, guid: a23a97de1e819aa4d9b60d4438a882b1,
         type: 3}
-      propertyPath: turboSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818066505796497292, guid: a23a97de1e819aa4d9b60d4438a882b1,
-        type: 3}
       propertyPath: puffParticles
       value: 
       objectReference: {fileID: 100533717}
     - target: {fileID: 2818066505796497292, guid: a23a97de1e819aa4d9b60d4438a882b1,
         type: 3}
-      propertyPath: ballAnim
-      value: 
-      objectReference: {fileID: 8913723082251508662}
+      propertyPath: jumpForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818066505796497292, guid: a23a97de1e819aa4d9b60d4438a882b1,
+        type: 3}
+      propertyPath: ballSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818066505796497292, guid: a23a97de1e819aa4d9b60d4438a882b1,
+        type: 3}
+      propertyPath: turboSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2892484968205335934, guid: a23a97de1e819aa4d9b60d4438a882b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11337,6 +11342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6.694328
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334965500601061286, guid: a23a97de1e819aa4d9b60d4438a882b1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7985427732870461069, guid: a23a97de1e819aa4d9b60d4438a882b1,
         type: 3}
