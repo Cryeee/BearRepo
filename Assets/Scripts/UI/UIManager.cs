@@ -9,18 +9,22 @@ public class UIManager : MonoBehaviour
 	public TMP_Text endScoreText;
 	public TMP_Text foodEatenText;
 	public TMP_Text timeText;
+	public Image goldenBerry;
 
 	private Animator canvasAnimator;
 	public bool canLevelUp;
 
+
 	private void OnEnable()
 	{
 		GameController.OnGameEnd += ShowStars;
+		GoldenBerry.OnPickedGoldenBerry += DisplayBerry;
 	}
 
 	private void OnDisable()
 	{
 		GameController.OnGameEnd -= ShowStars;
+		GoldenBerry.OnPickedGoldenBerry -= DisplayBerry;
 	}
 
 	private void Awake()
@@ -55,5 +59,10 @@ public class UIManager : MonoBehaviour
 	{
 		endScoreText.text = "Stars earned: " + GameController.stars.ToString();
 		endScoreText.gameObject.SetActive(true);
+	}
+
+	private void DisplayBerry()
+	{
+		goldenBerry.gameObject.SetActive(true);
 	}
 }
