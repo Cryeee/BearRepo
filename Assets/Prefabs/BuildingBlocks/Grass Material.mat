@@ -175,7 +175,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_3635ABA8: {r: 0.34020114, g: 0.46243954, b: 0.5188679, a: 0}
+    - Color_3635ABA8: {r: 0.38968495, g: 0.5306693, b: 0.5943396, a: 0}
     - Color_47C1DAA8: {r: 1, g: 1, b: 1, a: 0}
     - Color_A25C2C58: {r: 1, g: 1, b: 1, a: 0}
     - Color_E97E485D: {r: 1, g: 1, b: 1, a: 0}
