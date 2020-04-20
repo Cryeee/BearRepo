@@ -8,12 +8,11 @@ public class FreeLookCameraInput : MonoBehaviour
     // THIS CLASS MAKES CINEMACHINE CAMERA USE NEW INPUT SYSTEM
     // AND WORK ON CONTROLLER AS WELL
 
-    private InputHandler controls;
+    public InputHandler controls;
 
     void Start()
     {
         CinemachineCore.GetInputAxis = GetAxisCustom;
-        controls = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<InputHandler>();
     }
 
     public float GetAxisCustom(string axisName)
