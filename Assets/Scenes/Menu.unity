@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.608
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37023407, g: 0.513156, b: 0.5958513, a: 0.608}
+  m_IndirectSpecularColor: {r: 0.37019947, g: 0.5131301, b: 0.595862, a: 0.608}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2619,7 +2619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2496969, y: -24.47995}
+  m_AnchoredPosition: {x: -1.2496969, y: -32.5}
   m_SizeDelta: {x: 276.51, y: 96.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265886004
@@ -2668,8 +2668,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60.1
-  m_fontSizeBase: 60.1
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6746,7 +6746,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -10969,7 +10969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1062121605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10986,7 +10986,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: efcb1f72c0201a943ba06523b0e2c9a0, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 6d46e6ba2f3484bbdbed2767e5edd8ad, type: 2}
 --- !u!4 &1062121606
 Transform:
   m_ObjectHideFlags: 0
