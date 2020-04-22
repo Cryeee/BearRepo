@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
     {
         // So we don't have to watch the start animation every currentTime:
         skipCutscene = skipStartCutsceneButton;
+        stars = 0;
     }
 
     // Start is called before the first frame update

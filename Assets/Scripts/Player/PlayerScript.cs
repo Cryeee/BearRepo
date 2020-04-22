@@ -35,10 +35,14 @@ public class PlayerScript : MonoBehaviour
     {
         GameController.OnGameStart -= EnableCollider;
     }
+    private void Awake()
+    {
+        AmountOfFoodEaten = 0;
+    }
 
     private void Start()
     {
-        AmountOfFoodEaten = 0;
+       
         inBallMode = false;
     }
 
