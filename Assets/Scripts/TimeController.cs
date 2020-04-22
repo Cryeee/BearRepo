@@ -6,16 +6,15 @@ public class TimeController : MonoBehaviour
 {
 
     //show static variables in inspector
-    public float inspectorTime;
-    public float inspectorRoundTime;
+    public float inspectorStartTime = 99;
 
-    public static float time = 0;
-    public static float roundTime = 0;
+    public static float currentTime = 0;
+    public static float startTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        ResetTimers(0);
+        ResetTimers(inspectorStartTime);
     }
 
     // Update is called once per frame
@@ -23,20 +22,13 @@ public class TimeController : MonoBehaviour
     {
         if(GameController.gameOn)
         {
-            time += Time.deltaTime;
-            roundTime += Time.deltaTime;
-
-
-            //inspector stuff
-            inspectorRoundTime = roundTime;
-            inspectorTime = time;
+            currentTime -= Time.deltaTime;
         }
-       
     }
 
     public static void ResetTimers(float resetToAmount)
     {
-        time = resetToAmount;
-        roundTime = resetToAmount;
+        startTime = resetToAmount;
+        currentTime = startTime;
     }
 }

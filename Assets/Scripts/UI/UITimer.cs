@@ -17,7 +17,7 @@ public class UITimer : MonoBehaviour
     {
         if(GameController.gameOn)
         {
-            uiText.text = TimeController.roundTime.ToString("F2");
+            uiText.text = TimeController.startTime.ToString("F2");
         }
     }
 }

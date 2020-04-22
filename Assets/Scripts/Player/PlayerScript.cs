@@ -72,6 +72,13 @@ public class PlayerScript : MonoBehaviour
     public void Grow(float amount, Sprite uiIcon)
     {
         AmountOfFoodEaten += amount;
+
+        // Set new weight goal when bear gets fat enough for a new star
+        if(AmountOfFoodEaten >= GameController.nextWeightGoal && GameController.stars < 3)
+        {
+            GameController.SetNewWeightGoal(AmountOfFoodEaten);
+        }
+
         if(inBallMode)
         {
             tmp += amount;

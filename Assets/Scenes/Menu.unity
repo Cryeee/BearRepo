@@ -6403,6 +6403,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2145986053}
     m_Modifications:
+    - target: {fileID: 503643953574953328, guid: c708efe8da0ad5f43a89745eca6fe51d,
+        type: 3}
+      propertyPath: inspectorStartTime
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 503643953574953329, guid: c708efe8da0ad5f43a89745eca6fe51d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17686,6 +17691,18 @@ PrefabInstance:
     - target: {fileID: 1125663358, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
       propertyPath: roundTimeLimitEditValue
       value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125663358, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
+      propertyPath: weightFor1Star
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125663358, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
+      propertyPath: weightFor2Stars
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125663358, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
+      propertyPath: weightFor3Stars
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
         type: 3}
