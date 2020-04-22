@@ -39,8 +39,11 @@ public class UIManager : MonoBehaviour
 		// näyttää syödyn määrän ja ajan
 		if (GameController.gameOn)
 		{
-			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " / " + GameController.targetFoodAmountValue + " kg";
-			timeText.text = TimeController.roundTime.ToString("F2");
+			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " kg" + " / " + GameController.nextWeightGoal + " kg";
+			timeText.text = TimeController.currentTime.ToString("F2");
+		} else
+		{
+			timeText.text = "0.00";
 		}
 
 		// UI Bounce 
