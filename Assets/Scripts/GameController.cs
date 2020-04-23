@@ -11,15 +11,15 @@ public class GameController : MonoBehaviour
     //[SerializeField]
     //float roundTimeLimitEditValue = 0;
     //public static float roundTimeLimit;
+    public static int nextWeightGoal;
 
-    [SerializeField]
-    float targetFoodAmount = 1;
+    public int weightFor1Star;
+    public int weightFor2Stars;
+    public int weightFor3Stars;
 
-    public static float targetFoodAmountValue;
-
-    public float timeFor1Star;
-    public float timeFor2Stars;
-    public float timeFor3Stars;
+    private static int weight1;
+    private static int weight2;
+    private static int weight3;
 
     public static int stars = 0;
 
@@ -32,14 +32,14 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        // So we don't have to watch the start animation every time:
+        // So we don't have to watch the start animation every currentTime:
         skipCutscene = skipStartCutsceneButton;
+        stars = 0;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        targetFoodAmountValue = targetFoodAmount;
 
         // Set skipCutsceneButton to true on inspector to skip start:
         if (!skipCutscene)
@@ -56,6 +56,11 @@ public class GameController : MonoBehaviour
 
     void GameStart()
     {
+        nextWeightGoal = weightFor1Star;
+        weight1 = weightFor1Star;
+        weight2 = weightFor2Stars;
+        weight3 = weightFor3Stars;
+
         // Tell listeners that gameplay starts now:
         // Controls, collider, camera movement enable
         OnGameStart?.Invoke();
@@ -79,9 +84,32 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public static void SetNewWeightGoal(float amountEaten)
+    {
+        if(amountEaten >= nextWeightGoal)
+        {
+            stars++;
+            switch (stars)
+            {
+                case 1:
+                    nextWeightGoal = weight2;
+                    break;
+                case 2:
+                    nextWeightGoal = weight3;
+                    break;
+                case 3:
+                    nextWeightGoal = weight3;
+                    break;
+                default:
+                    nextWeightGoal = weight1;
+                    break;
+            }
+        }
+    }
+
     private void Update()
     {
-        if(PlayerScript.AmountOfFoodEaten >= targetFoodAmount && gameOn)
+        if (TimeController.currentTime <= 0 && gameOn)
         {
             GameEnd();
         }
@@ -89,19 +117,22 @@ public class GameController : MonoBehaviour
 
     private void CountScore()
     {
-        if(TimeController.time <= timeFor3Stars)
+        if (PlayerScript.AmountOfFoodEaten >= weightFor3Stars)
         {
             // 3 tähteä
             stars = 3;
-        } else if (TimeController.time <= timeFor2Stars)
+        }
+        else if (PlayerScript.AmountOfFoodEaten >= weightFor2Stars)
         {
             //2 tähteä
             stars = 2;
-        } else if(TimeController.time <= timeFor1Star)
+        }
+        else if (PlayerScript.AmountOfFoodEaten >= weightFor1Star)
         {
             // 1 tähti
             stars = 1;
-        } else if(TimeController.time > timeFor1Star)
+        }
+        else if (PlayerScript.AmountOfFoodEaten < weightFor1Star)
         {
             // 0 tähteä
             stars = 0;

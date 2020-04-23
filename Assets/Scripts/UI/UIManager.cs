@@ -9,18 +9,22 @@ public class UIManager : MonoBehaviour
 	public TMP_Text endScoreText;
 	public TMP_Text foodEatenText;
 	public TMP_Text timeText;
+	public Image goldenBerry;
 
 	private Animator canvasAnimator;
 	public bool canLevelUp;
 
+
 	private void OnEnable()
 	{
 		GameController.OnGameEnd += ShowStars;
+		GoldenBerry.OnPickedGoldenBerry += DisplayBerry;
 	}
 
 	private void OnDisable()
 	{
 		GameController.OnGameEnd -= ShowStars;
+		GoldenBerry.OnPickedGoldenBerry -= DisplayBerry;
 	}
 
 	private void Awake()
@@ -35,8 +39,11 @@ public class UIManager : MonoBehaviour
 		// näyttää syödyn määrän ja ajan
 		if (GameController.gameOn)
 		{
-			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " / " + GameController.targetFoodAmountValue + " kg";
-			timeText.text = TimeController.roundTime.ToString("F2");
+			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " kg" + " / " + GameController.nextWeightGoal + " kg";
+			timeText.text = TimeController.currentTime.ToString("F2");
+		} else
+		{
+			timeText.text = "0.00";
 		}
 
 		// UI Bounce 
@@ -55,5 +62,10 @@ public class UIManager : MonoBehaviour
 	{
 		endScoreText.text = "Stars earned: " + GameController.stars.ToString();
 		endScoreText.gameObject.SetActive(true);
+	}
+
+	private void DisplayBerry()
+	{
+		goldenBerry.gameObject.SetActive(true);
 	}
 }

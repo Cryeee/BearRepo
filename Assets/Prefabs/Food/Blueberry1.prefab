@@ -4938,7 +4938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growAmount: 1
-  uiIcon: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
+  uiIcon: {fileID: 21300000, guid: df1f0d807b3ebed4a9b6c374b4395f83, type: 3}
   foodParticles: {fileID: 8200824244543006877}
 --- !u!135 &5103539544906355604
 SphereCollider:

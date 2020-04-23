@@ -14,7 +14,7 @@ public class UIFoodsEaten : MonoBehaviour
         Honey
     }
 
-    // How many foods are visible at the same time
+    // How many foods are visible at the same currentTime
     public Color[] slots;
 
     // Image slot (Set imageRef's sprite)
