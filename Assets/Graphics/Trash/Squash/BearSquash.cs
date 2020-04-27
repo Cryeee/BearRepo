@@ -42,7 +42,7 @@ public class BearSquash : MonoBehaviour
     {
         canSquash = false;
         canJumpSquish = true;
-        foodEaten = PlayerScript.AmountOfFoodEaten / 110;
+        foodEaten = 0;
     }
 
     // Update is called once per frame

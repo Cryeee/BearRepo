@@ -9704,7 +9704,8 @@ PrefabInstance:
         type: 3}
       propertyPath: uiIcon
       value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: a6130e8387d1e40418ef97aea882df12,
+        type: 3}
     - target: {fileID: 6031628264401685548, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: foodParticles

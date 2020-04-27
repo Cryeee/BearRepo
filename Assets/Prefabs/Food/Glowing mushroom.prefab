@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growAmount: 2
-  uiIcon: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
+  uiIcon: {fileID: 21300000, guid: 5dd41afa293bb3b418505e37d77ebd88, type: 3}
   foodParticles: {fileID: 3359323329644742478}
 --- !u!1 &3359323329644742479
 GameObject:

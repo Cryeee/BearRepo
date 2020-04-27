@@ -9720,7 +9720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growAmount: 3
-  uiIcon: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
+  uiIcon: {fileID: 21300000, guid: 277ddb2c623a13d458c541a0f188e3d4, type: 3}
   foodParticles: {fileID: 3833047843621666519}
 --- !u!135 &4418076575773350812
 SphereCollider:
