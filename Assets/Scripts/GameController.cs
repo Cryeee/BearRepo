@@ -5,12 +5,20 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
-    //[SerializeField]
-    //float roundTimeLimitEditValue = 0;
-    //public static float roundTimeLimit;
+    [Header("Number of foods on this level:")]
+    public int goldenBerries;
+    public int cranberries;
+    public int blueberries;
+    public int mushrooms;
+    public int glowingMushrooms;
+    public int rabbits;
+    public int fish;
+    public int birds;
+
     public static int nextWeightGoal;
 
     public int weightFor1Star;
@@ -50,12 +58,11 @@ public class GameController : MonoBehaviour
         {
             GameStart();
         }
-
-       
     }
 
     void GameStart()
     {
+        
         nextWeightGoal = weightFor1Star;
         weight1 = weightFor1Star;
         weight2 = weightFor2Stars;
@@ -68,20 +75,43 @@ public class GameController : MonoBehaviour
         // Tell UI elements to be visible
         // (Time- and Food UI scripts check this bool on update)
         gameOn = true;
+        ResultScreen.StartFoodCounting();
+        SetMaxFoods();
+    }
+
+    void SetMaxFoods()
+    {
+        ResultScreen.maxFoodValues[0] = cranberries;
+        ResultScreen.maxFoodValues[1] = rabbits;
+        ResultScreen.maxFoodValues[2] = mushrooms;
+        ResultScreen.maxFoodValues[3] = glowingMushrooms;
+        ResultScreen.maxFoodValues[4] = blueberries;
+        ResultScreen.maxFoodValues[5] = fish;
+        ResultScreen.maxFoodValues[6] = birds;
+        ResultScreen.maxFoodValues[7] = goldenBerries;
+
+        ResultScreen.maxTotalCount = ResultScreen.maxFoodValues.Sum();
     }
 
     void GameEnd()
     {
         gameOn = false;
         CountScore();
+        CountFoods();
         OnGameEnd?.Invoke();
-        Invoke("BackToMenu", 4f);
+        //Invoke("BackToMenu", 4f);
+        Invoke("ToResultScreen", 3f);
         //CheckStars(playerScript.AmountOfFoodEaten);
     }
 
     void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void ToResultScreen()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public static void SetNewWeightGoal(float amountEaten)
@@ -137,6 +167,11 @@ public class GameController : MonoBehaviour
             // 0 tähteä
             stars = 0;
         }
+    }
+
+    private void CountFoods()
+    {
+        
     }
 
     //void TimeLimitReached()
