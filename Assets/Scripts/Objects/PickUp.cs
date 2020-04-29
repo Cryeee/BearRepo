@@ -1,12 +1,31 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[Serializable]
+public enum FoodType
+{
+    cranberry,
+    rabbit,
+    mushroom,
+    glowingMushroom,
+    blueberry,
+    fish,
+    bird,
+    goldenBerry
+}
 
 public class PickUp : MonoBehaviour
 {
 	[Tooltip("1 means 1/10 of max fatness")]
 	public float growAmount;
+
     public Sprite uiIcon;
+
+    [Tooltip("For keeping track of picked up foods:")]
+    public FoodType type;
+
     public ParticleSystem foodParticles;
 
     void OnTriggerEnter(Collider collision) {
@@ -22,7 +41,7 @@ public class PickUp : MonoBehaviour
 
             //Tell player to grow this amount:
             collision.GetComponentInParent<PlayerScript>().Grow(growAmount, uiIcon);
-            print(collision.gameObject.name + " collided with: " + gameObject.name);
+            //print(collision.gameObject.name + " collided with: " + gameObject.name);
 
             //sound effect for picking up
             FindObjectOfType<AudioManager>().Play("Nom");
@@ -30,6 +49,9 @@ public class PickUp : MonoBehaviour
             //particle effect
             foodParticles.Play();
 
+            // Tell ResultScreen that player picked a certain type of food
+            ResultScreen.foodCounter[(int) type] += 1;
+            //Debug.Log(ResultScreen.foodCounter[(int)type].ToString() + "  is the food count");
             Destroy(gameObject);
         }
     }

@@ -9716,6 +9716,11 @@ PrefabInstance:
       propertyPath: growAmount
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6031628264401685548, guid: 4a068de68235708419e08a72782c0d9e,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6031628264401685549, guid: 4a068de68235708419e08a72782c0d9e,
         type: 3}
       propertyPath: m_Name
