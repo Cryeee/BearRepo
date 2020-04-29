@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class ResultScreen : MonoBehaviour
 {
     public static int[] maxFoodValues;
@@ -11,8 +10,9 @@ public class ResultScreen : MonoBehaviour
     public static int maxTotalCount;
 
     public TMP_Text[] textFields;
-    public TMP_Text total;
-    private const string SPACE = ":    ";
+    public TMP_Text[] valueFields;
+    public TMP_Text totalValue;
+    public GameObject[] stars;
 
     List<FoodItem> foodItems = new List<FoodItem>();
 
@@ -26,6 +26,7 @@ public class ResultScreen : MonoBehaviour
     {
         SetResults();
         DisplayResults();
+        DisplayStars();
     }
 
 
@@ -39,40 +40,6 @@ public class ResultScreen : MonoBehaviour
         foodItems.Add(new FoodItem("Fish", foodCounter[5]));
         foodItems.Add(new FoodItem("Birds", foodCounter[6]));
         foodItems.Add(new FoodItem("Golden Berries", foodCounter[7]));
-
-        //if (maxFoodValues[0] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Cranberries", foodCounter[0]));
-        //}
-        //if (maxFoodValues[1] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Rabbits", foodCounter[1]));
-        //}
-        //if (maxFoodValues[2] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Mushrooms", foodCounter[2]));
-        //}
-        //if (maxFoodValues[3] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Glowing mushrooms", foodCounter[3]));
-        //}
-        //if (maxFoodValues[4] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Blueberries", foodCounter[4]));
-        //}
-        //if (maxFoodValues[5] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Fish", foodCounter[5]));
-        //}
-        //if (maxFoodValues[6] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Birds", foodCounter[6]));
-        //}
-        //if (maxFoodValues[7] > 0)
-        //{
-        //    foodItems.Add(new FoodItem("Golden Berries", foodCounter[7]));
-        //}
-
     }
 
     void DisplayResults()
@@ -86,8 +53,9 @@ public class ResultScreen : MonoBehaviour
             if (maxFoodValues[i] > 0)
             {
                 // if yes, set first text to display collected cranberries:
-                textFields[index].text = foodItems[i].foodName + SPACE + foodItems[i].amount
-               + "/" + maxFoodValues[i];
+                textFields[index].text = foodItems[i].foodName;
+
+                valueFields[index].text = foodItems[i].amount + " / " + maxFoodValues[i];
 
                 // add foods to total amount:
                 totalCount += foodItems[i].amount;
@@ -100,7 +68,16 @@ public class ResultScreen : MonoBehaviour
             }
         }
 
-        total.text = "Total" + SPACE + totalCount.ToString() + "/" + maxTotalCount.ToString();
+        totalValue.text = totalCount.ToString() + " / " + maxTotalCount.ToString();
+    }
+
+    void DisplayStars()
+    {
+        // Display as many stars as gamecontroller tells to:
+        for (int i = 0; i < GameController.stars; i++)
+        {
+            stars[i].gameObject.SetActive(true);
+        }
     }
 
     private void OnDisable()
