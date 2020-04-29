@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 121718477185762607}
   - component: {fileID: 620284220278166109}
   - component: {fileID: 8958625651660848585}
-  - component: {fileID: 437601675121175955}
+  - component: {fileID: 6391532501638894058}
   m_Layer: 0
   m_Name: GrassEdge
   m_TagString: Untagged
@@ -91,12 +91,12 @@ MeshCollider:
   m_GameObject: {fileID: 822311597354676558}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4354473684326864266, guid: 66bb78d5986254847b1024b40bd36ba6, type: 3}
---- !u!65 &437601675121175955
+--- !u!65 &6391532501638894058
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,5 +107,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1702533, y: 2.8425043, z: 2.0602467}
-  m_Center: {x: -0.06463361, y: 0.5787927, z: -0.009960532}
+  m_Size: {x: 2.1900482, y: 2.8425043, z: 2.0918872}
+  m_Center: {x: -0.095024586, y: 0.5787927, z: -0.0056778193}
