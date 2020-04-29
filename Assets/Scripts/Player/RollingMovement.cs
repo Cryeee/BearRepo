@@ -44,6 +44,8 @@ public class RollingMovement : MonoBehaviour
     private bool playedParticles = false;
     public static bool pressedJumpButton;
 
+    public bool inWater;
+
     void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -175,6 +177,7 @@ public class RollingMovement : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             splashParticles.Play();
+            inWater = true;
         }
     }
 
@@ -183,6 +186,7 @@ public class RollingMovement : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             splashParticles.Play();
+            inWater = false;
         }
     }
 }
