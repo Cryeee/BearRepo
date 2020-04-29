@@ -56,10 +56,16 @@ public class BearSquash : MonoBehaviour
 
 
         //particle system
-        if (!rollingMovement.canJump)
+        if (!rollingMovement.canJump || rollingMovement.inWater)
         {
             rollingPuffParticles.Play();
         }
+  
+        if (rollingMovement.canJump && canSquash && !up && !rollingMovement.inWater)
+        {
+            landingParticles.Play();
+        }
+
 
         if (rb.velocity.y < 0)
         {
@@ -81,7 +87,6 @@ public class BearSquash : MonoBehaviour
         {
             playerYVelocity = rb.velocity.y;
             animator.SetTrigger("Squash");
-            landingParticles.Play();
             canSquash = false;
         }
         if (!rollingMovement.canJump && rb.velocity.y < -0.1)
