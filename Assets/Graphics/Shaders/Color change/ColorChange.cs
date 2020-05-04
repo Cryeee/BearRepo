@@ -18,7 +18,7 @@ public class ColorChange : MonoBehaviour
     void Update()
     {
         t = 1 - (TimeController.currentTime/ TimeController.startTime);
-        hue = Mathf.Lerp(0, 1, t);
+        hue = Mathf.Lerp(0, 0.8f, t);
         colorChangeMaterial.SetFloat("_ammount", hue);
     }
 }
