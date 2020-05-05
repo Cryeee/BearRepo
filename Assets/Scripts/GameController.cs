@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     public static int stars = 0;
 
     public bool skipStartCutsceneButton = true;
-    public static bool skipCutscene = true;
+    public bool skipCutscene;
     public float startCutsceneTime = 10;
     public static Action OnGameStart;
     public static Action OnGameEnd;
@@ -97,11 +97,8 @@ public class GameController : MonoBehaviour
     {
         gameOn = false;
         CountScore();
-        CountFoods();
         OnGameEnd?.Invoke();
-        //Invoke("BackToMenu", 4f);
         Invoke("ToResultScreen", 3f);
-        //CheckStars(playerScript.AmountOfFoodEaten);
     }
 
     void BackToMenu()
@@ -169,44 +166,8 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void CountFoods()
+    private void OnDisable()
     {
-        
+        gameOn = false;
     }
-
-    //void TimeLimitReached()
-    //{
-    //    text.gameObject.SetActive(true);
-    //    Debug.Log("Round Ended!!!!!!!!!");
-    //    Invoke("RestartScene", 2);
-    //}
-
-    //public void RestartScene()
-    //{
-    //    TimeController.ResetTimers(0);
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //}
-
-    //void CheckStars(float foodEaten)
-    //{
-    //    int score = 0;
-
-    //    if(foodEaten >= amountNeededFor1Star)
-    //    {
-    //        score = 1;
-    //    }
-    //    if (foodEaten >= amountNeededFor2Stars)
-    //    {
-    //        score = 2;
-    //    }
-    //    if (foodEaten >= amountNeededFor3Stars)
-    //    {
-    //        score = 3;
-    //    }
-
-    //    if(score > StaticScoreScript.starArray[mapID])
-    //    {
-    //        StaticScoreScript.starArray[mapID] = score;
-    //    }
-    //}
 }

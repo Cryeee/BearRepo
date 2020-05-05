@@ -19,10 +19,12 @@ public class UIManager : MonoBehaviour
 	{
 		GameController.OnGameEnd += ShowStars;
 		GoldenBerry.OnPickedGoldenBerry += DisplayBerry;
+		GameController.OnGameStart += DisplayClock;
 	}
 
 	private void OnDisable()
 	{
+		GameController.OnGameStart -= DisplayClock;
 		GameController.OnGameEnd -= ShowStars;
 		GoldenBerry.OnPickedGoldenBerry -= DisplayBerry;
 	}
@@ -32,6 +34,8 @@ public class UIManager : MonoBehaviour
 		// hakee animaattorin canvas objektista
 		canvasAnimator = GetComponent<Animator>();
 		canLevelUp = true;
+
+		timeText.gameObject.SetActive(false);
 	}
 
 	private void Update()
@@ -67,5 +71,10 @@ public class UIManager : MonoBehaviour
 	private void DisplayBerry()
 	{
 		goldenBerry.gameObject.SetActive(true);
+	}
+
+	private void DisplayClock()
+	{
+		timeText.gameObject.SetActive(true);
 	}
 }
