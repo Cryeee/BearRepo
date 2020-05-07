@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3855548602365728682}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.019
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 994256881443424460}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.057
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 3203880048135275876}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 7564884301533152510}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.032
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 4152288869564514440}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.044
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 6502786027539777358}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.052
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 7052835105330752825}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.017
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 4092469905523638410}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.035
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 2725420600492872175}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.039
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1141,7 +1141,7 @@ GameObject:
   - component: {fileID: 2963593972742138738}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.009
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1266,7 +1266,7 @@ GameObject:
   - component: {fileID: 7164640775733838326}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.046
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 5265440167218963095}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.037
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1516,7 +1516,7 @@ GameObject:
   - component: {fileID: 1816424998981968256}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.033
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 5324371355469498108}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.011
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1766,7 +1766,7 @@ GameObject:
   - component: {fileID: 366001353675338646}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.012
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1891,7 +1891,7 @@ GameObject:
   - component: {fileID: 2290617837773514810}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.034
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2016,7 +2016,7 @@ GameObject:
   - component: {fileID: 7447455891168959305}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.051
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2141,7 +2141,7 @@ GameObject:
   - component: {fileID: 7128016565151349988}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.004
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2266,7 +2266,7 @@ GameObject:
   - component: {fileID: 6846469429791918516}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.006
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2391,7 +2391,7 @@ GameObject:
   - component: {fileID: 2261424099811223073}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.031
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2624,7 +2624,7 @@ GameObject:
   - component: {fileID: 560607872967528112}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.010
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2749,7 +2749,7 @@ GameObject:
   - component: {fileID: 4440869547643830650}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.008
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2874,7 +2874,7 @@ GameObject:
   - component: {fileID: 3782247036982907526}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.021
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2999,7 +2999,7 @@ GameObject:
   - component: {fileID: 1955967861357618044}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,7 +3124,7 @@ GameObject:
   - component: {fileID: 105709441884966981}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.041
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3249,7 +3249,7 @@ GameObject:
   - component: {fileID: 4095201655950025154}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.056
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3374,7 +3374,7 @@ GameObject:
   - component: {fileID: 3168704434914209790}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.023
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3499,7 +3499,7 @@ GameObject:
   - component: {fileID: 7551719208442956227}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.007
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3624,7 +3624,7 @@ GameObject:
   - component: {fileID: 1801286838183261676}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.050
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3749,7 +3749,7 @@ GameObject:
   - component: {fileID: 9056200493873523898}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.020
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3874,7 +3874,7 @@ GameObject:
   - component: {fileID: 7539268352149981900}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.048
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3999,7 +3999,7 @@ GameObject:
   - component: {fileID: 1319217220046124242}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.028
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4124,7 +4124,7 @@ GameObject:
   - component: {fileID: 585635755645420485}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.016
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4249,7 +4249,7 @@ GameObject:
   - component: {fileID: 5613250389442941610}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.055
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4374,7 +4374,7 @@ GameObject:
   - component: {fileID: 1750776221714085530}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.025
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4499,7 +4499,7 @@ GameObject:
   - component: {fileID: 2600088863389706468}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.015
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4624,7 +4624,7 @@ GameObject:
   - component: {fileID: 7215767417041624453}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.043
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4749,7 +4749,7 @@ GameObject:
   - component: {fileID: 6600509847103430911}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.045
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4874,7 +4874,7 @@ GameObject:
   - component: {fileID: 7826407347762517109}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.026
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4999,7 +4999,7 @@ GameObject:
   - component: {fileID: 4451077331161849554}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.014
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5124,7 +5124,7 @@ GameObject:
   - component: {fileID: 1321866062090607443}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.030
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5249,7 +5249,7 @@ GameObject:
   - component: {fileID: 5798478840069628734}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.054
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5374,7 +5374,7 @@ GameObject:
   - component: {fileID: 6751767400645473767}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.040
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5499,7 +5499,7 @@ GameObject:
   - component: {fileID: 2595937373088531362}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.029
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5624,7 +5624,7 @@ GameObject:
   - component: {fileID: 5405181149089403713}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.003
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5749,7 +5749,7 @@ GameObject:
   - component: {fileID: 1815560580119198874}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.022
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5874,7 +5874,7 @@ GameObject:
   - component: {fileID: 4547493815034345637}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.002
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5999,7 +5999,7 @@ GameObject:
   - component: {fileID: 2433731634098894292}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.042
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6124,7 +6124,7 @@ GameObject:
   - component: {fileID: 3375215629401660084}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.049
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6249,7 +6249,7 @@ GameObject:
   - component: {fileID: 3002694333958348565}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.024
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6374,7 +6374,7 @@ GameObject:
   - component: {fileID: 7811960251988997626}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.036
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6499,7 +6499,7 @@ GameObject:
   - component: {fileID: 4493902530098069245}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.027
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6624,7 +6624,7 @@ GameObject:
   - component: {fileID: 5381536086605924796}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.047
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6749,7 +6749,7 @@ GameObject:
   - component: {fileID: 7450140790201984613}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.053
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6874,7 +6874,7 @@ GameObject:
   - component: {fileID: 2651631446051266295}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.018
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6999,7 +6999,7 @@ GameObject:
   - component: {fileID: 6927592616923136156}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.038
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7124,7 +7124,7 @@ GameObject:
   - component: {fileID: 422958326465080122}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.005
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7249,7 +7249,7 @@ GameObject:
   - component: {fileID: 1704765860596686379}
   m_Layer: 0
   m_Name: Rock2Collider.004_cell.013
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

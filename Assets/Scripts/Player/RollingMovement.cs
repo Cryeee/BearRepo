@@ -45,6 +45,7 @@ public class RollingMovement : MonoBehaviour
     public static bool pressedJumpButton;
 
     public bool inWater;
+    public ParticleSystem waterparticles;
 
     void Start()
     {
@@ -131,6 +132,15 @@ public class RollingMovement : MonoBehaviour
             {
                 RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y, -velocityLimit);
             }
+        }
+        //water particles
+        if (inWater && (Mathf.Abs(RB.velocity.x) > 2 || Mathf.Abs(RB.velocity.z) > 2))
+        {
+            waterparticles.Play();
+        }
+        else
+        {
+            waterparticles.Stop();
         }
 
     }
