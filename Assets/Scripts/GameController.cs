@@ -25,13 +25,13 @@ public class GameController : MonoBehaviour
     public int weightFor2Stars;
     public int weightFor3Stars;
 
-    private static int weight1;
-    private static int weight2;
-    private static int weight3;
+    public static int weight1;
+    public static int weight2;
+    public static int weight3;
 
     public static int stars = 0;
 
-    public bool skipStartCutsceneButton = true;
+    //public bool skipStartCutsceneButton = true;
     public bool skipCutscene;
     public float startCutsceneTime = 10;
     public static Action OnGameStart;
@@ -40,8 +40,8 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        // So we don't have to watch the start animation every currentTime:
-        skipCutscene = skipStartCutsceneButton;
+        //// So we don't have to watch the start animation every currentTime:
+        //skipCutscene = skipStartCutsceneButton;
         stars = 0;
     }
 

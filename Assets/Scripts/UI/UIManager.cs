@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
 	public TMP_Text timeText;
 	public Image goldenBerry;
 
+	public RectTransform bodyImage;
+	public Slider timeSlider;
+
 	private Animator canvasAnimator;
 	public bool canLevelUp;
 
@@ -19,14 +22,17 @@ public class UIManager : MonoBehaviour
 	{
 		GameController.OnGameEnd += ShowStars;
 		GoldenBerry.OnPickedGoldenBerry += DisplayBerry;
-		GameController.OnGameStart += DisplayClock;
+		GameController.OnGameStart += DisplayUI;
+		PlayerScript.OnGrow += GrowUI;
+
 	}
 
 	private void OnDisable()
 	{
-		GameController.OnGameStart -= DisplayClock;
+		GameController.OnGameStart -= DisplayUI;
 		GameController.OnGameEnd -= ShowStars;
 		GoldenBerry.OnPickedGoldenBerry -= DisplayBerry;
+		PlayerScript.OnGrow -= GrowUI;
 	}
 
 	private void Awake()
@@ -34,8 +40,12 @@ public class UIManager : MonoBehaviour
 		// hakee animaattorin canvas objektista
 		canvasAnimator = GetComponent<Animator>();
 		canLevelUp = true;
+	}
 
-		timeText.gameObject.SetActive(false);
+	private void Start()
+	{
+		//fatnessUI.SetActive(false);
+		//timeSlider.gameObject.SetActive(false);
 	}
 
 	private void Update()
@@ -44,10 +54,12 @@ public class UIManager : MonoBehaviour
 		if (GameController.gameOn)
 		{
 			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " kg" + " / " + GameController.nextWeightGoal + " kg";
-			timeText.text = TimeController.currentTime.ToString("F2");
+			//timeText.text = TimeController.currentTime.ToString("F2");
+
+			timeSlider.value = TimeController.currentTime / TimeController.startTime;
 		} else
 		{
-			timeText.text = "0.00";
+			//timeText.text = "0.00";
 		}
 
 		// UI Bounce 
@@ -79,8 +91,51 @@ public class UIManager : MonoBehaviour
 		goldenBerry.gameObject.SetActive(true);
 	}
 
-	private void DisplayClock()
+	private void GrowUI(float amount)
 	{
-		timeText.gameObject.SetActive(true);
+		float growAmount;
+		int weightGoal;
+		int prewWeight;
+
+		switch (GameController.stars)
+		{
+			case 0:
+				growAmount = 0.6f;
+				weightGoal = GameController.weight1;
+				prewWeight = 0;
+					break;
+			case 1:
+				growAmount = 0.8f;
+				weightGoal = GameController.weight2;
+				prewWeight = GameController.weight1;
+				break;
+			case 2:
+				growAmount = 0.7f;
+				weightGoal = GameController.weight3;
+				prewWeight = GameController.weight2;
+				break;
+			default: 
+				growAmount = 0.6f;
+				weightGoal = GameController.weight1;
+				prewWeight = 0;
+				break;
+		}
+
+		if(GameController.stars < 3)
+		{
+			Vector3 current = bodyImage.localScale;
+			current.x += growAmount / (weightGoal - prewWeight) * amount;
+			current.y += growAmount / (weightGoal - prewWeight) * amount;
+
+			//bodyImage.localScale = new Vector3(current.x, current.y, 1);
+			bodyImage.localScale = current;
+		}
+		
+	}
+
+	private void DisplayUI()
+	{
+		//fatnessUI.SetActive(true);
+		//timeSlider.gameObject.SetActive(true);
 	}
 }
