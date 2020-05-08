@@ -58,11 +58,9 @@ public class UIManager : MonoBehaviour
 		}
 
         //whiteout
-        if(TimeController.currentTime <= 0)
-        {
-            gameObject.GetComponent<Animator>().Play("whiteout",0);
-        }
-	}
+        if (TimeController.currentTime <= 0)
+            gameObject.GetComponent<Animator>().Play("whiteout", 0);
+    }
 
 	private void ShowStars()
 	{
