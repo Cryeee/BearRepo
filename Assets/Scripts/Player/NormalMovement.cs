@@ -37,6 +37,11 @@ public class NormalMovement : MonoBehaviour
 	private Rigidbody rb;
 	private Animator animator;
 
+    //water particle systems
+    public ParticleSystem splashParticles;
+    public ParticleSystem waterparticles;
+    public bool inWater;
+
 	#region Jump Stuff
 	
 	public bool IsGrounded()
@@ -103,7 +108,17 @@ public class NormalMovement : MonoBehaviour
 		movementVector = right * Xinput + forward * Yinput;
 
 		SetAnimations();
-	}
+
+        //water particles
+        if (inWater)
+        {
+            waterparticles.Play();
+        }
+        else
+        {
+            waterparticles.Stop();
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -228,4 +243,24 @@ public class NormalMovement : MonoBehaviour
 		GetComponentInParent<PlayerScript>().TurnToBall(transform.position);
 		gameObject.SetActive(false);
 	}
+
+    //water particles
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            splashParticles.Play();
+            inWater = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            splashParticles.Play();
+            inWater = false;
+        }
+    }
 }

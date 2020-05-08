@@ -60,6 +60,12 @@ public class UIManager : MonoBehaviour
 		{
 			canLevelUp = true;
 		}
+
+        //whiteout
+        if(TimeController.currentTime <= 0)
+        {
+            gameObject.GetComponent<Animator>().Play("whiteout",0);
+        }
 	}
 
 	private void ShowStars()
