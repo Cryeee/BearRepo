@@ -11,6 +11,7 @@ public class DataLoader : MonoBehaviour
     public GameObject[] level1Stars = new GameObject[3];
     public GameObject[] level2Stars = new GameObject[3];
     public GameObject[] level3Stars = new GameObject[3];
+    public GameObject[] goldenBerriesCollected = new GameObject[3];
     #endregion
 
     // Load cheated stuff instead of actual saved binaryfile:
@@ -23,6 +24,7 @@ public class DataLoader : MonoBehaviour
         Hacks();
         SetLevelButtonsLocked();
         SetLevelSelectionStars();
+        SetGoldenBerries();
         //Load();
     }
 
@@ -98,6 +100,17 @@ public class DataLoader : MonoBehaviour
         for (int i = 0; i < saveFile.stars[2]; i++)
         {
             level3Stars[i].SetActive(true);
+        }
+    }
+
+    private void SetGoldenBerries()
+    {
+        for (int i = 0; i < saveFile.goldenBerriesCollected.Length; i++)
+        {
+            if(saveFile.goldenBerriesCollected[i])
+            {
+                goldenBerriesCollected[i].SetActive(true);
+            }
         }
     }
 }
