@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9104651868681141988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9104651868681141991}
+  - component: {fileID: 9104651868681141985}
+  - component: {fileID: 9104651868681141990}
+  - component: {fileID: 9104651868681141984}
+  m_Layer: 0
+  m_Name: DataLoader&Saver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9104651868681141991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104651868681141988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9104651868681141985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104651868681141988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ca6bfc297793b4a8367319783d26d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockedLevels: 1
+  unlockedSkins: 1
+  currentSkin: 0
+  firstLevelStars: 3
+  secondLevelStars: 1
+  thirdLevelStars: 0
+  firstLevelTime: 10
+  secondLevelTime: 9
+  thirdLevelTime: 8
+  firstLevelBerryCollected: 1
+  secondLevelBerryCollected: 0
+  thirdLevelBerryCollected: 1
+--- !u!114 &9104651868681141990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104651868681141988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5a3fad12d105e419fbf2f2bc06099c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level2: {fileID: 0}
+  level3: {fileID: 0}
+  level1Stars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  level2Stars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  level3Stars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &9104651868681141984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104651868681141988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0b628517de7f346b63d479e9708eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBear: {fileID: 0}
+  brown: {fileID: 2100000, guid: e2c555d58cef74f998de23e6d5b6e98b, type: 2}
+  polar: {fileID: 2100000, guid: 0e363a7eb0ae44236b83bb6ae9caa7e1, type: 2}
+  panda: {fileID: 2100000, guid: 57ea0b61787d641c5bae6b00a2f6e844, type: 2}
