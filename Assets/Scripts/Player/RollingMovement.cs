@@ -47,6 +47,9 @@ public class RollingMovement : MonoBehaviour
     public bool inWater;
     public ParticleSystem waterparticles;
 
+    //UI animation
+    public Animator canvasAnimator;
+
     void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -180,6 +183,8 @@ public class RollingMovement : MonoBehaviour
     public void Fatten()
     {
         ballAnim.SetTrigger("Chomp");
+        canvasAnimator.SetTrigger("Ate");
+
     }
 
     public void OnTriggerEnter(Collider other)

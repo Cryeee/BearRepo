@@ -9721,6 +9721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growAmount: 3
   uiIcon: {fileID: 21300000, guid: 277ddb2c623a13d458c541a0f188e3d4, type: 3}
+  type: 0
   foodParticles: {fileID: 3833047843621666519}
 --- !u!135 &4418076575773350812
 SphereCollider:
@@ -9762,7 +9763,7 @@ Transform:
   m_GameObject: {fileID: 5998202970251917090}
   m_LocalRotation: {x: -0.6351974, y: -0.3106837, z: -0.3106837, w: 0.6351974}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 7317881798286628868}
   m_Father: {fileID: 7838044005259380057}
@@ -10711,8 +10712,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 6
-        minScalar: 2
+        scalar: 10
+        minScalar: 6
         maxCurve:
           serializedVersion: 2
           m_Curve:
