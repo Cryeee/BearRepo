@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlockedLevels: 1
-  unlockedSkins: 1
-  currentSkin: 0
+  unlockedSkins: 2
+  currentSkin: 1
   firstLevelStars: 3
   secondLevelStars: 1
-  thirdLevelStars: 0
+  thirdLevelStars: 2
   firstLevelTime: 10
   secondLevelTime: 9
   thirdLevelTime: 8
@@ -80,6 +80,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   level3Stars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  goldenBerriesCollected:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
