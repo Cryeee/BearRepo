@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 1217069082840716565}
   m_LocalRotation: {x: -0.63519746, y: -0.31068355, z: -0.31068355, w: 0.63519746}
   m_LocalPosition: {x: 0, y: 0.059692502, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 136454902834574621}
   m_Father: {fileID: 595981451228219741}
@@ -81,7 +81,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4940,6 +4940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growAmount: 1
   uiIcon: {fileID: 21300000, guid: 277ddb2c623a13d458c541a0f188e3d4, type: 3}
+  type: 0
   foodParticles: {fileID: 7844917855277130698}
 --- !u!135 &5244377789049635213
 SphereCollider:
@@ -5002,7 +5003,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

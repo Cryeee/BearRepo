@@ -42,9 +42,11 @@ public class NormalMovement : MonoBehaviour
     public ParticleSystem waterparticles;
     public bool inWater;
 
-	#region Jump Stuff
-	
-	public bool IsGrounded()
+    public Animator canvasAnimator;
+
+    #region Jump Stuff
+
+    public bool IsGrounded()
 	{
 		//Debug.DrawRay(groundCheckCollider.bounds.center,
 		//	Vector3.down * (groundCheckCollider.bounds.extents.y + 0.1f));
@@ -224,7 +226,8 @@ public class NormalMovement : MonoBehaviour
 	public void Fatten(float amount)
 	{
 		animator.SetTrigger("Chomp");
-		fatnessAmount += amount;
+        canvasAnimator.SetTrigger("Ate");
+        fatnessAmount += amount;
 		if (fatnessAmount < 1)
 		{
 			animator.SetFloat("Fatness", fatnessAmount);
