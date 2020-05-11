@@ -7,13 +7,6 @@ using UnityEngine.UI;
 
 public class UIFoodsEaten : MonoBehaviour
 {
-    public enum Foods
-    {
-        Blueberry,
-        Salmon, 
-        Honey
-    }
-
     // How many foods are visible at the same currentTime
     public Color[] slots;
 
