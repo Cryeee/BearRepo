@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject bodyColldier;
     private float tmp = 0;
+
+    public static Action<float> OnGrow;
 
     private void OnEnable()
     {
@@ -113,6 +116,7 @@ public class PlayerScript : MonoBehaviour
         }
        
         uiFoodsEaten.DisplayFoodItem(uiIcon);
+        OnGrow?.Invoke(amount);
     }
 
 	public void TurnToBall(Vector3 currentPostion)
