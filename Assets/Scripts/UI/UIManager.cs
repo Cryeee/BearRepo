@@ -20,17 +20,17 @@ public class UIManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		GameController.OnGameEnd += ShowStars;
+		//GameController.OnGameEnd += ShowStars;
 		GoldenBerry.OnPickedGoldenBerry += DisplayBerry;
-		GameController.OnGameStart += DisplayUI;
+		//GameController.OnGameStart += DisplayUI;
 		PlayerScript.OnGrow += GrowUI;
 
 	}
 
 	private void OnDisable()
 	{
-		GameController.OnGameStart -= DisplayUI;
-		GameController.OnGameEnd -= ShowStars;
+		//GameController.OnGameStart -= DisplayUI;
+		//GameController.OnGameEnd -= ShowStars;
 		GoldenBerry.OnPickedGoldenBerry -= DisplayBerry;
 		PlayerScript.OnGrow -= GrowUI;
 	}
@@ -125,7 +125,6 @@ public class UIManager : MonoBehaviour
 			current.x += growAmount / (weightGoal - prewWeight) * amount;
 			current.y += growAmount / (weightGoal - prewWeight) * amount;
 
-			//bodyImage.localScale = new Vector3(current.x, current.y, 1);
 			bodyImage.localScale = current;
 		}
 		

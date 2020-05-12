@@ -12,9 +12,9 @@ public class UnlocksCheater : MonoBehaviour
     [Range(0, 3)]
     public int unlockedSkins;
 
-    [Header("0 brown, 1 moon, 2 polar, 3 panda (4 nallepuh)")]
-    [Range(0, 3)]
-    public int currentSkin;
+    //[Header("0 brown, 1 moon, 2 polar, 3 panda (4 nallepuh)")]
+    //[Range(0, 3)]
+    //public int currentSkin;
 
     [Range(0, 3)]
     public int firstLevelStars;

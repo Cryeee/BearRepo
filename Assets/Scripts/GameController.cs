@@ -116,7 +116,7 @@ public class GameController : MonoBehaviour
 
     void ToResultScreen()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public static void SetNewWeightGoal(float amountEaten)
