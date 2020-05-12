@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ResultScreen : MonoBehaviour
 {
@@ -15,11 +15,16 @@ public class ResultScreen : MonoBehaviour
     public TMP_Text[] textFields;
     public TMP_Text[] valueFields;
     public TMP_Text totalValue;
-    public GameObject[] stars;
 
     List<FoodItem> foodItems = new List<FoodItem>();
 
     private BearSkins bearSkins;
+    public Animator canvasAnimator;
+
+    public Slider weightSlider;
+    public float fillSpeed = 0.2f;
+    public float targetValue;
+    private bool runSlider;
 
     public static void StartFoodCounting()
     {
@@ -34,7 +39,18 @@ public class ResultScreen : MonoBehaviour
         DisplayResults();
         DisplayStars();
         SetPlayerSkin();
-        SetFatness();
+        Invoke("SetFatness", 2f);
+    }
+
+    private void Update()
+    {
+        if(runSlider)
+        {
+            weightSlider.value = Mathf.MoveTowards(weightSlider.value, targetValue, fillSpeed * Time.deltaTime);
+        }
+
+        Debug.Log(targetValue);
+        
     }
 
     private void SetPlayerSkin()
@@ -42,9 +58,27 @@ public class ResultScreen : MonoBehaviour
         bearSkins.SetSkin(BearSkins.currentSkin);
     }
 
-    private void SetFatness()
+    public void SetFatness()
     {
+        switch (GameController.stars)
+        {
+            case 0:
+                targetValue = PlayerScript.AmountOfFoodEaten / GameController.weight1 * 0.33f;
+                break;
+            case 1:
+                // can't be over 0.66f
+                targetValue = 0.33f;
+                break;
+            case 2:
+                // can't be over 1
+                targetValue = 0.66f;
+                break;
+            case 3:
+                targetValue = 1;
+                break;
+        }
 
+        runSlider = true;
     }
 
 
@@ -60,7 +94,7 @@ public class ResultScreen : MonoBehaviour
         foodItems.Add(new FoodItem("Golden Berries", foodCounter[7]));
     }
 
-    void DisplayResults()
+    private void DisplayResults()
     {
         int index = 0;
 
@@ -89,13 +123,9 @@ public class ResultScreen : MonoBehaviour
         totalValue.text = totalCount.ToString() + " / " + maxTotalCount.ToString();
     }
 
-    void DisplayStars()
+    private void DisplayStars()
     {
-        // Display as many stars as gamecontroller tells to:
-        for (int i = 0; i < GameController.stars; i++)
-        {
-            stars[i].gameObject.SetActive(true);
-        }
+        canvasAnimator.SetInteger("stars", GameController.stars);
     }
 
     private void OnDisable()
@@ -114,6 +144,7 @@ public class ResultScreen : MonoBehaviour
 
         totalCount = 0;
         maxTotalCount = 0;
+        targetValue = 0;
     }
 
     public void BackToMenu()
@@ -123,6 +154,6 @@ public class ResultScreen : MonoBehaviour
 
     public void Replay()
     {
-        
+        // TODO: lataa edellinen scene
     }
 }
