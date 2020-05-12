@@ -17,15 +17,18 @@ public class DataLoader : MonoBehaviour
     // Load cheated stuff instead of actual saved binaryfile:
     private UnlocksCheater cheater;
     private PlayerData saveFile;
+    private BearSkins bearSkins;
 
     void Awake()
     {
         cheater = GetComponent<UnlocksCheater>();
+        bearSkins = GetComponent<BearSkins>();
         Hacks();
+        //Load();
+        bearSkins.Initialize(saveFile);
         SetLevelButtonsLocked();
         SetLevelSelectionStars();
         SetGoldenBerries();
-        //Load();
     }
 
     private void Load()
@@ -112,5 +115,17 @@ public class DataLoader : MonoBehaviour
                 goldenBerriesCollected[i].SetActive(true);
             }
         }
+    }
+
+    private void SaveSkinChange()
+    {
+        saveFile.currentSkin = BearSkins.currentSkin;
+        SaveLoadManager.Save(saveFile);
+    }
+
+    // When exiting menu, save current skin:
+    private void OnDisable()
+    {
+        SaveSkinChange();
     }
 }

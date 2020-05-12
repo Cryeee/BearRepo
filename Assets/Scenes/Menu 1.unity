@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.608
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37019947, g: 0.5131301, b: 0.595862, a: 0.608}
+  m_IndirectSpecularColor: {r: 0.37020895, g: 0.5131364, b: 0.5958592, a: 0.608}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2298,10 +2298,31 @@ PrefabInstance:
       propertyPath: playerBear
       value: 
       objectReference: {fileID: 6313575091943291428}
+    - target: {fileID: 9104651868681141984, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
+        type: 3}
+      propertyPath: skinnyBear
+      value: 
+      objectReference: {fileID: 6313575091943291428}
+    - target: {fileID: 9104651868681141984, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
+        type: 3}
+      propertyPath: ballMeshes.Array.data[0]
+      value: 
+      objectReference: {fileID: -7196802604745430461, guid: ad996e6da42a445b48531c591eea6525,
+        type: 3}
     - target: {fileID: 9104651868681141985, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
         type: 3}
       propertyPath: unlockedLevels
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104651868681141985, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
+        type: 3}
+      propertyPath: unlockedSkins
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104651868681141985, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
+        type: 3}
+      propertyPath: currentSkin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9104651868681141988, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
         type: 3}
@@ -3814,8 +3835,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: WEEK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 622aa98da8be74499ac4aee7c39be0ed, type: 2}
+  m_sharedMaterial: {fileID: 5112319797972043687, guid: 622aa98da8be74499ac4aee7c39be0ed,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7222,7 +7244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -110}
+  m_AnchoredPosition: {x: 0, y: -109.99999}
   m_SizeDelta: {x: 0, y: -75}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &443911118
@@ -9410,8 +9432,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fat Bear
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 622aa98da8be74499ac4aee7c39be0ed, type: 2}
+  m_sharedMaterial: {fileID: 5112319797972043687, guid: 622aa98da8be74499ac4aee7c39be0ed,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25639,6 +25662,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4906167913724580199, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
     - {fileID: 1125663358, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
+    - {fileID: 2854961193797208350, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 68932ecbd41a5774dbd8f5de879b0076, type: 3}
 --- !u!1001 &1801195357
 PrefabInstance:
