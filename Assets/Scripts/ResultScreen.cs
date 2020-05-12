@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering;
+
 public class ResultScreen : MonoBehaviour
 {
     public static int[] maxFoodValues;
@@ -16,17 +18,32 @@ public class ResultScreen : MonoBehaviour
 
     List<FoodItem> foodItems = new List<FoodItem>();
 
+    private BearSkins bearSkins;
+
     public static void StartFoodCounting()
     {
         foodCounter = new int[8];
         maxFoodValues = new int[8];
     }
 
-    private void OnEnable()
+    private void Awake()
     {
+        bearSkins = GetComponent<BearSkins>();
         SetResults();
         DisplayResults();
         DisplayStars();
+        SetPlayerSkin();
+        SetFatness();
+    }
+
+    private void SetPlayerSkin()
+    {
+        bearSkins.SetSkin(BearSkins.currentSkin);
+    }
+
+    private void SetFatness()
+    {
+
     }
 
 
