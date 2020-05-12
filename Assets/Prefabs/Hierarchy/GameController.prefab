@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1856528550010506635}
   - component: {fileID: 1125663358}
   - component: {fileID: 4906167913724580199}
+  - component: {fileID: 2854961193797208350}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -61,8 +62,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce520e8f571780469a2c9553e954137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTimeLimitEditValue: 10
-  roundEnded: 0
+  goldenBerries: 0
+  cranberries: 0
+  blueberries: 0
+  mushrooms: 0
+  glowingMushrooms: 0
+  rabbits: 0
+  fish: 0
+  birds: 0
+  weightFor1Star: 0
+  weightFor2Stars: 0
+  weightFor3Stars: 0
+  skipCutscene: 0
+  startCutsceneTime: 10
 --- !u!114 &4906167913724580199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,4 +87,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3886b85bf18854f97f0ff9ba0cf877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allFoods: []
+  slots: []
+  imageRef: {fileID: 0}
+  animationTime: 2
+--- !u!114 &2854961193797208350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099662947986768229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0b628517de7f346b63d479e9708eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinnyBear: {fileID: 0}
+  ballBear: {fileID: 0}
+  skinnyMeshes:
+  - {fileID: 6894428203817054813, guid: 7d72d609e675d41ed979651c69f9b005, type: 3}
+  - {fileID: 6894428203817054813, guid: 4e7370e5c472043bda774fbb98f45346, type: 3}
+  - {fileID: 6894428203817054813, guid: 5d8f1a7814e6841c3ab9a0ec0dc58e9b, type: 3}
+  - {fileID: 6894428203817054813, guid: 76e5b8598c7cb4090ac2acc700d7a8aa, type: 3}
+  ballMeshes:
+  - {fileID: -7196802604745430461, guid: ad996e6da42a445b48531c591eea6525, type: 3}
+  - {fileID: -7196802604745430461, guid: 7650601f4485d47569501624d0b2f945, type: 3}
+  - {fileID: -7196802604745430461, guid: f19dc4370859b4f21bba314a55f86a77, type: 3}
+  - {fileID: -7196802604745430461, guid: e27949b0bcf5f4b60aafeda4b1e8ae7e, type: 3}
+  materials:
+  - {fileID: 2100000, guid: e2c555d58cef74f998de23e6d5b6e98b, type: 2}
+  - {fileID: 2100000, guid: 41e5cb421ce4d4ab2b2d23d3d70b7f27, type: 2}
+  - {fileID: 2100000, guid: 0e363a7eb0ae44236b83bb6ae9caa7e1, type: 2}
+  - {fileID: 2100000, guid: 57ea0b61787d641c5bae6b00a2f6e844, type: 2}

@@ -9,11 +9,11 @@ public class UnlocksCheater : MonoBehaviour
     public int unlockedLevels;
 
     [Header("how many skins are unlocked in addition to brown")]
-    [Range(0, 2)]
+    [Range(0, 3)]
     public int unlockedSkins;
 
-    [Header("0 brown, 1 polar, 2 panda etc.")]
-    [Range(0, 2)]
+    [Header("0 brown, 1 moon, 2 polar, 3 panda (4 nallepuh)")]
+    [Range(0, 3)]
     public int currentSkin;
 
     [Range(0, 3)]
