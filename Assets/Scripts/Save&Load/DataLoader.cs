@@ -59,7 +59,7 @@ public class DataLoader : MonoBehaviour
         saveFile.goldenBerriesCollected[1] = cheater.secondLevelBerryCollected;
         saveFile.goldenBerriesCollected[2] = cheater.thirdLevelBerryCollected;
 
-        saveFile.currentSkin = cheater.currentSkin;
+        //saveFile.currentSkin = cheater.currentSkin;
         saveFile.unlockedSkins = cheater.unlockedSkins;
 
         Save();
