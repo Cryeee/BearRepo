@@ -13,16 +13,12 @@ public class PlayerScript : MonoBehaviour
     public int amountFoodToBallMode = 30;
     public Animator fatAnimator;
 
-    private AnimationClip fatteningAnimation;
-
     public float sizeIncrease = 0;
 
 	public static bool inBallMode = false;
 
     // Reference to food display UI-script
     public UIFoodsEaten uiFoodsEaten;
-
-    private Vector3 PlayerScaleSize;
 
     public GameObject bodyColldier;
     private float tmp = 0;
@@ -56,22 +52,10 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-       // CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_Orbits[1].m_Radius = 20;
-
-       
-
-        //PlayerScaleSize.Set(1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10, 1 + AmountOfFoodEaten/10);
-        //transform.localScale = PlayerScaleSize;
-
-
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            //AmountOfFoodEaten++;
-            //sizeIncrease = AmountOfFoodEaten / 100;
+        if (Input.GetKeyDown(KeyCode.Q)) 
+        {
             Grow(10, null);
         }
-
-        //transform.rotation.y = 
-        //transform.rotation.y
     }
 
     // Grows player an amount and updates camera

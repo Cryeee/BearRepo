@@ -38,17 +38,20 @@ public class GameController : MonoBehaviour
     public static Action OnGameEnd;
     public static bool gameOn = false;
 
+    private BearSkins bearSkins;
+
     private void Awake()
     {
         //// So we don't have to watch the start animation every currentTime:
         //skipCutscene = skipStartCutsceneButton;
         stars = 0;
+        bearSkins = GetComponent<BearSkins>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        SetPlayerSkin();
         // Set skipCutsceneButton to true on inspector to skip start:
         if (!skipCutscene)
         {
@@ -91,6 +94,11 @@ public class GameController : MonoBehaviour
         ResultScreen.maxFoodValues[7] = goldenBerries;
 
         ResultScreen.maxTotalCount = ResultScreen.maxFoodValues.Sum();
+    }
+
+    private void SetPlayerSkin()
+    {
+        bearSkins.SetSkin(BearSkins.currentSkin);
     }
 
     void GameEnd()
