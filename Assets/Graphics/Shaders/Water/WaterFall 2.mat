@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2033903278073084277
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterFall 2
+  m_Shader: {fileID: -6465566751694194690, guid: 0d2048681650d4268aa43de7b95c0636,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 4000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_17913BEF:
+        m_Texture: {fileID: 2800000, guid: bc55767bb4dc345d79efbf46f95a7db5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_308BF678:
+        m_Texture: {fileID: 2800000, guid: 08624c5f5b5de4c28adb632c906f993b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_3ADD97C8:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_58E7FD1C:
+        m_Texture: {fileID: 2800000, guid: 2c9f0bacbc29d4e1694a413eee57532c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F66CEC00:
+        m_Texture: {fileID: 2800000, guid: 1e77386edd2414470885ae2f69cb8b7f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_2051B6EA: 1
+    - Vector1_3D0CA3B3: 8.68
+    - Vector1_587CE1BB: 0.7
+    - Vector1_5ABBF917: 2
+    - Vector1_603AF2C5: 0
+    - Vector1_8F61DC3: 0.05
+    - Vector1_989B476B: 1.91
+    - Vector1_9F4844ED: 0.2
+    - Vector1_A4EB0529: 1.5
+    - Vector1_A617FB69: 0.121
+    - Vector1_BA17FE8B: 2.28
+    - Vector1_C1F95969: 2.97
+    - Vector1_DE80694A: 0.33
+    - Vector1_F1FB8506: 0.21
+    m_Colors:
+    - Color_10A8D271: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
+    - Color_A00B8A12: {r: 0.47843137, g: 0.4817964, b: 0.6313726, a: 1}
+    - Color_E9D05958: {r: 0.5141805, g: 0.38808292, b: 0.5377358, a: 0}
+    - Vector2_8A83D2AA: {r: 0, g: 10, b: 0, a: 0}
+    - Vector2_BBDBAB96: {r: 0, g: -1, b: 0, a: 0}
+    - Vector2_EA0C5DAA: {r: 100, g: 0, b: 0, a: 0}
+    - Vector2_F8005A23: {r: 0.1, g: 3, b: 0, a: 0}
