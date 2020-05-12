@@ -155,27 +155,6 @@ public class NormalMovement : MonoBehaviour
 
     private void Rotation()
     {
-		#region failure
-		////TÖK TÖK ROTAATIO:
-		//if (movementVector != Vector3.zero)
-		//{
-		//	targetRotation = Quaternion.LookRotation(, transform.InverseTransformDirection(transform.up));
-		//}
-
-		//if (movementVector != Vector3.zero)
-		//{
-		//	targetRotation = Quaternion.LookRotation(RB.velocity);
-		//}
-
-		// LUISUVA ROTAATIO:
-		//Vector3 rotation = new Vector3(0, Xinput * rotationSpeed, 0);
-		//RB.AddRelativeTorque(rotation);
-
-		//Quaternion deltaRotation = Quaternion.Euler(RB.velocity * rotationSpeed * Time.deltaTime);
-		//RB.MoveRotation(RB.rotation * deltaRotation);
-		//RB.Speed
-		#endregion
-
 		if (movementVector != Vector3.zero)
 		{
 			faceRotation = Quaternion.LookRotation(movementVector);
@@ -233,10 +212,8 @@ public class NormalMovement : MonoBehaviour
 			animator.SetFloat("Fatness", fatnessAmount);
 		} else if (fatnessAmount > 1)
 		{
-			//GetComponentInParent<PlayerScript>().TurnToBall(transform.position);
 			animator.SetTrigger("Ball");
 			Jump();
-			//gameObject.SetActive(false);
 		}
 		
 	}
@@ -248,7 +225,6 @@ public class NormalMovement : MonoBehaviour
 	}
 
     //water particles
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Water")

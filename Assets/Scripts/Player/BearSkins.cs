@@ -6,59 +6,42 @@ public class BearSkins : MonoBehaviour
 {
     #region Gameobject References
 
-    public Renderer playerBear;
-    public Material brown;
-    public Material polar;
-    public Material panda;
+    public SkinnedMeshRenderer skinnyBear;
+    public SkinnedMeshRenderer ballBear;
+
+    public Mesh[] skinnyMeshes;
+    public Mesh[] ballMeshes;
+    public Material[] materials;
 
     public static int currentSkin = 0;
-    private int unlockedSkins;
+    private PlayerData saveFile;
 
     #endregion
 
-    private PlayerData saveFile;
-
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize(PlayerData saveFile)
     {
-        saveFile = SaveLoadManager.Load();
+        this.saveFile = saveFile;
         SetSkin(saveFile.currentSkin);
-        unlockedSkins = saveFile.unlockedSkins;
     }
 
-    private void OnDisable()
+    public void SetSkin(int id)
     {
-        SaveSkinChange();
-    }
+        skinnyBear.material = materials[id];
+        skinnyBear.sharedMesh = skinnyMeshes[id];
 
-    private void SetSkin(int id)
-    {
-        // Set menu's bear to match last used skin:
-        switch (id)
+        if(ballBear != null)
         {
-            case 0:
-                playerBear.material = brown;
-                currentSkin = 0;
-                break;
-            case 1:
-                playerBear.material = polar;
-                currentSkin = 1;
-                break;
-            case 2:
-                playerBear.material = panda;
-                currentSkin = 2;
-                break;
-            default:
-                playerBear.material = brown;
-                currentSkin = 0;
-                break;
+            ballBear.material = materials[id];
+            ballBear.sharedMesh = ballMeshes[id];
         }
+
+        currentSkin = id;
     }
 
     // Right button to select next skin:
     public void NextSkin()
     {
-        if(currentSkin < unlockedSkins)
+        if(currentSkin < saveFile.unlockedSkins)
         {
             currentSkin++;
             SetSkin(currentSkin);
@@ -73,12 +56,5 @@ public class BearSkins : MonoBehaviour
             currentSkin--;
             SetSkin(currentSkin);
         }
-    }
-
-    // When exiting menu, save current skin:
-    private void SaveSkinChange()
-    {
-        saveFile.currentSkin = currentSkin;
-        SaveLoadManager.Save(saveFile);
     }
 }
