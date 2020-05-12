@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class ResultScreen : MonoBehaviour
 {
@@ -113,5 +114,15 @@ public class ResultScreen : MonoBehaviour
 
         totalCount = 0;
         maxTotalCount = 0;
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Replay()
+    {
+        
     }
 }
