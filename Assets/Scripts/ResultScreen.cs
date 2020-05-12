@@ -26,6 +26,11 @@ public class ResultScreen : MonoBehaviour
     public float targetValue;
     private bool runSlider;
 
+    public static bool hasGoldenBerry;
+    public GameObject goldenBerry;
+
+    public static int lastScene;
+
     public static void StartFoodCounting()
     {
         foodCounter = new int[8];
@@ -126,6 +131,11 @@ public class ResultScreen : MonoBehaviour
     private void DisplayStars()
     {
         canvasAnimator.SetInteger("stars", GameController.stars);
+        canvasAnimator.SetBool("goldenBerry", hasGoldenBerry);
+        if(hasGoldenBerry)
+        {
+            goldenBerry.SetActive(true);
+        }
     }
 
     private void OnDisable()
@@ -155,5 +165,6 @@ public class ResultScreen : MonoBehaviour
     public void Replay()
     {
         // TODO: lataa edellinen scene
+        SceneManager.LoadScene(lastScene);
     }
 }
