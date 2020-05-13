@@ -2303,12 +2303,6 @@ PrefabInstance:
       propertyPath: skinnyBear
       value: 
       objectReference: {fileID: 6313575091943291428}
-    - target: {fileID: 9104651868681141984, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
-        type: 3}
-      propertyPath: ballMeshes.Array.data[0]
-      value: 
-      objectReference: {fileID: -7196802604745430461, guid: ad996e6da42a445b48531c591eea6525,
-        type: 3}
     - target: {fileID: 9104651868681141985, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
         type: 3}
       propertyPath: unlockedLevels
@@ -2317,7 +2311,7 @@ PrefabInstance:
     - target: {fileID: 9104651868681141985, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
         type: 3}
       propertyPath: unlockedSkins
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9104651868681141985, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
         type: 3}
@@ -7244,7 +7238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -109.99999}
+  m_AnchoredPosition: {x: 0, y: -110}
   m_SizeDelta: {x: 0, y: -75}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &443911118
@@ -9820,7 +9814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -449}
+  m_AnchoredPosition: {x: 0, y: -448.99985}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659163629
@@ -23323,7 +23317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -87, y: -62}
+  m_AnchoredPosition: {x: -87.000015, y: -62}
   m_SizeDelta: {x: -515.19995, y: -121.1}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1702361073

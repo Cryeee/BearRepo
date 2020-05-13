@@ -51,10 +51,6 @@ public class DataLoader : MonoBehaviour
         saveFile.stars[1] = cheater.secondLevelStars;
         saveFile.stars[2] = cheater.thirdLevelStars;
 
-        saveFile.times[0] = cheater.firstLevelTime;
-        saveFile.times[1] = cheater.secondLevelTime;
-        saveFile.times[2] = cheater.thirdLevelTime;
-
         saveFile.goldenBerriesCollected[0] = cheater.firstLevelBerryCollected;
         saveFile.goldenBerriesCollected[1] = cheater.secondLevelBerryCollected;
         saveFile.goldenBerriesCollected[2] = cheater.thirdLevelBerryCollected;
