@@ -12,7 +12,12 @@ public class BirdNPC : MonoBehaviour
     public float speed = 1f;
     bool spooked = false;
     private Animator animator;
-    
+
+    [Range(-0.05f, 0.05f)]
+    public float x = 0.03f;
+    [Range(-0.05f, 0.05f)]
+    public float z = 0.0f;
+
 
     void Fly()
     {
@@ -28,7 +33,7 @@ public class BirdNPC : MonoBehaviour
             // StartCoroutine(Wait());
             animator.SetBool("Fly", true);
 
-            transform.position += new Vector3(0.03f, 0.1f * speed, 0f);
+            transform.position += new Vector3(x, 0.1f * speed, z);
         }
         else
         {

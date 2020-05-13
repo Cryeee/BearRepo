@@ -34,7 +34,6 @@ public class FishNPC : MonoBehaviour
     void TurnAround()
     {
         swimSpeed = (-1 * swimSpeed);
-        //Debug.Log("saatana");
     }
 
     private void Start()
