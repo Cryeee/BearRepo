@@ -103,7 +103,6 @@ public class GameController : MonoBehaviour
         ResultScreen.maxFoodValues[4] = blueberries;
         ResultScreen.maxFoodValues[5] = fish;
         ResultScreen.maxFoodValues[6] = birds;
-        ResultScreen.maxFoodValues[7] = goldenBerries;
 
         ResultScreen.maxTotalCount = ResultScreen.maxFoodValues.Sum();
     }
