@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ResultScreen : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class ResultScreen : MonoBehaviour
 
     public static int lastScene;
 
+    private PlayerData saveFile;
+
     public static void StartFoodCounting()
     {
         foodCounter = new int[8];
@@ -46,6 +49,11 @@ public class ResultScreen : MonoBehaviour
         SetPlayerSkin();
         weightSlider.value = 0;
         Invoke("SetFatnessSlider", 1f);
+    }
+
+    private void Start()
+    {
+        SaveResults();
     }
 
     private void Update()
@@ -187,13 +195,99 @@ public class ResultScreen : MonoBehaviour
         targetValue = 0;
     }
 
+    // If results were better than what were in saveFile, override them
+    private void SaveResults()
+    {
+        saveFile = SaveLoadManager.Load();
+        int level = lastScene - 1;
+
+        // jos saatiin enemmän tähtiä kun save filessä, savee ne
+        if(saveFile.stars[level] < GameController.stars)
+        {
+            saveFile.stars[level] = GameController.stars;
+
+            // unlockkaa levelit jos tähdet riittää
+            if (saveFile.stars.Sum() >= 4)
+            {
+                saveFile.unlockedLevels = 2;
+            } else if(saveFile.stars.Sum() >= 2)
+            {
+                saveFile.unlockedLevels = 1;
+            }
+        }
+
+        // jos ei vielä ole goldenberryä ja se saatiin, tallenna
+        if(saveFile.goldenBerriesCollected[level] == false)
+        {
+            if(hasGoldenBerry)
+            {
+                saveFile.goldenBerriesCollected[level] = true;
+            }
+
+            // laske paljonko yhteensä kerätty golden berryjä:
+            int berries = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if(saveFile.goldenBerriesCollected[i] == true)
+                {
+                    berries++;
+                }
+            }
+
+            // unlockkaa skinit berrien mukaan
+            if(berries >= 3)
+            {
+                saveFile.unlockedSkins = 3;
+            } else if(berries >= 2)
+            {
+                saveFile.unlockedSkins = 2;
+            } else if(berries >= 1)
+            {
+                saveFile.unlockedSkins = 1;
+            } else
+            {
+                saveFile.unlockedSkins = 0;
+            }
+        }
+
+        // jos syötiin levelistä kaikki ekan kerran, tallenna tieto
+        if(saveFile.allEatenOnLevel[level] == false)
+        {
+            int clearedLevels = 0;
+
+            if(totalCount >= maxTotalCount)
+            {
+                saveFile.allEatenOnLevel[level] = true;
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                if(saveFile.allEatenOnLevel[i] == true)
+                {
+                    clearedLevels++;
+                }
+            }
+
+            // jos kaikki levelit clearattu, unlockkaa nalle puh skini
+            if(clearedLevels == 3)
+            {
+                saveFile.unlockedSkins = 4;
+            }
+        }
+
+        // Tallenna lopuksi tiedosto
+        SaveLoadManager.Save(saveFile);
+    }
+
     public void BackToMenu()
     {
+        // venaa?
         SceneManager.LoadScene(0);
     }
 
     public void Replay()
     {
+        // venaa?
         SceneManager.LoadScene(lastScene);
     }
 }

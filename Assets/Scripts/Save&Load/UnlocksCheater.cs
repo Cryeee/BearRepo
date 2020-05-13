@@ -9,7 +9,7 @@ public class UnlocksCheater : MonoBehaviour
     public int unlockedLevels;
 
     [Header("how many skins are unlocked in addition to brown")]
-    [Range(0, 3)]
+    [Range(0, 4)]
     public int unlockedSkins;
 
     //[Header("0 brown, 1 moon, 2 polar, 3 panda (4 nallepuh)")]
@@ -24,10 +24,6 @@ public class UnlocksCheater : MonoBehaviour
 
     [Range(0, 3)]
     public int thirdLevelStars;
-
-    public float firstLevelTime;
-    public float secondLevelTime;
-    public float thirdLevelTime;
 
     public bool firstLevelBerryCollected;
     public bool secondLevelBerryCollected;
