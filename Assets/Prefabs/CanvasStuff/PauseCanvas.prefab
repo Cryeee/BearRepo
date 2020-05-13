@@ -136,7 +136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Camera x invert
+  m_text: 'Camera y invert
 
 '
   m_isRightToLeft: 0
@@ -1469,7 +1469,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 622aa98da8be74499ac4aee7c39be0ed, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 5112319797972043687, guid: 622aa98da8be74499ac4aee7c39be0ed,
     type: 2}
   m_fontSharedMaterials: []
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Master Volume
+  m_text: 'Volume
 
 '
   m_isRightToLeft: 0
@@ -2846,10 +2846,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -72.32368, w: 0}
   m_textInfo:
     textComponent: {fileID: 5842751722243043602}
-    characterCount: 14
+    characterCount: 7
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 2
+    spaceCount: 1
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1

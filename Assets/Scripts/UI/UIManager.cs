@@ -17,6 +17,10 @@ public class UIManager : MonoBehaviour
 	private Animator canvasAnimator;
 	public bool canLevelUp;
 
+	public GameObject uiHead;
+	public Sprite[] bodies;
+	public Sprite[] heads;
+
 
 	private void OnEnable()
 	{
@@ -40,12 +44,13 @@ public class UIManager : MonoBehaviour
 		// hakee animaattorin canvas objektista
 		canvasAnimator = GetComponent<Animator>();
 		canLevelUp = true;
+		
 	}
 
 	private void Start()
 	{
-		//fatnessUI.SetActive(false);
-		//timeSlider.gameObject.SetActive(false);
+		bodyImage.GetComponent<Image>().sprite = bodies[BearSkins.currentSkin];
+		uiHead.GetComponent<Image>().sprite = heads[BearSkins.currentSkin];
 	}
 
 	private void Update()
