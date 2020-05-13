@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 
 public class MenuController : MonoBehaviour
@@ -16,6 +17,24 @@ public class MenuController : MonoBehaviour
     public InputManager inputManager;
     public EventSystem eventSystem;
     public GameObject firstSelectedObject;
+
+    private static bool invertCameraX;
+    private static bool invertCameraY;
+
+    public GameObject CMFreeLookCamera;
+    public Toggle cameraX;
+    public Toggle cameraY;
+
+    private void Start()
+    {
+        Debug.Log(invertCameraX);
+        Debug.Log(invertCameraY);
+            // laita buttonit näyttään oikeeta:
+            cameraX.isOn = invertCameraX;
+            cameraY.isOn = invertCameraY;
+            SetCameraInverse();
+    }
+
 
     public void Pause()
     {
@@ -53,5 +72,26 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void ToggleCameraX()
+    {
+        invertCameraX = !invertCameraX;
+        SetCameraInverse();
+    }
 
+    public void ToggleCameraY()
+    {
+        invertCameraY = !invertCameraY;
+        SetCameraInverse();
+    }
+
+    public void SetCameraInverse()
+    {
+        if(CMFreeLookCamera != null)
+        {
+            // since cinemachine doesn't know what is inverted Y:
+            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_InvertInput = invertCameraY;
+            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_InvertInput = !invertCameraX;
+        }
+      
+    }
 }
