@@ -14,9 +14,17 @@ public class BearSkins : MonoBehaviour
     public Material[] materials;
 
     public static int currentSkin = 0;
+    private int index = 0;
     private PlayerData saveFile;
 
+    public GameObject lockIcon;
+
     #endregion
+
+    private void Start()
+    {
+        index = currentSkin;
+    }
 
     public void Initialize(PlayerData saveFile)
     {
@@ -35,26 +43,45 @@ public class BearSkins : MonoBehaviour
             ballBear.sharedMesh = ballMeshes[id];
         }
 
-        currentSkin = id;
+        if(saveFile != null)
+        {
+            if (saveFile.unlockedSkins >= id)
+            {
+                currentSkin = id;
+                lockIcon.SetActive(false);
+            }
+            else
+            {
+                lockIcon.SetActive(true);
+            }
+        }
     }
 
     // Right button to select next skin:
     public void NextSkin()
     {
-        if(currentSkin < saveFile.unlockedSkins)
+        if(index + 1 <= 4)
         {
-            currentSkin++;
-            SetSkin(currentSkin);
+            SetSkin(index + 1);
+            index++;
         }
+        
     }
 
     // Left button to select previous skin:
     public void PreviousSkin()
     {
-        if(currentSkin > 0)
+        if(index -1 >= 0)
         {
-            currentSkin--;
-            SetSkin(currentSkin);
+            SetSkin(index - 1);
+            index--;
         }
+    }
+
+    public void DisableLock()
+    {
+        lockIcon.SetActive(false);
+        SetSkin(currentSkin);
+        index = currentSkin;
     }
 }
