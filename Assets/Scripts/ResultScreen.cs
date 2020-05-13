@@ -134,7 +134,6 @@ public class ResultScreen : MonoBehaviour
         foodItems.Add(new FoodItem("Blueberries", foodCounter[4]));
         foodItems.Add(new FoodItem("Fish", foodCounter[5]));
         foodItems.Add(new FoodItem("Birds", foodCounter[6]));
-        foodItems.Add(new FoodItem("Golden Berries", foodCounter[7]));
     }
 
     private void DisplayResults()

@@ -19,6 +19,9 @@ public class DataLoader : MonoBehaviour
     private PlayerData saveFile;
     private BearSkins bearSkins;
 
+    private static bool playedAnimation;
+    public Animator startMenuAnimator;
+
     void Awake()
     {
         cheater = GetComponent<UnlocksCheater>();
@@ -29,6 +32,19 @@ public class DataLoader : MonoBehaviour
         SetLevelButtonsLocked();
         SetLevelSelectionStars();
         SetGoldenBerries();
+    }
+
+    private void Start()
+    {
+        if (!playedAnimation && startMenuAnimator != null)
+        {
+            startMenuAnimator.SetBool("firstTime", true);
+            playedAnimation = true;
+        }
+        else if (playedAnimation && startMenuAnimator != null)
+        {
+            startMenuAnimator.SetBool("firstTime", false);
+        }
     }
 
     private void Load()
