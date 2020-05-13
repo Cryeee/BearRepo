@@ -44,7 +44,8 @@ public class ResultScreen : MonoBehaviour
         DisplayResults();
         DisplayStars();
         SetPlayerSkin();
-        Invoke("SetFatness", 2f);
+        weightSlider.value = 0;
+        Invoke("SetFatnessSlider", 1f);
     }
 
     private void Update()
@@ -63,8 +64,12 @@ public class ResultScreen : MonoBehaviour
         bearSkins.SetSkin(BearSkins.currentSkin);
     }
 
-    public void SetFatness()
+    public void SetFatnessSlider()
     {
+        float matka;
+        float prosentti;
+        float yli;
+
         switch (GameController.stars)
         {
             case 0:
@@ -72,13 +77,38 @@ public class ResultScreen : MonoBehaviour
                 break;
             case 1:
                 // can't be over 0.66f
-                targetValue = 0.33f;
+                //targetValue = 0.33f; TÄMÄ ON PROSENTTIMÄÄRÄ OSOITTAMAAN 1. TÄHTEÄ
+
+                // välimatka 1. ja 2. tähden välillä
+                matka = GameController.weight2 - GameController.weight1;
+
+                // paljonko syötiin yli 2. tähteen vaaditavan määrän
+                yli = PlayerScript.AmountOfFoodEaten - GameController.weight1;
+
+                // paljonko ylisyöty osa on prosentteina 2. ja 3. tähden välimatkasta
+                prosentti = (yli / matka) * 0.33f;
+
+                // 1 tähti on jo, eli 33% + paljonko loppusyöntimäärä on koko sliderin prosenteista
+                targetValue = prosentti + 0.33f;
+
                 break;
             case 2:
                 // can't be over 1
-                targetValue = 0.66f;
+                //targetValue = 0.66f;
+                // välimatka 2. ja 3. tähden välillä
+                matka = GameController.weight3 - GameController.weight2;
+
+                // paljonko syötiin yli 2. tähteen vaaditavan määrän
+                yli = PlayerScript.AmountOfFoodEaten - GameController.weight2;
+
+                // paljonko ylisyöty osa on prosentteina 2. ja 3. tähden välimatkasta
+                prosentti = (yli / matka) * 0.33f;
+
+                // 2 tähteä eli 66% + paljonko loppusyöntimäärä on koko sliderin prosenteista
+                targetValue = prosentti + 0.66f;
                 break;
             case 3:
+                // jos saatiin 3 tähteä, aseta slideri sataan prosenttiin
                 targetValue = 1;
                 break;
         }
@@ -164,7 +194,6 @@ public class ResultScreen : MonoBehaviour
 
     public void Replay()
     {
-        // TODO: lataa edellinen scene
         SceneManager.LoadScene(lastScene);
     }
 }
