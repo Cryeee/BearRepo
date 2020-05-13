@@ -78,6 +78,36 @@ ModelImporter:
   - first:
       74: 7749048518122680014
     second: Plane.004|Fattening
+  - first:
+      74: -822103461125439800
+    second: Good boy|AirFat.001
+  - first:
+      74: 3960773095221285249
+    second: Good boy|Fattening.001
+  - first:
+      74: -5196396512205695383
+    second: Good boy|Idle.001
+  - first:
+      74: 987986626413258946
+    second: Good boy|IdleFat.001
+  - first:
+      74: 395479623297963291
+    second: Good boy|Land.001
+  - first:
+      74: 4379888722698295118
+    second: Good boy|LandFat.001
+  - first:
+      74: 3009183220050534952
+    second: Good boy|RunFat.001
+  - first:
+      74: 6999617092455938095
+    second: Good boy|Sleep.001
+  - first:
+      74: 2574065337365877328
+    second: Good boy|Walk.001
+  - first:
+      74: 6061729148294882923
+    second: Plane.004|Idle
   externalObjects: {}
   materials:
     materialImportMode: 1
