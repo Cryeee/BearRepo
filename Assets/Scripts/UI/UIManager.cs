@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
 			foodEatenText.text = PlayerScript.AmountOfFoodEaten + " kg" + " / " + GameController.nextWeightGoal + " kg";
 			//timeText.text = TimeController.currentTime.ToString("F2");
 
-			timeSlider.value = TimeController.currentTime / TimeController.startTime;
+			timeSlider.value = 1 - TimeController.currentTime / TimeController.startTime;
 		} else
 		{
 			//timeText.text = "0.00";

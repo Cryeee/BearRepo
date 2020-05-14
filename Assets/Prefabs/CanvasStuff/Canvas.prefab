@@ -1796,6 +1796,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f2852da95974d4ebeba1edfcdbd3eb4b, type: 3}
   - {fileID: 21300000, guid: fba710f812f00465faab7e36836d9034, type: 3}
   - {fileID: 21300000, guid: 5190d1dcf7159478a8add272277c9d98, type: 3}
+  randomNumber: 0
 --- !u!95 &2087344732
 Animator:
   serializedVersion: 3
@@ -2419,7 +2420,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
