@@ -3221,7 +3221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 222076874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3238,7 +3238,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -3251,11 +3251,8 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2119210838}
-  toggleTransition: 0
-  graphic: {fileID: 1324739110}
-  m_Group: {fileID: 0}
-  onValueChanged:
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 805081049}
@@ -3269,7 +3266,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
 --- !u!1 &222427384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7996,7 +7992,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 464607327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -8013,7 +8009,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -8026,11 +8022,8 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1099186114}
-  toggleTransition: 0
-  graphic: {fileID: 374594340}
-  m_Group: {fileID: 0}
-  onValueChanged:
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 805081049}
@@ -8044,7 +8037,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
 --- !u!1001 &467088450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27406,12 +27398,22 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraX
       value: 
-      objectReference: {fileID: 464607329}
+      objectReference: {fileID: 0}
     - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
         type: 3}
       propertyPath: cameraY
       value: 
-      objectReference: {fileID: 222076876}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
+        type: 3}
+      propertyPath: checkmarkX
+      value: 
+      objectReference: {fileID: 374594338}
+    - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
+        type: 3}
+      propertyPath: checkmarkY
+      value: 
+      objectReference: {fileID: 1324739108}
     - target: {fileID: 8099662947986768229, guid: 68932ecbd41a5774dbd8f5de879b0076,
         type: 3}
       propertyPath: m_Name

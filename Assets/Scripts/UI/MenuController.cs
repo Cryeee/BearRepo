@@ -18,32 +18,30 @@ public class MenuController : MonoBehaviour
     public EventSystem eventSystem;
     public GameObject firstSelectedObject;
 
-    private static bool invertCameraX;
-    private static bool invertCameraY;
+
+    public static bool invertCameraX;
+    public static bool invertCameraY;
 
     public GameObject CMFreeLookCamera;
-    public Toggle cameraX;
-    public Toggle cameraY;
+
+    public GameObject checkmarkX;
+    public GameObject checkmarkY;
 
     private void Start()
     {
-        Debug.Log(invertCameraX);
-        Debug.Log(invertCameraY);
-            // laita buttonit näyttään oikeeta:
-            cameraX.isOn = invertCameraX;
-            cameraY.isOn = invertCameraY;
-            SetCameraInverse();
+        // laita buttonit näyttään oikeeta:
+        SwitchButtonGraphics();
+        SetCameraInverse();
     }
 
 
     public void Pause()
     {
-        print("pause was called");
+
 
         if (!paused)
         {
             canvas.SetActive(true);
-            print("paused");
             eventSystem.SetSelectedGameObject(null);
             eventSystem.SetSelectedGameObject(firstSelectedObject);
 
@@ -51,7 +49,6 @@ public class MenuController : MonoBehaviour
             Time.timeScale = 0;
         } else if (paused)
         {
-            print("un paused");
             canvas.SetActive(false);
             playerInput.SwitchCurrentActionMap("Player");
             Time.timeScale = 1;
@@ -72,15 +69,19 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    // button click:
     public void ToggleCameraX()
     {
         invertCameraX = !invertCameraX;
+        SwitchButtonGraphics();
         SetCameraInverse();
     }
 
+    // button click:
     public void ToggleCameraY()
     {
         invertCameraY = !invertCameraY;
+        SwitchButtonGraphics();
         SetCameraInverse();
     }
 
@@ -89,9 +90,31 @@ public class MenuController : MonoBehaviour
         if(CMFreeLookCamera != null)
         {
             // since cinemachine doesn't know what is inverted Y:
-            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_InvertInput = invertCameraY;
-            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_InvertInput = !invertCameraX;
+            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_InvertInput = !invertCameraY;
+            CMFreeLookCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_InvertInput = invertCameraX;
         }
       
+    }
+
+    private void SwitchButtonGraphics()
+    {
+        Debug.Log(invertCameraX + " is inverted X");
+        Debug.Log(invertCameraY + " is inverted Y");
+
+        if(invertCameraX)
+        {
+            checkmarkX.SetActive(true);
+        } else
+        {
+            checkmarkX.SetActive(false);
+        }
+
+        if(invertCameraY)
+        {
+            checkmarkY.SetActive(true);
+        } else
+        {
+            checkmarkY.SetActive(false);
+        }
     }
 }
