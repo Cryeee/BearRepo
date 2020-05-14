@@ -39,6 +39,17 @@ public class GameController : MonoBehaviour
     public static bool gameOn = false;
 
     private BearSkins bearSkins;
+    private bool foundGoldenBerry;
+
+    private void OnEnable()
+    {
+        GoldenBerry.OnPickedGoldenBerry += GoldenBerryFound;
+    }
+
+    private void GoldenBerryFound()
+    {
+        foundGoldenBerry = true;
+    }
 
     private void Awake()
     {
@@ -79,6 +90,7 @@ public class GameController : MonoBehaviour
         // (Time- and Food UI scripts check this bool on update)
         gameOn = true;
         ResultScreen.StartFoodCounting();
+        ResultScreen.lastScene = SceneManager.GetActiveScene().buildIndex;
         SetMaxFoods();
     }
 
@@ -91,7 +103,6 @@ public class GameController : MonoBehaviour
         ResultScreen.maxFoodValues[4] = blueberries;
         ResultScreen.maxFoodValues[5] = fish;
         ResultScreen.maxFoodValues[6] = birds;
-        ResultScreen.maxFoodValues[7] = goldenBerries;
 
         ResultScreen.maxTotalCount = ResultScreen.maxFoodValues.Sum();
     }
@@ -106,6 +117,13 @@ public class GameController : MonoBehaviour
         gameOn = false;
         CountScore();
         OnGameEnd?.Invoke();
+        if(foundGoldenBerry)
+        {
+            ResultScreen.hasGoldenBerry = true;
+        } else
+        {
+            ResultScreen.hasGoldenBerry = false;
+        }
         Invoke("ToResultScreen", 3f);
     }
 
@@ -116,7 +134,7 @@ public class GameController : MonoBehaviour
 
     void ToResultScreen()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public static void SetNewWeightGoal(float amountEaten)
@@ -177,5 +195,6 @@ public class GameController : MonoBehaviour
     private void OnDisable()
     {
         gameOn = false;
+        GoldenBerry.OnPickedGoldenBerry -= GoldenBerryFound;
     }
 }

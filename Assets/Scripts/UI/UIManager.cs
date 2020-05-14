@@ -17,20 +17,24 @@ public class UIManager : MonoBehaviour
 	private Animator canvasAnimator;
 	public bool canLevelUp;
 
+	public GameObject uiHead;
+	public Sprite[] bodies;
+	public Sprite[] heads;
+
 
 	private void OnEnable()
 	{
-		GameController.OnGameEnd += ShowStars;
+		//GameController.OnGameEnd += ShowStars;
 		GoldenBerry.OnPickedGoldenBerry += DisplayBerry;
-		GameController.OnGameStart += DisplayUI;
+		//GameController.OnGameStart += DisplayUI;
 		PlayerScript.OnGrow += GrowUI;
 
 	}
 
 	private void OnDisable()
 	{
-		GameController.OnGameStart -= DisplayUI;
-		GameController.OnGameEnd -= ShowStars;
+		//GameController.OnGameStart -= DisplayUI;
+		//GameController.OnGameEnd -= ShowStars;
 		GoldenBerry.OnPickedGoldenBerry -= DisplayBerry;
 		PlayerScript.OnGrow -= GrowUI;
 	}
@@ -40,12 +44,13 @@ public class UIManager : MonoBehaviour
 		// hakee animaattorin canvas objektista
 		canvasAnimator = GetComponent<Animator>();
 		canLevelUp = true;
+		
 	}
 
 	private void Start()
 	{
-		//fatnessUI.SetActive(false);
-		//timeSlider.gameObject.SetActive(false);
+		bodyImage.GetComponent<Image>().sprite = bodies[BearSkins.currentSkin];
+		uiHead.GetComponent<Image>().sprite = heads[BearSkins.currentSkin];
 	}
 
 	private void Update()
@@ -125,7 +130,6 @@ public class UIManager : MonoBehaviour
 			current.x += growAmount / (weightGoal - prewWeight) * amount;
 			current.y += growAmount / (weightGoal - prewWeight) * amount;
 
-			//bodyImage.localScale = new Vector3(current.x, current.y, 1);
 			bodyImage.localScale = current;
 		}
 		
