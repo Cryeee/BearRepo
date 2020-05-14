@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour
 	public Sprite[] bodies;
 	public Sprite[] heads;
 
+    //Levelup text
+    public int randomNumber;
+
 
 	private void OnEnable()
 	{
@@ -70,8 +73,10 @@ public class UIManager : MonoBehaviour
 		// UI Bounce 
 		if (PlayerScript.AmountOfFoodEaten >= 30 && PlayerScript.AmountOfFoodEaten <= 35 && canLevelUp || PlayerScript.AmountOfFoodEaten >= 50 && canLevelUp)
 		{
-			canvasAnimator.SetTrigger("LevelUp");
-			canLevelUp = false;
+			//canvasAnimator.SetTrigger("LevelUp");
+            randomNumber = Random.Range(1, 7);
+            canvasAnimator.Play("Levelup"+randomNumber, 0);
+            canLevelUp = false;
 		}
 		if (PlayerScript.AmountOfFoodEaten > 35 && PlayerScript.AmountOfFoodEaten < 40)
 		{
