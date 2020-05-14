@@ -44,7 +44,14 @@ public class PickUp : MonoBehaviour
             //print(collision.gameObject.name + " collided with: " + gameObject.name);
 
             //sound effect for picking up
-            FindObjectOfType<AudioManager>().Play("Nom");
+            if (type == FoodType.cranberry || type == FoodType.blueberry)
+            {
+                FindObjectOfType<AudioManager>().Play("Berry");
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().Play("Roar");
+            }
 
             //particle effect
             foodParticles.Play();
