@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 469351682961360319}
   m_LocalRotation: {x: -0.67224264, y: -0.21929403, z: -0.21929403, w: 0.67224264}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1666667, y: 1.1666669, z: 1.1666667}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
   m_Children:
   - {fileID: 4464828123876028282}
   m_Father: {fileID: 1622458705228457956}
@@ -4940,6 +4940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growAmount: 2
   uiIcon: {fileID: 21300000, guid: df1f0d807b3ebed4a9b6c374b4395f83, type: 3}
+  type: 0
   foodParticles: {fileID: 2940131284926840904}
 --- !u!135 &6210537913893764501
 SphereCollider:
