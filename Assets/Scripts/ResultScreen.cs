@@ -53,6 +53,10 @@ public class ResultScreen : MonoBehaviour
 
     private void Start()
     {
+        // show cursor on result screen:
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         SaveResults();
     }
 

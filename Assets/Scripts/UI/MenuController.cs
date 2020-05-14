@@ -26,12 +26,31 @@ public class MenuController : MonoBehaviour
 
     public GameObject checkmarkX;
     public GameObject checkmarkY;
+    public GameObject checkmarkFullscreen;
 
     private void Start()
     {
         // laita buttonit näyttään oikeeta:
         SwitchButtonGraphics();
         SetCameraInverse();
+
+        if (Screen.fullScreen && checkmarkFullscreen != null)
+        {
+            checkmarkFullscreen.SetActive(true);
+        }
+        else if(checkmarkFullscreen != null)
+        {
+            checkmarkFullscreen.SetActive(false);
+        }
+
+        // show cursor on menu
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            ShowCursor();
+        } else
+        {
+            HideCursor();
+        }
     }
 
 
@@ -46,12 +65,14 @@ public class MenuController : MonoBehaviour
             eventSystem.SetSelectedGameObject(firstSelectedObject);
 
             playerInput.SwitchCurrentActionMap("UI");
+            ShowCursor();
             Time.timeScale = 0;
         } else if (paused)
         {
             canvas.SetActive(false);
             playerInput.SwitchCurrentActionMap("Player");
             Time.timeScale = 1;
+            HideCursor();
         }
 
         paused = !paused;
@@ -116,5 +137,35 @@ public class MenuController : MonoBehaviour
         {
             checkmarkY.SetActive(false);
         }
+    }
+
+    public void Fullscreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+
+        if(Screen.fullScreen)
+        {
+            checkmarkFullscreen.SetActive(true);
+        } else
+        {
+            checkmarkFullscreen.SetActive(false);
+        }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
