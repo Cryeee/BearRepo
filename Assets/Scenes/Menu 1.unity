@@ -1171,10 +1171,10 @@ RectTransform:
   m_Father: {fileID: 940989824}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 64.900024, y: -19.25}
-  m_SizeDelta: {x: 109.2, y: 38.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &59105824
 Animator:
@@ -3185,7 +3185,7 @@ GameObject:
   - component: {fileID: 222076875}
   - component: {fileID: 222076876}
   m_Layer: 5
-  m_Name: Setting (1)
+  m_Name: SettingY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3221,7 +3221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 222076874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3238,7 +3238,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -3251,14 +3251,21 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2119210838}
-  toggleTransition: 0
-  graphic: {fileID: 1324739110}
-  m_Group: {fileID: 0}
-  onValueChanged:
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 805081049}
+        m_MethodName: ToggleCameraY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &222427384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,7 +7627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -110.00004}
+  m_AnchoredPosition: {x: 0, y: -110.00003}
   m_SizeDelta: {x: 0, y: -75}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &443911118
@@ -7949,7 +7956,7 @@ GameObject:
   - component: {fileID: 464607328}
   - component: {fileID: 464607329}
   m_Layer: 5
-  m_Name: Setting
+  m_Name: Settingx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7985,7 +7992,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 464607327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -8002,7 +8009,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -8015,14 +8022,21 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1099186114}
-  toggleTransition: 0
-  graphic: {fileID: 374594340}
-  m_Group: {fileID: 0}
-  onValueChanged:
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 805081049}
+        m_MethodName: ToggleCameraX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &467088450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10433,7 +10447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -448.99982}
+  m_AnchoredPosition: {x: 0, y: -448.99976}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659163629
@@ -14748,7 +14762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -113.615234, y: -320.20007}
+  m_AnchoredPosition: {x: -113.61524, y: -320.20007}
   m_SizeDelta: {x: -227.23001, y: 38.1}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &940989825
@@ -18360,7 +18374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1227159918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19722,8 +19736,8 @@ RectTransform:
   m_Father: {fileID: 74901192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -0.8000021}
   m_SizeDelta: {x: 256, y: 239.9}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -25109,7 +25123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -86.99999, y: -62.000023}
+  m_AnchoredPosition: {x: -87, y: -62.00003}
   m_SizeDelta: {x: -515.19995, y: -121.1}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1702361073
@@ -27380,6 +27394,26 @@ PrefabInstance:
       propertyPath: firstSelectedObject
       value: 
       objectReference: {fileID: 735611080}
+    - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
+        type: 3}
+      propertyPath: cameraX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
+        type: 3}
+      propertyPath: cameraY
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
+        type: 3}
+      propertyPath: checkmarkX
+      value: 
+      objectReference: {fileID: 374594338}
+    - target: {fileID: 1856528550010506635, guid: 68932ecbd41a5774dbd8f5de879b0076,
+        type: 3}
+      propertyPath: checkmarkY
+      value: 
+      objectReference: {fileID: 1324739108}
     - target: {fileID: 8099662947986768229, guid: 68932ecbd41a5774dbd8f5de879b0076,
         type: 3}
       propertyPath: m_Name
@@ -29128,7 +29162,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 3.8190002, y: 0.18099976}
   m_SizeDelta: {x: 3.943, y: -8.543}
   m_Pivot: {x: 0.5, y: 0.5}
