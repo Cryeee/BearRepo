@@ -9680,7 +9680,7 @@ PrefabInstance:
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
@@ -9690,13 +9690,13 @@ PrefabInstance:
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
       propertyPath: sounds.Array.data[0].name
-      value: Berry
+      value: Menu music
       objectReference: {fileID: 0}
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 1d31a746825aa7544ad14b099a635282, type: 3}
+      objectReference: {fileID: 8300000, guid: af1620df6bbf6894fbe422ed8b5cf7d1, type: 3}
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
       propertyPath: sounds.Array.data[3].name
@@ -9732,6 +9732,11 @@ PrefabInstance:
       propertyPath: sounds.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: 1d31a746825aa7544ad14b099a635282, type: 3}
+    - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
+        type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43aba6cc856dca24e901721f1bebf81b, type: 3}
 --- !u!4 &588344578 stripped
