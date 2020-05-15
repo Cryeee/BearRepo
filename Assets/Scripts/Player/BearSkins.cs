@@ -37,6 +37,7 @@ public class BearSkins : MonoBehaviour
         skinnyBear.material = materials[id];
         skinnyBear.sharedMesh = skinnyMeshes[id];
 
+
         if(ballBear != null)
         {
             ballBear.material = materials[id];
