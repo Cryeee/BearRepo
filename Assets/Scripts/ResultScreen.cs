@@ -177,6 +177,11 @@ public class ResultScreen : MonoBehaviour
         {
             goldenBerry.SetActive(true);
         }
+
+        if(totalCount >= maxTotalCount)
+        {
+            canvasAnimator.SetInteger("stars", 4);
+        }
     }
 
     private void OnDisable()
