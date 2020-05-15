@@ -86,6 +86,20 @@ public class UIManager : MonoBehaviour
         //whiteout
         if (TimeController.currentTime <= 0)
             gameObject.GetComponent<Animator>().Play("whiteout", 0);
+
+        //UI stars
+        if(PlayerScript.AmountOfFoodEaten >= GameController.weight1 && GameController.weight1 != 0)
+        {
+            canvasAnimator.SetBool("1star", true);
+        }
+        if (PlayerScript.AmountOfFoodEaten >= GameController.weight2 && GameController.weight1 != 0)
+        {
+            canvasAnimator.SetBool("2star", true);
+        }
+        if (PlayerScript.AmountOfFoodEaten >= GameController.weight3 && GameController.weight1 != 0)
+        {
+            canvasAnimator.SetBool("3star", true);
+        }
     }
 
 	private void ShowStars()
