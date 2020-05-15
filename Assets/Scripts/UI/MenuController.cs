@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Cinemachine;
-
+using UnityEngine.Audio;
 
 public class MenuController : MonoBehaviour
 {
@@ -28,8 +28,17 @@ public class MenuController : MonoBehaviour
     public GameObject checkmarkY;
     public GameObject checkmarkFullscreen;
 
+    public AudioMixer master;
+    private static float currentVol = 0;
+    public Slider volumeSlider;
+
     private void Start()
     {
+        if(volumeSlider != null)
+        {
+            volumeSlider.SetValueWithoutNotify(currentVol);
+        }
+
         // laita buttonit näyttään oikeeta:
         SwitchButtonGraphics();
         SetCameraInverse();
@@ -167,5 +176,11 @@ public class MenuController : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void VolumeChange(float amount)
+    {
+        master.SetFloat("vol", amount);
+        currentVol = amount;
     }
 }
