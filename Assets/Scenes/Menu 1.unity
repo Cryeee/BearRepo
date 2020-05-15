@@ -2525,6 +2525,12 @@ PrefabInstance:
       propertyPath: bearName.Array.data[4]
       value: 
       objectReference: {fileID: 1725451524}
+    - target: {fileID: 9104651868681141984, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
+        type: 3}
+      propertyPath: skinnyMeshes.Array.data[3]
+      value: 
+      objectReference: {fileID: 6894428203817054813, guid: 76e5b8598c7cb4090ac2acc700d7a8aa,
+        type: 3}
     - target: {fileID: 9104651868681141985, guid: e6b1b9c9588ba6e43a4efda3e749bdb5,
         type: 3}
       propertyPath: unlockedLevels
@@ -4421,7 +4427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lumi
+  m_text: Knut
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87755c590cdbc4f6cbbf9ecaec53de0a, type: 2}
   m_sharedMaterial: {fileID: -6403531765114269924, guid: 87755c590cdbc4f6cbbf9ecaec53de0a,
