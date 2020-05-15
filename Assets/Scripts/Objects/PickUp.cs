@@ -29,45 +29,59 @@ public class PickUp : MonoBehaviour
     public ParticleSystem foodParticles;
 
     void OnTriggerEnter(Collider collision) {
-        if(collision.gameObject.tag == "Player") {
+        if(collision.gameObject.tag == "Player") 
+        {
 
-            if(uiIcon == null)
+            if(collision.gameObject.name == "Collider_spine" ||collision.gameObject.name == "pallokarhu")
             {
-                Debug.LogError("uiIcon not assigned!!");
-            }
+                if (type != FoodType.goldenBerry)
+                {
+                    // Tell ResultScreen that player picked a certain type of food
+                    ResultScreen.foodCounter[(int)type] += 1;
+                    //Debug.Log(ResultScreen.foodCounter[(int)type].ToString() + "  was picked up");
+                    Debug.Log(collision.gameObject.name);
+                }
 
-            //playerscript is in parent gameobject
-            //collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += growAmount;
+                if (uiIcon == null)
+                {
+                    Debug.LogError("uiIcon not assigned!!");
+                }
 
-            //Tell player to grow this amount:
-            collision.GetComponentInParent<PlayerScript>().Grow(growAmount, uiIcon);
-            //print(collision.gameObject.name + " collided with: " + gameObject.name);
+                //playerscript is in parent gameobject
+                //collision.gameObject.GetComponent<PlayerScript>().AmountOfFoodEaten += growAmount;
 
-            //sound effect for picking up
-            if (type == FoodType.cranberry || type == FoodType.blueberry)
-            {
-                FindObjectOfType<AudioManager>().Play("Berry");
-            }
-            if (type == FoodType.goldenBerry)
-            {
-                FindObjectOfType<AudioManager>().Play("Cloudberry");
-            }
-            if (type == FoodType.fish)
-            {
-                FindObjectOfType<AudioManager>().Play("Fish");
-            }
-            else
-            {
-                FindObjectOfType<AudioManager>().Play("Nom");
-            }
+                //Tell player to grow this amount:
+                collision.GetComponentInParent<PlayerScript>().Grow(growAmount, uiIcon);
+                //print(collision.gameObject.name + " collided with: " + gameObject.name);
 
-            //particle effect
-            foodParticles.Play();
+                if (foodParticles != null)
+                {
+                    //particle effect
+                    foodParticles.Play();
+                }
 
-            // Tell ResultScreen that player picked a certain type of food
-            ResultScreen.foodCounter[(int) type] += 1;
-            //Debug.Log(ResultScreen.foodCounter[(int)type].ToString() + "  is the food count");
-            Destroy(gameObject);
+                //sound effect for picking up
+                if (type == FoodType.cranberry || type == FoodType.blueberry)
+                {
+                    FindObjectOfType<AudioManager>().Play("Berry");
+                }
+                if (type == FoodType.goldenBerry)
+                {
+                    FindObjectOfType<AudioManager>().Play("Cloudberry");
+                }
+                if (type == FoodType.fish)
+                {
+                    FindObjectOfType<AudioManager>().Play("Fish");
+                }
+                else
+                {
+                    FindObjectOfType<AudioManager>().Play("Nom");
+                }
+
+                //Debug.Log(ResultScreen.foodCounter[(int)type].ToString() + "  is the food count");
+                Destroy(gameObject);
+            }
+            
         }
     }
 }
