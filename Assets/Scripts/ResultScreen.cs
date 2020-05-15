@@ -36,8 +36,8 @@ public class ResultScreen : MonoBehaviour
 
     public static void StartFoodCounting()
     {
-        foodCounter = new int[8];
-        maxFoodValues = new int[8];
+        foodCounter = new int[7];
+        maxFoodValues = new int[7];
     }
 
     private void Awake()
