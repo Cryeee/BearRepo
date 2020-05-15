@@ -48,9 +48,17 @@ public class PickUp : MonoBehaviour
             {
                 FindObjectOfType<AudioManager>().Play("Berry");
             }
+            if (type == FoodType.goldenBerry)
+            {
+                FindObjectOfType<AudioManager>().Play("Cloudberry");
+            }
+            if (type == FoodType.fish)
+            {
+                FindObjectOfType<AudioManager>().Play("Fish");
+            }
             else
             {
-                FindObjectOfType<AudioManager>().Play("Roar");
+                FindObjectOfType<AudioManager>().Play("Nom");
             }
 
             //particle effect
