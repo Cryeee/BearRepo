@@ -4,12 +4,15 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioMixerGroup masterMixer;
+
     public Sound[] sounds;
 
     public static AudioManager instance;
 
     void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -21,10 +24,11 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
+        
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            s.source.outputAudioMixerGroup = masterMixer;
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
@@ -35,6 +39,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        Play("Menu music");
         Play("Music");
         Play("Ambience");
     }
