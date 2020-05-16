@@ -44,15 +44,30 @@ public class NormalMovement : MonoBehaviour
 
     public Animator canvasAnimator;
 
-    #region Jump Stuff
+	#region Jump Stuff
+
+	bool doCheck;
 
     public bool IsGrounded()
 	{
 		//Debug.DrawRay(groundCheckCollider.bounds.center,
 		//	Vector3.down * (groundCheckCollider.bounds.extents.y + 0.1f));
 
-		return Physics.Raycast(groundCheckCollider.bounds.center, Vector3.down,
-			groundCheckCollider.bounds.extents.y + 0.1f);
+		//return Physics.Raycast(groundCheckCollider.bounds.center, Vector3.down,
+		//	groundCheckCollider.bounds.extents.y + 0.1f);
+
+		if(Physics.Raycast(groundCheckCollider.bounds.center, Vector3.down,
+		 	groundCheckCollider.bounds.extents.y + 0.1f) == true
+			|| Physics.Raycast(groundCheckCollider.bounds.max, Vector3.down,
+		 	groundCheckCollider.bounds.extents.y + 0.1f) == true
+			|| Physics.Raycast(groundCheckCollider.bounds.min, Vector3.down,
+		 	groundCheckCollider.bounds.extents.y + 0.1f) == true)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 
 	public void Jump()
@@ -61,25 +76,32 @@ public class NormalMovement : MonoBehaviour
 		{
 			rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
 			//rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
+			animator.SetBool("LandBool", false);
 			animator.SetTrigger("Jump");
-			StartCoroutine(LandCheck());
+			Invoke("StartCheckingLand", 0.1f);
+        	//StartCoroutine(LandCheck());
 		}
 	}
 
-	IEnumerator LandCheck()
+	private void StartCheckingLand()
 	{
-		yield return new WaitForSeconds(0.01f);
-		while (true)
-		{
-			if (IsGrounded())
-			{
-				Debug.Log("ländäs");
-				animator.SetTrigger("Land");
-				break;
-			}
-			yield return new WaitForSeconds(0.1f);
-		}
+		doCheck = true;
 	}
+
+	//IEnumerator LandCheck()
+	//{
+	//	yield return new WaitForSeconds(0.01f);
+	//	while (true)
+	//	{
+	//		if (IsGrounded())
+	//		{
+	//			Debug.Log("ländäs");
+	//			animator.SetTrigger("Land");
+	//			break;
+	//		}
+	//		yield return new WaitForEndOfFrame();
+	//	}
+	//}
 
 	#endregion
 
@@ -95,6 +117,16 @@ public class NormalMovement : MonoBehaviour
 
     void Update()
     {
+		Debug.DrawRay(groundCheckCollider.bounds.max,
+			Vector3.down * (groundCheckCollider.bounds.extents.y + 0.1f));
+
+		Debug.DrawRay(groundCheckCollider.bounds.min,
+			Vector3.down * (groundCheckCollider.bounds.extents.y + 0.1f));
+
+		Debug.DrawRay(groundCheckCollider.bounds.center,
+			Vector3.down * (groundCheckCollider.bounds.extents.y + 0.1f));
+
+
 		Xinput = playerInputs.MoveInput.x;
         Yinput = playerInputs.MoveInput.y;
 
@@ -120,7 +152,17 @@ public class NormalMovement : MonoBehaviour
         {
             waterparticles.Stop();
         }
-    }
+
+		if(doCheck)
+		{
+			if (IsGrounded())
+			{
+				Debug.Log("ländäs");
+				animator.SetBool("LandBool", true);
+				doCheck = false;
+			}
+		}
+	}
 
     private void FixedUpdate()
     {

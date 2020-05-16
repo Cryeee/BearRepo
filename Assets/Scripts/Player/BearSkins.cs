@@ -18,6 +18,9 @@ public class BearSkins : MonoBehaviour
     private PlayerData saveFile;
 
     public GameObject lockIcon;
+    public GameObject[] eatToUnlock;
+    public GameObject[] bearName;
+
 
     #endregion
 
@@ -37,6 +40,7 @@ public class BearSkins : MonoBehaviour
         skinnyBear.material = materials[id];
         skinnyBear.sharedMesh = skinnyMeshes[id];
 
+
         if(ballBear != null)
         {
             ballBear.material = materials[id];
@@ -49,10 +53,18 @@ public class BearSkins : MonoBehaviour
             {
                 currentSkin = id;
                 lockIcon.SetActive(false);
+                bearName[id].SetActive(true);
+
+                for (int i = 0; i < eatToUnlock.Length; i++)
+                {
+                    eatToUnlock[i].SetActive(false);
+                }
             }
             else
             {
                 lockIcon.SetActive(true);
+                eatToUnlock[id].SetActive(true);
+                bearName[id].SetActive(false);
             }
         }
     }
@@ -62,6 +74,8 @@ public class BearSkins : MonoBehaviour
     {
         if(index + 1 <= 4)
         {
+            eatToUnlock[index].SetActive(false);
+            bearName[index].SetActive(false);
             SetSkin(index + 1);
             index++;
         }
@@ -73,6 +87,8 @@ public class BearSkins : MonoBehaviour
     {
         if(index -1 >= 0)
         {
+            eatToUnlock[index].SetActive(false);
+            bearName[index].SetActive(false);
             SetSkin(index - 1);
             index--;
         }
@@ -81,6 +97,12 @@ public class BearSkins : MonoBehaviour
     public void DisableLock()
     {
         lockIcon.SetActive(false);
+        for (int i = 0; i < eatToUnlock.Length; i++)
+        {
+            eatToUnlock[i].SetActive(false);
+            bearName[i].SetActive(false);
+        }
+
         SetSkin(currentSkin);
         index = currentSkin;
     }

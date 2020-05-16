@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 
 public class ResultScreen : MonoBehaviour
 {
@@ -36,8 +37,8 @@ public class ResultScreen : MonoBehaviour
 
     public static void StartFoodCounting()
     {
-        foodCounter = new int[8];
-        maxFoodValues = new int[8];
+        foodCounter = new int[7];
+        maxFoodValues = new int[7];
     }
 
     private void Awake()
@@ -47,17 +48,24 @@ public class ResultScreen : MonoBehaviour
         DisplayResults();
         DisplayStars();
         SetPlayerSkin();
+        
         weightSlider.value = 0;
         Invoke("SetFatnessSlider", 1f);
     }
+
 
     private void Start()
     {
         // show cursor on result screen:
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
+        SetPlayerFatness();
         SaveResults();
+    }
+
+    private void SetPlayerFatness()
+    {
+        GetComponent<BearSkins>().skinnyBear.SetBlendShapeWeight(3, PlayerScript.AmountOfFoodEaten / GameController.weight3 * 100);
     }
 
     private void Update()
@@ -176,6 +184,11 @@ public class ResultScreen : MonoBehaviour
         if(hasGoldenBerry)
         {
             goldenBerry.SetActive(true);
+        }
+
+        if(totalCount >= maxTotalCount)
+        {
+            canvasAnimator.SetInteger("stars", 4);
         }
     }
 

@@ -86,6 +86,20 @@ public class UIManager : MonoBehaviour
         //whiteout
         if (TimeController.currentTime <= 0)
             gameObject.GetComponent<Animator>().Play("whiteout", 0);
+
+        ////UI stars
+        //if(PlayerScript.AmountOfFoodEaten >= GameController.weight1 && GameController.weight1 != 0)
+        //{
+        //    canvasAnimator.SetBool("1star", true);
+        //}
+        //if (PlayerScript.AmountOfFoodEaten >= GameController.weight2 && GameController.weight1 != 0)
+        //{
+        //    canvasAnimator.SetBool("2star", true);
+        //}
+        //if (PlayerScript.AmountOfFoodEaten >= GameController.weight3 && GameController.weight1 != 0)
+        //{
+        //    canvasAnimator.SetBool("3star", true);
+        //}
     }
 
 	private void ShowStars()
@@ -136,6 +150,18 @@ public class UIManager : MonoBehaviour
 			current.y += growAmount / (weightGoal - prewWeight) * amount;
 
 			bodyImage.localScale = current;
+		}
+
+		// UI star animations:
+		if(GameController.stars >= 3)
+		{
+			canvasAnimator.SetBool("3star", true);
+		} else if(GameController.stars >= 2)
+		{
+			canvasAnimator.SetBool("2star", true);
+		} else if(GameController.stars >= 1)
+		{
+			canvasAnimator.SetBool("1star", true);
 		}
 		
 	}
