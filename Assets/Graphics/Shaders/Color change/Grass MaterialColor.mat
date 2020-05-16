@@ -175,7 +175,7 @@ Material:
     - _WindQuality: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _ammount: 0.26543403
+    - _ammount: 0.8
     m_Colors:
     - Color_3635ABA8: {r: 0.3882353, g: 0.5294118, b: 0.59607846, a: 0}
     - Color_47C1DAA8: {r: 0.3666898, g: 0.4745098, b: 0.18039218, a: 1}
