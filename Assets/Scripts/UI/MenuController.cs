@@ -32,6 +32,7 @@ public class MenuController : MonoBehaviour
     private static float currentVol = 0;
     public Slider volumeSlider;
 
+    public Animator pauseCanvasAnimator;
     private void Start()
     {
 
@@ -48,7 +49,7 @@ public class MenuController : MonoBehaviour
         {
             checkmarkFullscreen.SetActive(true);
         }
-        else if(checkmarkFullscreen != null)
+        else if(!Screen.fullScreen && checkmarkFullscreen != null)
         {
             checkmarkFullscreen.SetActive(false);
         }
@@ -81,15 +82,20 @@ public class MenuController : MonoBehaviour
             }
             else if (paused)
             {
-                canvas.SetActive(false);
+                pauseCanvasAnimator.Play("UnPaused");
                 playerInput.SwitchCurrentActionMap("Player");
                 Time.timeScale = 1;
                 HideCursor();
+                Invoke("DisableMenu", 1f);
             }
 
             paused = !paused;
         }   
         
+    }
+    void DisableMenu()
+    {
+        canvas.SetActive(false);
     }
 
     public void LoadScene(int index)
@@ -155,15 +161,17 @@ public class MenuController : MonoBehaviour
 
     public void Fullscreen()
     {
-        Screen.fullScreen = !Screen.fullScreen;
+      
 
-        if(Screen.fullScreen)
-        {
-            checkmarkFullscreen.SetActive(true);
-        } else
+        if (Screen.fullScreen)
         {
             checkmarkFullscreen.SetActive(false);
+        } else if(!Screen.fullScreen)
+        {
+            checkmarkFullscreen.SetActive(true);
         }
+
+        Screen.fullScreen = !Screen.fullScreen;
     }
 
     public void QuitGame()
