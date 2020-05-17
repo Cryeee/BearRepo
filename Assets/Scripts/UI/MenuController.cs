@@ -34,6 +34,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+
         if(volumeSlider != null)
         {
             volumeSlider.SetValueWithoutNotify(currentVol);
@@ -66,25 +67,29 @@ public class MenuController : MonoBehaviour
     public void Pause()
     {
 
-
-        if (!paused)
+        if(SceneManager.GetActiveScene().buildIndex != 0)
         {
-            canvas.SetActive(true);
-            eventSystem.SetSelectedGameObject(null);
-            eventSystem.SetSelectedGameObject(firstSelectedObject);
+            if (!paused)
+            {
+                canvas.SetActive(true);
+                eventSystem.SetSelectedGameObject(null);
+                eventSystem.SetSelectedGameObject(firstSelectedObject);
 
-            playerInput.SwitchCurrentActionMap("UI");
-            ShowCursor();
-            Time.timeScale = 0;
-        } else if (paused)
-        {
-            canvas.SetActive(false);
-            playerInput.SwitchCurrentActionMap("Player");
-            Time.timeScale = 1;
-            HideCursor();
-        }
+                playerInput.SwitchCurrentActionMap("UI");
+                ShowCursor();
+                Time.timeScale = 0;
+            }
+            else if (paused)
+            {
+                canvas.SetActive(false);
+                playerInput.SwitchCurrentActionMap("Player");
+                Time.timeScale = 1;
+                HideCursor();
+            }
 
-        paused = !paused;
+            paused = !paused;
+        }   
+        
     }
 
     public void LoadScene(int index)

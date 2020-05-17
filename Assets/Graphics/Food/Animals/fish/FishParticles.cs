@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FishParticles : MonoBehaviour
 {
-    public bool inWater;
     public ParticleSystem splashParticles;
 
     // Start is called before the first frame update
@@ -24,7 +23,6 @@ public class FishParticles : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             splashParticles.Play();
-            inWater = true;
         }
     }
 
@@ -33,7 +31,6 @@ public class FishParticles : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             splashParticles.Play();
-            inWater = false;
         }
     }
 }

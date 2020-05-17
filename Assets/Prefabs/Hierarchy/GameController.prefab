@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1125663358}
   - component: {fileID: 4906167913724580199}
   - component: {fileID: 2854961193797208350}
+  - component: {fileID: 9091514315413383016}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -50,6 +51,12 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   eventSystem: {fileID: 0}
   firstSelectedObject: {fileID: 0}
+  CMFreeLookCamera: {fileID: 0}
+  checkmarkX: {fileID: 0}
+  checkmarkY: {fileID: 0}
+  checkmarkFullscreen: {fileID: 0}
+  master: {fileID: 0}
+  volumeSlider: {fileID: 0}
 --- !u!114 &1125663358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,3 +126,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 41e5cb421ce4d4ab2b2d23d3d70b7f27, type: 2}
   - {fileID: 2100000, guid: 0e363a7eb0ae44236b83bb6ae9caa7e1, type: 2}
   - {fileID: 2100000, guid: 57ea0b61787d641c5bae6b00a2f6e844, type: 2}
+  lockIcon: {fileID: 0}
+  eatToUnlock: []
+  bearName: []
+--- !u!114 &9091514315413383016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099662947986768229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0392ac8376b19e4bae782c2f8051656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 0}
+  firstSelected: {fileID: 0}

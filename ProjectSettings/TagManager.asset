@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: TestLayer
+    uniqueID: 118737641
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
