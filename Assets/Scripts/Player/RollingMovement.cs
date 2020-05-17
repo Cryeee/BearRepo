@@ -170,7 +170,7 @@ public class RollingMovement : MonoBehaviour
     public void Jump()
     {
 
-        if (canJump)
+        if (canJump && MenuController.paused == false)
         {
             RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps 
             RB.AddForce(0, jumpForce, 0);
