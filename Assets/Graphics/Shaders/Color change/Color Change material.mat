@@ -132,7 +132,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _ammount: NaN
+    - _ammount: 0.010737254
     m_Colors:
     - Color_10A8D271: {r: 0.1927287, g: 0.4490927, b: 0.6698113, a: 0}
     - Color_2C09CA34: {r: 0.30787936, g: 0.376, b: 0.085351996, a: 0}
