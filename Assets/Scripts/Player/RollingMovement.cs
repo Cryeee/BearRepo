@@ -100,7 +100,7 @@ public class RollingMovement : MonoBehaviour
             RB.AddForce(0, jumpForce / 2, 0);
             ballAnim.SetTrigger("XL");
             playedParticles = true;
-
+            FindObjectOfType<AudioManager>().Play("Grow");
         }
         //for groundcheck 
         distToGround = GetComponent<Collider>().bounds.extents.y;
@@ -170,13 +170,22 @@ public class RollingMovement : MonoBehaviour
     public void Jump()
     {
 
-        if (canJump)
+        if (canJump && MenuController.paused == false)
         {
             RB.velocity = new Vector3(RB.velocity.x, 0, RB.velocity.z); // fixes megajumps 
             RB.AddForce(0, jumpForce, 0);
             canJump = false;
             jumped = true;
             pressedJumpButton = true;
+
+            if (!inWater)
+            {
+                FindObjectOfType<AudioManager>().Play("Jump");
+            }
+            if (inWater)
+            {
+                FindObjectOfType<AudioManager>().Play("WaterJump");
+            }
         }
     }
 

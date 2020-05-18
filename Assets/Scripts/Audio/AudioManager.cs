@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        
+       /* 
         if (instance == null)
         {
             instance = this;
@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        
+        */
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -52,6 +52,11 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Sound " + name + " not found :(");
             return;
         }
+        if(name == "Berry" || name == "Rabbit/Bird" || name == "Mushroom")
+        {
+            s.source.pitch = UnityEngine.Random.Range(s.pitch-0.2f, s.pitch + 0.2f);
+        }
+        
         s.source.Play();
     }
 }

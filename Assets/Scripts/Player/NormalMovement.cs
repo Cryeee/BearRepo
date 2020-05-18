@@ -79,8 +79,17 @@ public class NormalMovement : MonoBehaviour
 			animator.SetBool("LandBool", false);
 			animator.SetTrigger("Jump");
 			Invoke("StartCheckingLand", 0.1f);
-        	//StartCoroutine(LandCheck());
-		}
+            //StartCoroutine(LandCheck());
+
+            if (!inWater)
+            {
+                FindObjectOfType<AudioManager>().Play("Jump");
+            }
+            if (inWater)
+            {
+                FindObjectOfType<AudioManager>().Play("WaterJump");
+            }
+        }
 	}
 
 	private void StartCheckingLand()
@@ -264,7 +273,8 @@ public class NormalMovement : MonoBehaviour
 	{
 		GetComponentInParent<PlayerScript>().TurnToBall(transform.position);
 		gameObject.SetActive(false);
-	}
+        FindObjectOfType<AudioManager>().Play("Grow");
+    }
 
     //water particles
     public void OnTriggerEnter(Collider other)

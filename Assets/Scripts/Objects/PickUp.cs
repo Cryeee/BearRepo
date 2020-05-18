@@ -61,7 +61,7 @@ public class PickUp : MonoBehaviour
                 }
 
                 //sound effect for picking up
-                if (type == FoodType.cranberry || type == FoodType.blueberry)
+                if (type == FoodType.cranberry || type == FoodType.blueberry || type == FoodType.mushroom)
                 {
                     FindObjectOfType<AudioManager>().Play("Berry");
                 }
@@ -73,11 +73,14 @@ public class PickUp : MonoBehaviour
                 {
                     FindObjectOfType<AudioManager>().Play("Fish");
                 }
-                else
+                if (type == FoodType.rabbit || type == FoodType.bird)
                 {
-                    FindObjectOfType<AudioManager>().Play("Nom");
+                    FindObjectOfType<AudioManager>().Play("Rabbit/Bird");
                 }
-
+                if (type == FoodType.glowingMushroom)
+                {
+                    FindObjectOfType<AudioManager>().Play("Mushroom");
+                }
                 //Debug.Log(ResultScreen.foodCounter[(int)type].ToString() + "  is the food count");
                 Destroy(gameObject);
             }
