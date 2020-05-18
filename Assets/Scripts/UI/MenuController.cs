@@ -148,8 +148,8 @@ public class MenuController : MonoBehaviour
 
     private void SwitchButtonGraphics()
     {
-        Debug.Log(invertCameraX + " is inverted X");
-        Debug.Log(invertCameraY + " is inverted Y");
+        //Debug.Log(invertCameraX + " is inverted X");
+        //Debug.Log(invertCameraY + " is inverted Y");
 
         if(invertCameraX)
         {

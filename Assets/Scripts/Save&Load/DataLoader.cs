@@ -26,8 +26,8 @@ public class DataLoader : MonoBehaviour
     {
         cheater = GetComponent<UnlocksCheater>();
         bearSkins = GetComponent<BearSkins>();
-        Hacks();
-        //Load();
+        //Hacks();
+        Load();
         bearSkins.Initialize(saveFile);
         SetLevelButtonsLocked();
         SetLevelSelectionStars();

@@ -81,7 +81,7 @@ public class NPC : MonoBehaviour
         }
         if (navagent.velocity != Vector3.zero)
         {
-            Debug.Log("liikkuu");
+            //Debug.Log("liikkuu");
             animator.SetBool("walk", true);
         }
         else

@@ -319,13 +319,19 @@ public class ResultScreen : MonoBehaviour
 
     public void BackToMenu()
     {
-        // venaa?
-        SceneManager.LoadScene(0);
+        FindObjectOfType<AudioManager>().Play("pilli");
+        StartCoroutine(LoadSceneIE(0));
     }
 
     public void Replay()
     {
-        // venaa?
-        SceneManager.LoadScene(lastScene);
+        FindObjectOfType<AudioManager>().Play("pilli");
+        StartCoroutine(LoadSceneIE(lastScene));
+    }
+
+    private IEnumerator LoadSceneIE(int index)
+    {
+        yield return new WaitForSecondsRealtime(1);
+        SceneManager.LoadScene(index);
     }
 }
