@@ -189,6 +189,8 @@ public class ResultScreen : MonoBehaviour
         if(totalCount >= maxTotalCount)
         {
             canvasAnimator.SetInteger("stars", 4);
+            StartCoroutine(playAudio("Star4", 3.3f));
+            StartCoroutine(playAudio("Clap", 3.3f));
         }
         if (GameController.stars >= 1)
         {
@@ -197,12 +199,12 @@ public class ResultScreen : MonoBehaviour
 
         if (GameController.stars >= 2)
         {
-            StartCoroutine(playAudio("Star2", 1.9f));
+            StartCoroutine(playAudio("Star2", 1.8f));
         }
 
         if (GameController.stars >= 3)
         {
-            StartCoroutine(playAudio("Star3", 2.6f));
+            StartCoroutine(playAudio("Star3", 2.5f));
         }
     }
 

@@ -78,7 +78,7 @@ public class UIManager : MonoBehaviour
             canvasAnimator.Play("Levelup"+randomNumber, 0);
             canLevelUp = false;
 		}
-		if (PlayerScript.AmountOfFoodEaten > 35 && PlayerScript.AmountOfFoodEaten < 40)
+		if (PlayerScript.AmountOfFoodEaten > 35 && PlayerScript.AmountOfFoodEaten < 50)
 		{
 			canLevelUp = true;
 		}
