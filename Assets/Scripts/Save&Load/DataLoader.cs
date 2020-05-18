@@ -19,7 +19,7 @@ public class DataLoader : MonoBehaviour
     private PlayerData saveFile;
     private BearSkins bearSkins;
 
-    private static bool playedAnimation;
+    public static bool playedAnimation;
     public Animator startMenuAnimator;
 
     void Awake()

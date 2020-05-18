@@ -11207,13 +11207,13 @@ PrefabInstance:
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
       propertyPath: sounds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
       propertyPath: sounds.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: af1620df6bbf6894fbe422ed8b5cf7d1, type: 3}
+      objectReference: {fileID: 8300000, guid: e1e356350ec103b4eab8d9845d453766, type: 3}
     - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
         type: 3}
       propertyPath: sounds.Array.data[0].name
@@ -11270,6 +11270,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 15122ff8cb0c24440af4ba53687d309b,
         type: 2}
+    - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
+        type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Pilli2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224741022477818271, guid: 43aba6cc856dca24e901721f1bebf81b,
+        type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43aba6cc856dca24e901721f1bebf81b, type: 3}
 --- !u!4 &588344578 stripped
