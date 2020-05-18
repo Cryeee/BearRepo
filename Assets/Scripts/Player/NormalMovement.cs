@@ -87,7 +87,7 @@ public class NormalMovement : MonoBehaviour
             }
             if (inWater)
             {
-                FindObjectOfType<AudioManager>().Play("WaterJump");
+                //FindObjectOfType<AudioManager>().Play("WaterJump");
             }
         }
 	}
@@ -261,7 +261,7 @@ public class NormalMovement : MonoBehaviour
 		if (fatnessAmount < 1)
 		{
 			animator.SetFloat("Fatness", fatnessAmount);
-		} else if (fatnessAmount > 1)
+		} else if (fatnessAmount >= 1)
 		{
 			animator.SetTrigger("Ball");
 			Jump();
@@ -283,7 +283,8 @@ public class NormalMovement : MonoBehaviour
         {
             splashParticles.Play();
             inWater = true;
-        }
+			FindObjectOfType<AudioManager>().Play("WaterJump");
+		}
     }
 
     public void OnTriggerExit(Collider other)
@@ -292,6 +293,7 @@ public class NormalMovement : MonoBehaviour
         {
             splashParticles.Play();
             inWater = false;
-        }
+			FindObjectOfType<AudioManager>().Play("WaterJump");
+		}
     }
 }

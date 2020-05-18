@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Sound " + name + " not found :(");
             return;
         }
-        if(name == "Berry" || name == "Rabbit/Bird" || name == "Mushroom")
+        if(name == "Berry" || name == "Rabbit/Bird" || name == "Mushroom" || name == "Fish" || name == "WaterJump")
         {
             s.source.pitch = UnityEngine.Random.Range(s.pitch-0.2f, s.pitch + 0.2f);
         }

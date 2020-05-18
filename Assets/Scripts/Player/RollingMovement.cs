@@ -202,6 +202,7 @@ public class RollingMovement : MonoBehaviour
         {
             splashParticles.Play();
             inWater = true;
+            FindObjectOfType<AudioManager>().Play("WaterJump");
         }
     }
 
@@ -211,6 +212,7 @@ public class RollingMovement : MonoBehaviour
         {
             splashParticles.Play();
             inWater = false;
+            FindObjectOfType<AudioManager>().Play("WaterJump");
         }
     }
 }
