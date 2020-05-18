@@ -114,6 +114,7 @@ public class GameController : MonoBehaviour
 
     void GameEnd()
     {
+        FindObjectOfType<AudioManager>().Play("TikTok");
         gameOn = false;
         CountScore();
         OnGameEnd?.Invoke();

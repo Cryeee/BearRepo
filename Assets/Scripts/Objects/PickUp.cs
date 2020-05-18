@@ -82,6 +82,7 @@ public class PickUp : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Mushroom");
                 }
                 //Debug.Log(ResultScreen.foodCounter[(int)type].ToString() + "  is the food count");
+                FindObjectOfType<AudioManager>().Play("Nom");
                 Destroy(gameObject);
             }
             

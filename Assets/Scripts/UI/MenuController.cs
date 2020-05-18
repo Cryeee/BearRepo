@@ -33,6 +33,14 @@ public class MenuController : MonoBehaviour
     public Slider volumeSlider;
 
     public Animator pauseCanvasAnimator;
+
+    private void Awake()
+    {
+        if(DataLoader.playedAnimation){
+            FindObjectOfType<AudioManager>().Play("Pilli1");
+        }
+    }
+
     private void Start()
     {
 
@@ -98,8 +106,9 @@ public class MenuController : MonoBehaviour
         canvas.SetActive(false);
     }
 
-    public void LoadScene(int index)
+    public void LoadScene(int index)    
     {
+        FindObjectOfType<AudioManager>().Play("Pilli2");
         StartCoroutine(LoadSceneIE(index));
     }
     
