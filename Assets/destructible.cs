@@ -22,6 +22,7 @@ public class destructible : MonoBehaviour
             {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Play("Rocks");
         }
 
     }

@@ -190,6 +190,26 @@ public class ResultScreen : MonoBehaviour
         {
             canvasAnimator.SetInteger("stars", 4);
         }
+        if (GameController.stars >= 1)
+        {
+            StartCoroutine(playAudio("Star1", 1.1f));
+        }
+
+        if (GameController.stars >= 2)
+        {
+            StartCoroutine(playAudio("Star2", 1.9f));
+        }
+
+        if (GameController.stars >= 3)
+        {
+            StartCoroutine(playAudio("Star3", 2.6f));
+        }
+    }
+
+    IEnumerator playAudio(string clipName, float waitTIme)
+    {
+        yield return new WaitForSeconds(waitTIme);
+        FindObjectOfType<AudioManager>().Play(clipName);
     }
 
     private void OnDisable()

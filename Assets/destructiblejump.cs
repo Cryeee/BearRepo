@@ -22,6 +22,7 @@ public class destructiblejump : MonoBehaviour
             {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Play("Rocks");
         }
 
     }
