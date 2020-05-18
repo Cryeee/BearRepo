@@ -186,12 +186,13 @@ public class ResultScreen : MonoBehaviour
             goldenBerry.SetActive(true);
         }
 
-        /*if(totalCount >= maxTotalCount)
+        if(totalCount >= maxTotalCount)
         {
             canvasAnimator.SetInteger("stars", 4);
-            StartCoroutine(playAudio("Star4", 3.3f));
-            StartCoroutine(playAudio("Clap", 3.3f));
+            //StartCoroutine(playAudio("Star4", 3.3f));
+            //StartCoroutine(playAudio("Clap", 3.3f));
         }
+        /*
         if (GameController.stars >= 1)
         {
             StartCoroutine(playAudio("Star1", 1.1f));

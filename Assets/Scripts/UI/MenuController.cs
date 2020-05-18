@@ -50,7 +50,7 @@ public class MenuController : MonoBehaviour
 
     IEnumerator tasoPilli()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         FindObjectOfType<AudioManager>().Play("Pilli1");
     }
 
