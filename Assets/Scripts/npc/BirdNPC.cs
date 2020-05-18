@@ -12,6 +12,7 @@ public class BirdNPC : MonoBehaviour
     public float speed = 1f;
     bool spooked = false;
     private Animator animator;
+    private Vector3 birdPosition;
 
     [Range(-0.05f, 0.05f)]
     public float x = 0.03f;
@@ -54,6 +55,7 @@ public class BirdNPC : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        birdPosition = transform.position;
     }
 
     void Update()
@@ -69,9 +71,13 @@ public class BirdNPC : MonoBehaviour
 
         Fly();
 
-        if (transform.position.y > 25f)
+        float comeBackDistance = Vector3.Distance(birdPosition, player.transform.position);
+
+        if (spooked == true && comeBackDistance > 40)
         {
-            Destroy(gameObject);
+            spooked = false;
+            transform.position = birdPosition;
+            animator.SetBool("Fly", false);
         }
     }
 }

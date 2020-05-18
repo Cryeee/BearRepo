@@ -100,7 +100,7 @@ public class RollingMovement : MonoBehaviour
             RB.AddForce(0, jumpForce / 2, 0);
             ballAnim.SetTrigger("XL");
             playedParticles = true;
-
+            FindObjectOfType<AudioManager>().Play("Grow");
         }
         //for groundcheck 
         distToGround = GetComponent<Collider>().bounds.extents.y;
@@ -177,6 +177,15 @@ public class RollingMovement : MonoBehaviour
             canJump = false;
             jumped = true;
             pressedJumpButton = true;
+
+            if (!inWater)
+            {
+                FindObjectOfType<AudioManager>().Play("Jump");
+            }
+            if (inWater)
+            {
+                FindObjectOfType<AudioManager>().Play("WaterJump");
+            }
         }
     }
 

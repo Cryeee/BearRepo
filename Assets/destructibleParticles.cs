@@ -10,6 +10,7 @@ public class destructibleParticles : MonoBehaviour
     {
         if(other.gameObject.tag == "Player" && PlayerScript.inBallMode)
         {
+            FindObjectOfType<AudioManager>().Play("Tree");
             particles.Play();
             Destroy(gameObject);
         }
