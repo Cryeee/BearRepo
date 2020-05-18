@@ -11,6 +11,11 @@ public class DataLoader : MonoBehaviour
     public GameObject[] level1Stars = new GameObject[3];
     public GameObject[] level2Stars = new GameObject[3];
     public GameObject[] level3Stars = new GameObject[3];
+
+    public GameObject plat1;
+    public GameObject plat2;
+    public GameObject plat3;
+
     public GameObject[] goldenBerriesCollected = new GameObject[3];
     #endregion
 
@@ -104,17 +109,46 @@ public class DataLoader : MonoBehaviour
     {
         for (int i = 0; i < saveFile.stars[0]; i++)
         {
-            level1Stars[i].SetActive(true);
+            if (!saveFile.allEatenOnLevel[0])
+            {
+                level1Stars[i].SetActive(true);
+            }
+        }
+
+        if(saveFile.allEatenOnLevel[0])
+        {
+            plat1.SetActive(true);
         }
 
         for (int i = 0; i < saveFile.stars[1]; i++)
         {
-            level2Stars[i].SetActive(true);
+
+            if (!saveFile.allEatenOnLevel[1])
+            {
+                level2Stars[i].SetActive(true);
+            }
+
+            
+        }
+
+        if (saveFile.allEatenOnLevel[1])
+        {
+            plat2.SetActive(true);
         }
 
         for (int i = 0; i < saveFile.stars[2]; i++)
         {
-            level3Stars[i].SetActive(true);
+            if (!saveFile.allEatenOnLevel[2])
+            {
+                level3Stars[i].SetActive(true);
+            }
+
+            
+        }
+
+        if (saveFile.allEatenOnLevel[2])
+        {
+            plat3.SetActive(true);
         }
     }
 
