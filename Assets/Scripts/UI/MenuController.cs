@@ -37,8 +37,27 @@ public class MenuController : MonoBehaviour
     private void Awake()
     {
         if(DataLoader.playedAnimation){
-            FindObjectOfType<AudioManager>().Play("Pilli1");
+            if(SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                StartCoroutine(normPilli());
+            } else
+            {
+                StartCoroutine(tasoPilli());
+            }
         }
+    }
+
+
+    IEnumerator tasoPilli()
+    {
+        yield return new WaitForSeconds(0.5f);
+        FindObjectOfType<AudioManager>().Play("Pilli1");
+    }
+
+    IEnumerator normPilli()
+    {
+        FindObjectOfType<AudioManager>().Play("Pilli1");
+        yield return null;
     }
 
     private void Start()
