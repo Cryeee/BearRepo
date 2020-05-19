@@ -52,10 +52,10 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) 
+        /*if (Input.GetKeyDown(KeyCode.Q)) 
         {
             Grow(10, null);
-        }
+        }*/
     }
 
     // Grows player an amount and updates camera
